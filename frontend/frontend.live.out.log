@@ -1,0 +1,28 @@
+
+> tripwise-frontend@1.0.0 dev
+> vite
+
+Port 5173 is in use, trying another one...
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m617[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5174[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m11:17:09 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m11:17:10 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m11:22:20 AM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ItineraryEditor.jsx, /@fs/C:/Users/hp/Downloads/PlanX-main (1)/PlanX-main/frontend/src/index.css[22m
+[2m11:22:36 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m11:22:36 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m11:30:32 AM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/TripWorkspace.jsx, /@fs/C:/Users/hp/Downloads/PlanX-main (1)/PlanX-main/frontend/src/index.css[22m
+[2m11:30:45 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m11:30:46 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m11:31:58 AM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/TripWorkspace.jsx, /@fs/C:/Users/hp/Downloads/PlanX-main (1)/PlanX-main/frontend/src/index.css[22m
+[2m11:32:08 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m11:32:08 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m11:37:03 AM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/TripWorkspace.jsx, /@fs/C:/Users/hp/Downloads/PlanX-main (1)/PlanX-main/frontend/src/index.css[22m
+[2m11:37:16 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m11:37:16 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m11:39:43 AM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/TripWorkspace.jsx, /@fs/C:/Users/hp/Downloads/PlanX-main (1)/PlanX-main/frontend/src/index.css[22m
+[2m11:39:53 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m11:39:53 AM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m

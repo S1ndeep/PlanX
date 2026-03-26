@@ -1,0 +1,31 @@
+
+> tripwise-frontend@1.0.0 dev
+> vite --host 0.0.0.0
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m917[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.56.1:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.137.1:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://10.35.161.140:[1m5173[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m2:05:35 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlanTrip.jsx, /src/index.css[22m
+[2m2:06:54 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m2:06:54 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m2:22:22 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/TripWorkspace.jsx, /src/index.css[22m
+[2m2:22:28 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/PlaceCard.jsx, /src/index.css[22m
+[2m2:23:59 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m2:23:59 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m2:35:35 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Bookings.jsx, /src/index.css[22m
+[2m2:35:38 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BookingSection.jsx, /src/index.css[22m
+[2m2:36:16 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BookingSection.jsx[22m
+[2m2:37:38 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m2:37:38 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m2:39:57 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BookingSection.jsx[22m
+[2m2:41:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m2:41:58 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m2:43:49 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BookingSection.jsx[22m
+[2m2:44:18 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+[2m2:44:18 PM[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+^C^C

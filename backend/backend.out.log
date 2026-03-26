@@ -1,0 +1,1994 @@
+
+> tripwise-backend@1.0.0 start
+> node server.js
+
+Server running on port 5000
+TripWise startup debug {
+  startedAt: '2026-03-16T09:57:10.399Z',
+  envPath: 'C:\\Users\\hp\\Downloads\\PlanX-main (1)\\PlanX-main\\backend\\.env',
+  port: '5000',
+  openTripMapConfigured: true,
+  openTripMapKeyPreview: '5ae2...3818 (len=56)',
+  geoapifyConfigured: true,
+  geoapifyKeyPreview: '9d97...7fc7 (len=32)',
+  routes: [
+    'GET /',
+    'GET /api/places',
+    'POST /api/places',
+    'POST /api/travel/route',
+    'POST /api/travel/optimize',
+    'POST /api/travel/auto-plan',
+    'GET /api/travel/weather',
+    'POST /api/trips',
+    'GET /api/trips',
+    'GET /api/trips/:id'
+  ]
+}
+Fetching destination details for: Manali
+✅ Wikipedia: Successfully fetched data for Manali
+✅ TravelAdvisor: Found location_id 297618 for Manali
+✅ TravelAdvisor: Found 6 attractions for Manali
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Manali
+✅ YouTube: Found 6 videos for Manali
+Fetching destination details for: Manali
+✅ Wikipedia: Successfully fetched data for Manali
+✅ TravelAdvisor: Found location_id 297618 for Manali
+✅ TravelAdvisor: Found 6 attractions for Manali
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Manali
+✅ YouTube: Found 6 videos for Manali
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+🔍 Searching TravelAdvisor for: de
+✅ TravelAdvisor: Found 9 locations
+🔍 Searching TravelAdvisor for: hy
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: Hyderabad
+🔍 Searching TravelAdvisor for: Hyderabad
+✅ TravelAdvisor: Found 1 locations
+✅ TravelAdvisor: Found 1 locations
+🔍 Searching TravelAdvisor for: pu
+🔍 Searching TravelAdvisor for: pue
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: pu
+✅ TravelAdvisor: Found 0 locations
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: go
+✅ TravelAdvisor: Found 0 locations
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Manali',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Manali', latitude: 13.16667, longitude: 80.26667 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 13.16667,
+  longitude: 80.26667,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 13.16667,
+  longitude: 80.26667,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Jaipur',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Jaipur', latitude: 26.91962, longitude: 75.78781 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 26.91962,
+  longitude: 75.78781,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 26.91962,
+  longitude: 75.78781,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify places fetched { count: 20 }
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+🔍 Searching TravelAdvisor for: mu
+🔍 Searching TravelAdvisor for: mum
+✅ TravelAdvisor: Found 2 locations
+✅ TravelAdvisor: Found 0 locations
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+🔍 Searching TravelAdvisor for: sh
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+🔍 Searching TravelAdvisor for: sha
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+✅ TravelAdvisor: Found 1 locations
+✅ TravelAdvisor: Found 1 locations
+🔍 Searching TravelAdvisor for: vi
+🔍 Searching TravelAdvisor for: vis
+🔍 Searching TravelAdvisor for: vishak
+✅ TravelAdvisor: Found 3 locations
+✅ TravelAdvisor: Found 3 locations
+🔍 Searching TravelAdvisor for: vishakpa
+✅ TravelAdvisor: Found 0 locations
+✅ TravelAdvisor: Found 0 locations
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+🔍 Searching TravelAdvisor for: vi
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+🔍 Searching TravelAdvisor for: Visakhapatnam
+Geoapify places fetched { count: 20 }
+🔍 Searching TravelAdvisor for: Visakhapatnam
+✅ TravelAdvisor: Found 3 locations
+✅ TravelAdvisor: Found 2 locations
+✅ TravelAdvisor: Found 2 locations
+🔍 Searching TravelAdvisor for: vizi
+🔍 Searching TravelAdvisor for: vizia
+✅ TravelAdvisor: Found 0 locations
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: viziaagra
+🔍 Searching TravelAdvisor for: vizia
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: viziaagram
+✅ TravelAdvisor: Found 0 locations
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: vi
+✅ TravelAdvisor: Found 3 locations
+🔍 Searching TravelAdvisor for: Visakhapatnam
+🔍 Searching TravelAdvisor for: Visakhapatnam
+✅ TravelAdvisor: Found 2 locations
+✅ TravelAdvisor: Found 2 locations
+🔍 Searching TravelAdvisor for: Vi
+🔍 Searching TravelAdvisor for: Vijayawada
+🔍 Searching TravelAdvisor for: Vijayawada
+✅ TravelAdvisor: Found 3 locations
+✅ TravelAdvisor: Found 1 locations
+✅ TravelAdvisor: Found 1 locations
+Fetching destination details for: Vijayawada
+✅ Wikipedia: Successfully fetched data for Vijayawada
+✅ TravelAdvisor: Found location_id 303876 for Vijayawada
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Vijayawada
+✅ YouTube: Found 6 videos for Vijayawada
+Fetching destination details for: Vijayawada
+✅ Wikipedia: Successfully fetched data for Vijayawada
+✅ TravelAdvisor: Found location_id 303876 for Vijayawada
+✅ TravelAdvisor: Found 6 attractions for Vijayawada
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Vijayawada
+✅ YouTube: Found 6 videos for Vijayawada
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+🔍 Searching TravelAdvisor for: vi
+🔍 Searching TravelAdvisor for: viz
+✅ TravelAdvisor: Found 3 locations
+🔍 Searching TravelAdvisor for: vizia
+✅ TravelAdvisor: Found 0 locations
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: viziaagram
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: vizianagram
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: vizianagaram
+✅ TravelAdvisor: Found 2 locations
+🔍 Searching TravelAdvisor for: Vizianagaram District
+🔍 Searching TravelAdvisor for: Vizianagaram District
+✅ TravelAdvisor: Found 2 locations
+✅ TravelAdvisor: Found 2 locations
+🔍 Searching TravelAdvisor for: Vizianagaram
+✅ TravelAdvisor: Found 2 locations
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+🔍 Searching TravelAdvisor for: vi
+✅ TravelAdvisor: Found 3 locations
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Rishikesh',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Rishikesh', latitude: 30.10778, longitude: 78.29255 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 30.10778,
+  longitude: 78.29255,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 30.10778,
+  longitude: 78.29255,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 6 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Udaipur',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Udaipur', latitude: 23.53333, longitude: 91.48333 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 23.53333,
+  longitude: 91.48333,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 23.53333,
+  longitude: 91.48333,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 2 }
+Geoapify places fetched { count: 2 }
+Fetching destination details for: Goa
+🔑 OpenWeather API Key present: Yes
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+Fetching destination details for: Goa
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+🔑 OpenWeather API Key present: Yes
+Fetching destination details for: Goa
+✅ Wikipedia: Successfully fetched data for Goa
+✅ TravelAdvisor: Found location_id 297604 for Goa
+✅ TravelAdvisor: Found 6 attractions for Goa
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Goa
+✅ YouTube: Found 6 videos for Goa
+Fetching destination details for: Goa
+✅ Wikipedia: Successfully fetched data for Goa
+✅ TravelAdvisor: Found location_id 297604 for Goa
+✅ TravelAdvisor: Found 6 attractions for Goa
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Goa
+✅ YouTube: Found 6 videos for Goa
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Jaipur',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Jaipur', latitude: 26.91962, longitude: 75.78781 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 26.91962,
+  longitude: 75.78781,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 26.91962,
+  longitude: 75.78781,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Manali',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Manali', latitude: 13.16667, longitude: 80.26667 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 13.16667,
+  longitude: 80.26667,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 13.16667,
+  longitude: 80.26667,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify places fetched { count: 20 }
+OpenTripMap attractions fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify places fetched { count: 20 }
+OpenTripMap attractions fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify places fetched { count: 20 }
+OpenTripMap attractions fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify places fetched { count: 20 }
+OpenTripMap attractions fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 3,
+  waypoints: '73.8304443359375,15.496511459350586|73.82762145996094,15.4938325881958|73.8297348022461,15.498530387878418',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 3,
+  waypoints: '73.8304443359375,15.496511459350586|73.82762145996094,15.4938325881958|73.8297348022461,15.498530387878418',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Hyderabad',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Hyderabad', latitude: 17.38405, longitude: 78.45636 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 17.38405,
+  longitude: 78.45636,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 17.38405,
+  longitude: 78.45636,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 19 }
+Geoapify places fetched { count: 20 }
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 17.38405,
+  longitude: 78.45636,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 19,
+  waypoints: '78.45111083984375,17.36952781677246|78.47821807861328,17.374156951904297|78.47369384765625,17.403329849243164|78.43897247314453,17.374610900878906|78.48014831542969,17.37139129638672|78.45440673828125,17.356990814208984|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 19,
+  waypoints: '78.45111083984375,17.36952781677246|78.47821807861328,17.374156951904297|78.47369384765625,17.403329849243164|78.43897247314453,17.374610900878906|78.48014831542969,17.37139129638672|78.45440673828125,17.356990814208984|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 17.38405,
+  longitude: 78.45636,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '78.45111083984375,17.36952781677246|78.47821807861328,17.374156951904297|78.47369384765625,17.403329849243164|78.45440673828125,17.356990814208984|78.43897247314453,17.374610900878906|78.48014831542969,17.37139129638672|78.45440673828125,17.356990814208984|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 21,
+  waypoints: '78.45111083984375,17.36952781677246|78.47821807861328,17.374156951904297|78.47369384765625,17.403329849243164|78.45440673828125,17.356990814208984|78.43897247314453,17.374610900878906|78.43897247314453,17.374610900878906|78.48014831542969,17.37139129638672|78.45440673828125,17.356990814208984|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 21,
+  waypoints: '78.45111083984375,17.36952781677246|78.47821807861328,17.374156951904297|78.43897247314453,17.374610900878906|78.47369384765625,17.403329849243164|78.45440673828125,17.356990814208984|78.43897247314453,17.374610900878906|78.48014831542969,17.37139129638672|78.45440673828125,17.356990814208984|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 21,
+  waypoints: '78.45111083984375,17.36952781677246|78.47821807861328,17.374156951904297|78.43897247314453,17.374610900878906|78.47369384765625,17.403329849243164|78.45440673828125,17.356990814208984|78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 21,
+  waypoints: '78.45111083984375,17.36952781677246|78.47821807861328,17.374156951904297|78.43897247314453,17.374610900878906|78.47369384765625,17.403329849243164|78.45440673828125,17.356990814208984|78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 22,
+  waypoints: '78.45111083984375,17.36952781677246|78.47821807861328,17.374156951904297|78.43897247314453,17.374610900878906|78.47369384765625,17.403329849243164|78.45440673828125,17.356990814208984|78.43897247314453,17.374610900878906|78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 21,
+  waypoints: '78.47821807861328,17.374156951904297|78.43897247314453,17.374610900878906|78.47369384765625,17.403329849243164|78.45440673828125,17.356990814208984|78.43897247314453,17.374610900878906|78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '78.43897247314453,17.374610900878906|78.47369384765625,17.403329849243164|78.45440673828125,17.356990814208984|78.43897247314453,17.374610900878906|78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 19,
+  waypoints: '78.43897247314453,17.374610900878906|78.47369384765625,17.403329849243164|78.43897247314453,17.374610900878906|78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 18,
+  waypoints: '78.43897247314453,17.374610900878906|78.47369384765625,17.403329849243164|78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 18,
+  waypoints: '78.43897247314453,17.374610900878906|78.47369384765625,17.403329849243164|78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 17,
+  waypoints: '78.43897247314453,17.374610900878906|78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 17,
+  waypoints: '78.43897247314453,17.374610900878906|78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 17,
+  waypoints: '78.43897247314453,17.374610900878906|78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 16,
+  waypoints: '78.43897247314453,17.374610900878906|78.45440673828125,17.356990814208984|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 15,
+  waypoints: '78.43897247314453,17.374610900878906|78.48014831542969,17.37139129638672|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 14,
+  waypoints: '78.43897247314453,17.374610900878906|78.47711944580078,17.393306732177734|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 13,
+  waypoints: '78.43897247314453,17.374610900878906|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 13,
+  waypoints: '78.43897247314453,17.374610900878906|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 13,
+  waypoints: '78.43897247314453,17.374610900878906|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 13,
+  waypoints: '78.43897247314453,17.374610900878906|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 13,
+  waypoints: '78.43897247314453,17.374610900878906|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 12,
+  waypoints: '78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 12,
+  waypoints: '78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 12,
+  waypoints: '78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 12,
+  waypoints: '78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 12,
+  waypoints: '78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 13,
+  waypoints: '78.45440673828125,17.356990814208984|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 14,
+  waypoints: '78.45111083984375,17.36952781677246|78.45440673828125,17.356990814208984|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 13,
+  waypoints: '78.45440673828125,17.356990814208984|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 13,
+  waypoints: '78.45440673828125,17.356990814208984|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 13,
+  waypoints: '78.45440673828125,17.356990814208984|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 13,
+  waypoints: '78.45440673828125,17.356990814208984|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 14,
+  waypoints: '78.45440673828125,17.356990814208984|78.43897247314453,17.374610900878906|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 2,
+  waypoints: '78.45440673828125,17.356990814208984|78.43897247314453,17.374610900878906',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 15,
+  waypoints: '78.4660415649414,17.360441207885742|78.45440673828125,17.356990814208984|78.43897247314453,17.374610900878906|78.4660415649414,17.360441207885742|78.47740173339844,17.39567756652832|78.47091674804688,17.361770629882812|78.4729995727539,17.39299964904785|78.4749984741211,17.36345100402832|78.46947479248047,17.3983211517334|78.47572326660156,17.369089126586914|78.46891021728516,17.398754119873047|78.47212982177734,17.369165420532227|78.46952819824219,17.40331268310547|78.47444152832031,17.37527847290039|78.46693420410156,17.403423309326172',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Chennai',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Chennai', latitude: 13.08784, longitude: 80.27847 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '80.27818298339844,13.088214874267578|80.27420806884766,13.091343879699707|80.2840805053711,13.085836410522461|80.27485656738281,13.08655071258545|80.27400207519531,13.091741561889648|80.27578735351562,13.076956748962402|80.27558898925781,13.082448959350586|80.27397918701172,13.091776847839355|80.27760314941406,13.082523345947266|80.27394104003906,13.09172534942627|80.2726821899414,13.081962585449219|80.28224182128906,13.09209156036377|80.2699966430664,13.08388900756836|80.28389739990234,13.093899726867676|80.2699966430664,13.08388900756836|80.2874984741211,13.08902359008789|80.27018737792969,13.084656715393066|80.288330078125,13.088610649108887|80.274169921875,13.09129810333252|80.288330078125,13.088610649108887',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '80.27818298339844,13.088214874267578|80.27420806884766,13.091343879699707|80.2840805053711,13.085836410522461|80.27485656738281,13.08655071258545|80.27400207519531,13.091741561889648|80.27578735351562,13.076956748962402|80.27558898925781,13.082448959350586|80.27397918701172,13.091776847839355|80.27760314941406,13.082523345947266|80.27394104003906,13.09172534942627|80.2726821899414,13.081962585449219|80.28224182128906,13.09209156036377|80.2699966430664,13.08388900756836|80.28389739990234,13.093899726867676|80.2699966430664,13.08388900756836|80.2874984741211,13.08902359008789|80.27018737792969,13.084656715393066|80.288330078125,13.088610649108887|80.274169921875,13.09129810333252|80.288330078125,13.088610649108887',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Chennai',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Chennai', latitude: 13.08784, longitude: 80.27847 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '80.27818298339844,13.088214874267578|80.27420806884766,13.091343879699707|80.2840805053711,13.085836410522461|80.27485656738281,13.08655071258545|80.27400207519531,13.091741561889648|80.27578735351562,13.076956748962402|80.27558898925781,13.082448959350586|80.27397918701172,13.091776847839355|80.27760314941406,13.082523345947266|80.27394104003906,13.09172534942627|80.2726821899414,13.081962585449219|80.28224182128906,13.09209156036377|80.2699966430664,13.08388900756836|80.28389739990234,13.093899726867676|80.2699966430664,13.08388900756836|80.2874984741211,13.08902359008789|80.27018737792969,13.084656715393066|80.288330078125,13.088610649108887|80.274169921875,13.09129810333252|80.288330078125,13.088610649108887',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '80.27818298339844,13.088214874267578|80.27420806884766,13.091343879699707|80.2840805053711,13.085836410522461|80.27485656738281,13.08655071258545|80.27400207519531,13.091741561889648|80.27578735351562,13.076956748962402|80.27558898925781,13.082448959350586|80.27397918701172,13.091776847839355|80.27760314941406,13.082523345947266|80.27394104003906,13.09172534942627|80.2726821899414,13.081962585449219|80.28224182128906,13.09209156036377|80.2699966430664,13.08388900756836|80.28389739990234,13.093899726867676|80.2699966430664,13.08388900756836|80.2874984741211,13.08902359008789|80.27018737792969,13.084656715393066|80.288330078125,13.088610649108887|80.274169921875,13.09129810333252|80.288330078125,13.088610649108887',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '80.27818298339844,13.088214874267578|80.27420806884766,13.091343879699707|80.2840805053711,13.085836410522461|80.27485656738281,13.08655071258545|80.27400207519531,13.091741561889648|80.27578735351562,13.076956748962402|80.27558898925781,13.082448959350586|80.27397918701172,13.091776847839355|80.27760314941406,13.082523345947266|80.27394104003906,13.09172534942627|80.2726821899414,13.081962585449219|80.28224182128906,13.09209156036377|80.2699966430664,13.08388900756836|80.28389739990234,13.093899726867676|80.2699966430664,13.08388900756836|80.2874984741211,13.08902359008789|80.27018737792969,13.084656715393066|80.288330078125,13.088610649108887|80.274169921875,13.09129810333252|80.288330078125,13.088610649108887',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Bengaluru',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Bengaluru', latitude: 12.97194, longitude: 77.59369 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 12.97194,
+  longitude: 77.59369,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 12.97194,
+  longitude: 77.59369,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 12.97194,
+  longitude: 77.59369,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '77.59220123291016,12.974225997924805|77.59061431884766,12.979744911193848|77.59520721435547,12.974259376525879|77.59090423583984,12.975496292114258|77.59142303466797,12.979559898376465|77.60600280761719,12.975099563598633|77.59033966064453,12.97353744506836|77.59718322753906,12.980376243591309|77.58625793457031,12.972545623779297|77.59874725341797,12.97688102722168|77.58712005615234,12.967342376708984|77.59854888916016,12.976523399353027|77.58782958984375,12.967157363891602|77.59852600097656,12.976499557495117|77.58789825439453,12.967405319213867|77.60028076171875,12.976079940795898|77.58318328857422,12.965520858764648|77.59628295898438,12.9752836227417|77.58892059326172,12.978938102722168|77.59569549560547,12.974716186523438',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '77.59220123291016,12.974225997924805|77.59061431884766,12.979744911193848|77.59520721435547,12.974259376525879|77.59090423583984,12.975496292114258|77.59142303466797,12.979559898376465|77.60600280761719,12.975099563598633|77.59033966064453,12.97353744506836|77.59718322753906,12.980376243591309|77.58625793457031,12.972545623779297|77.59874725341797,12.97688102722168|77.58712005615234,12.967342376708984|77.59854888916016,12.976523399353027|77.58782958984375,12.967157363891602|77.59852600097656,12.976499557495117|77.58789825439453,12.967405319213867|77.60028076171875,12.976079940795898|77.58318328857422,12.965520858764648|77.59628295898438,12.9752836227417|77.58892059326172,12.978938102722168|77.59569549560547,12.974716186523438',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 12.97194,
+  longitude: 77.59369,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Chennai',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Chennai', latitude: 13.08784, longitude: 80.27847 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '80.27818298339844,13.088214874267578|80.27420806884766,13.091343879699707|80.2840805053711,13.085836410522461|80.27485656738281,13.08655071258545|80.27400207519531,13.091741561889648|80.27578735351562,13.076956748962402|80.27558898925781,13.082448959350586|80.27397918701172,13.091776847839355|80.27760314941406,13.082523345947266|80.27394104003906,13.09172534942627|80.2726821899414,13.081962585449219|80.28224182128906,13.09209156036377|80.2699966430664,13.08388900756836|80.28389739990234,13.093899726867676|80.2699966430664,13.08388900756836|80.2874984741211,13.08902359008789|80.27018737792969,13.084656715393066|80.288330078125,13.088610649108887|80.274169921875,13.09129810333252|80.288330078125,13.088610649108887',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '80.27818298339844,13.088214874267578|80.27420806884766,13.091343879699707|80.2840805053711,13.085836410522461|80.27485656738281,13.08655071258545|80.27400207519531,13.091741561889648|80.27578735351562,13.076956748962402|80.27558898925781,13.082448959350586|80.27397918701172,13.091776847839355|80.27760314941406,13.082523345947266|80.27394104003906,13.09172534942627|80.2726821899414,13.081962585449219|80.28224182128906,13.09209156036377|80.2699966430664,13.08388900756836|80.28389739990234,13.093899726867676|80.2699966430664,13.08388900756836|80.2874984741211,13.08902359008789|80.27018737792969,13.084656715393066|80.288330078125,13.088610649108887|80.274169921875,13.09129810333252|80.288330078125,13.088610649108887',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '80.27818298339844,13.088214874267578|80.27420806884766,13.091343879699707|80.2840805053711,13.085836410522461|80.27485656738281,13.08655071258545|80.27400207519531,13.091741561889648|80.27578735351562,13.076956748962402|80.27558898925781,13.082448959350586|80.27397918701172,13.091776847839355|80.27760314941406,13.082523345947266|80.27394104003906,13.09172534942627|80.2726821899414,13.081962585449219|80.28224182128906,13.09209156036377|80.2699966430664,13.08388900756836|80.28389739990234,13.093899726867676|80.2699966430664,13.08388900756836|80.2874984741211,13.08902359008789|80.27018737792969,13.084656715393066|80.288330078125,13.088610649108887|80.274169921875,13.09129810333252|80.288330078125,13.088610649108887',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '80.27818298339844,13.088214874267578|80.27420806884766,13.091343879699707|80.2840805053711,13.085836410522461|80.27485656738281,13.08655071258545|80.27400207519531,13.091741561889648|80.27578735351562,13.076956748962402|80.27558898925781,13.082448959350586|80.27397918701172,13.091776847839355|80.27760314941406,13.082523345947266|80.27394104003906,13.09172534942627|80.2726821899414,13.081962585449219|80.28224182128906,13.09209156036377|80.2699966430664,13.08388900756836|80.28389739990234,13.093899726867676|80.2699966430664,13.08388900756836|80.2874984741211,13.08902359008789|80.27018737792969,13.084656715393066|80.288330078125,13.088610649108887|80.274169921875,13.09129810333252|80.288330078125,13.088610649108887',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Chennai',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Chennai', latitude: 13.08784, longitude: 80.27847 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '80.27818298339844,13.088214874267578|80.27420806884766,13.091343879699707|80.2840805053711,13.085836410522461|80.27485656738281,13.08655071258545|80.27400207519531,13.091741561889648|80.27578735351562,13.076956748962402|80.27558898925781,13.082448959350586|80.27397918701172,13.091776847839355|80.27760314941406,13.082523345947266|80.27394104003906,13.09172534942627|80.2726821899414,13.081962585449219|80.28224182128906,13.09209156036377|80.2699966430664,13.08388900756836|80.28389739990234,13.093899726867676|80.2699966430664,13.08388900756836|80.2874984741211,13.08902359008789|80.27018737792969,13.084656715393066|80.288330078125,13.088610649108887|80.274169921875,13.09129810333252|80.288330078125,13.088610649108887',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 20,
+  waypoints: '80.27818298339844,13.088214874267578|80.27420806884766,13.091343879699707|80.2840805053711,13.085836410522461|80.27485656738281,13.08655071258545|80.27400207519531,13.091741561889648|80.27578735351562,13.076956748962402|80.27558898925781,13.082448959350586|80.27397918701172,13.091776847839355|80.27760314941406,13.082523345947266|80.27394104003906,13.09172534942627|80.2726821899414,13.081962585449219|80.28224182128906,13.09209156036377|80.2699966430664,13.08388900756836|80.28389739990234,13.093899726867676|80.2699966430664,13.08388900756836|80.2874984741211,13.08902359008789|80.27018737792969,13.084656715393066|80.288330078125,13.088610649108887|80.274169921875,13.09129810333252|80.288330078125,13.088610649108887',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 13.08784,
+  longitude: 80.27847,
+  days: 3
+}
+ 
+ >   t r i p w i s e - b a c k e n d @ 1 . 0 . 0   s t a r t  
+ >   n o d e   s e r v e r . j s  
+  
+  
+ >   t r i p w i s e - b a c k e n d @ 1 . 0 . 0   s t a r t  
+ >   n o d e   s e r v e r . j s  
+  
+ S e r v e r   r u n n i n g   o n   p o r t   5 0 0 0  
+ T r i p W i s e   s t a r t u p   d e b u g   {  
+     s t a r t e d A t :   ' 2 0 2 6 - 0 3 - 1 6 T 1 9 : 2 1 : 3 5 . 1 1 2 Z ' ,  
+     e n v P a t h :   ' C : \ \ U s e r s \ \ h p \ \ D o w n l o a d s \ \ P l a n X - m a i n   ( 1 ) \ \ P l a n X - m a i n \ \ b a c k e n d \ \ . e n v ' ,  
+     p o r t :   ' 5 0 0 0 ' ,  
+     o p e n T r i p M a p C o n f i g u r e d :   t r u e ,  
+     o p e n T r i p M a p K e y P r e v i e w :   ' 5 a e 2 . . . 3 8 1 8   ( l e n = 5 6 ) ' ,  
+     g e o a p i f y C o n f i g u r e d :   t r u e ,  
+     g e o a p i f y K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) ' ,  
+     r o u t e s :   [  
+         ' G E T   / ' ,  
+         ' G E T   / a p i / p l a c e s ' ,  
+         ' P O S T   / a p i / p l a c e s ' ,  
+         ' P O S T   / a p i / t r a v e l / r o u t e ' ,  
+         ' P O S T   / a p i / t r a v e l / o p t i m i z e ' ,  
+         ' P O S T   / a p i / t r a v e l / a u t o - p l a n ' ,  
+         ' P O S T   / a p i / t r a v e l / w e a t h e r - r e p l a n ' ,  
+         ' G E T   / a p i / t r a v e l / w e a t h e r ' ,  
+         ' P O S T   / a p i / t r i p s ' ,  
+         ' G E T   / a p i / t r i p s ' ,  
+         ' G E T   / a p i / t r i p s / : i d '  
+     ]  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ O p e n - M e t e o   f o r e c a s t   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . o p e n - m e t e o . c o m / v 1 / f o r e c a s t ' ,  
+     l a t i t u d e :   1 2 . 9 7 1 9 4 ,  
+     l o n g i t u d e :   7 7 . 5 9 3 6 9 ,  
+     d a y s :   3  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ O p e n - M e t e o   f o r e c a s t   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . o p e n - m e t e o . c o m / v 1 / f o r e c a s t ' ,  
+     l a t i t u d e :   1 2 . 9 7 1 9 4 ,  
+     l o n g i t u d e :   7 7 . 5 9 3 6 9 ,  
+     d a y s :   3  
+ }  
+ O p e n - M e t e o   f o r e c a s t   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . o p e n - m e t e o . c o m / v 1 / f o r e c a s t ' ,  
+     l a t i t u d e :   1 2 . 9 7 1 9 4 ,  
+     l o n g i t u d e :   7 7 . 5 9 3 6 9 ,  
+     d a y s :   3  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ O p e n - M e t e o   f o r e c a s t   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . o p e n - m e t e o . c o m / v 1 / f o r e c a s t ' ,  
+     l a t i t u d e :   1 2 . 9 7 1 9 4 ,  
+     l o n g i t u d e :   7 7 . 5 9 3 6 9 ,  
+     d a y s :   3  
+ }  
+ O p e n - M e t e o   f o r e c a s t   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . o p e n - m e t e o . c o m / v 1 / f o r e c a s t ' ,  
+     l a t i t u d e :   1 2 . 9 7 1 9 4 ,  
+     l o n g i t u d e :   7 7 . 5 9 3 6 9 ,  
+     d a y s :   3  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ O p e n - M e t e o   f o r e c a s t   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . o p e n - m e t e o . c o m / v 1 / f o r e c a s t ' ,  
+     l a t i t u d e :   1 2 . 9 7 1 9 4 ,  
+     l o n g i t u d e :   7 7 . 5 9 3 6 9 ,  
+     d a y s :   3  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ O p e n - M e t e o   f o r e c a s t   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . o p e n - m e t e o . c o m / v 1 / f o r e c a s t ' ,  
+     l a t i t u d e :   1 2 . 9 7 1 9 4 ,  
+     l o n g i t u d e :   7 7 . 5 9 3 6 9 ,  
+     d a y s :   3  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ O p e n - M e t e o   f o r e c a s t   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . o p e n - m e t e o . c o m / v 1 / f o r e c a s t ' ,  
+     l a t i t u d e :   1 2 . 9 7 1 9 4 ,  
+     l o n g i t u d e :   7 7 . 5 9 3 6 9 ,  
+     d a y s :   3  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ O p e n - M e t e o   f o r e c a s t   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . o p e n - m e t e o . c o m / v 1 / f o r e c a s t ' ,  
+     l a t i t u d e :   1 2 . 9 7 1 9 4 ,  
+     l o n g i t u d e :   7 7 . 5 9 3 6 9 ,  
+     d a y s :   3  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ O p e n - M e t e o   f o r e c a s t   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . o p e n - m e t e o . c o m / v 1 / f o r e c a s t ' ,  
+     l a t i t u d e :   1 2 . 9 7 1 9 4 ,  
+     l o n g i t u d e :   7 7 . 5 9 3 6 9 ,  
+     d a y s :   3  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   9 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ O p e n - M e t e o   f o r e c a s t   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . o p e n - m e t e o . c o m / v 1 / f o r e c a s t ' ,  
+     l a t i t u d e :   1 2 . 9 7 1 9 4 ,  
+     l o n g i t u d e :   7 7 . 5 9 3 6 9 ,  
+     d a y s :   3  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 0 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 1 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 1 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 9 0 4 2 3 5 8 3 9 8 4 , 1 2 . 9 7 5 4 9 6 2 9 2 1 1 4 2 5 8 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 0 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 1 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 1 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 1 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 1 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 1 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 1 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 1 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 1 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ G e o a p i f y   r o u t i n g   r e q u e s t   {  
+     u r l :   ' h t t p s : / / a p i . g e o a p i f y . c o m / v 1 / r o u t i n g ' ,  
+     w a y p o i n t C o u n t :   1 1 ,  
+     w a y p o i n t s :   ' 7 7 . 5 9 2 2 0 1 2 3 2 9 1 0 1 6 , 1 2 . 9 7 4 2 2 5 9 9 7 9 2 4 8 0 5 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 9 0 3 3 9 6 6 0 6 4 4 5 3 , 1 2 . 9 7 3 5 3 7 4 4 5 0 6 8 3 6 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 6 2 5 7 9 3 4 5 7 0 3 1 , 1 2 . 9 7 2 5 4 5 6 2 3 7 7 9 2 9 7 | 7 7 . 5 8 7 1 2 0 0 5 6 1 5 2 3 4 , 1 2 . 9 6 7 3 4 2 3 7 6 7 0 8 9 8 4 | 7 7 . 5 8 7 8 2 9 5 8 9 8 4 3 7 5 , 1 2 . 9 6 7 1 5 7 3 6 3 8 9 1 6 0 2 | 7 7 . 5 8 7 8 9 8 2 5 4 3 9 4 5 3 , 1 2 . 9 6 7 4 0 5 3 1 9 2 1 3 8 6 7 | 7 7 . 5 8 3 1 8 3 2 8 8 5 7 4 2 2 , 1 2 . 9 6 5 5 2 0 8 5 8 7 6 4 6 4 8 | 7 7 . 5 8 8 9 2 0 5 9 3 2 6 1 7 2 , 1 2 . 9 7 8 9 3 8 1 0 2 7 2 2 1 6 8 ' ,  
+     a p i K e y P r e v i e w :   ' 9 d 9 7 . . . 7 f c 7   ( l e n = 3 2 ) '  
+ }  
+ 

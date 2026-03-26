@@ -1,0 +1,698 @@
+
+> tripwise-backend@1.0.0 start
+> node server.js
+
+Server running on port 5000
+TripWise startup debug {
+  startedAt: '2026-03-17T05:52:58.942Z',
+  envPath: 'c:\\Users\\hp\\Downloads\\PlanX-main (1)\\PlanX-main\\backend\\.env',
+  port: '5000',
+  openTripMapConfigured: true,
+  openTripMapKeyPreview: '5ae2...3818 (len=56)',
+  geoapifyConfigured: true,
+  geoapifyKeyPreview: '9d97...7fc7 (len=32)',
+  routes: [
+    'GET /',
+    'GET /api/places',
+    'POST /api/places',
+    'POST /api/travel/route',
+    'POST /api/travel/optimize',
+    'POST /api/travel/auto-plan',
+    'POST /api/travel/weather-replan',
+    'GET /api/travel/weather',
+    'POST /api/trips',
+    'GET /api/trips',
+    'GET /api/trips/:id'
+  ]
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Jalandhar',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Jalandhar', latitude: 31.41667, longitude: 75.61667 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 1 }
+Geoapify places fetched { count: 12 }
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Mumbai',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Mumbai', latitude: 19.07283, longitude: 72.88261 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 19.07283,
+  longitude: 72.88261,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 19.07283,
+  longitude: 72.88261,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '72.88731384277344,19.08325958251953|72.8872299194336,19.08348846435547|72.8830919,19.0816807|72.8827612,19.0811604|72.8817638,19.0816717|72.8812014,19.0805957|72.8799871,19.0796355|72.8799913,19.0790685|72.8780007,19.0770406',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 19.07283,
+  longitude: 72.88261,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '72.88731384277344,19.08325958251953|72.8872299194336,19.08348846435547|72.8830919,19.0816807|72.8827612,19.0811604|72.8817638,19.0816717|72.8812014,19.0805957|72.8799871,19.0796355|72.8799913,19.0790685|72.8780007,19.0770406',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 19.07283,
+  longitude: 72.88261,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '72.8817638,19.0816717|72.8812014,19.0805957|72.88731384277344,19.08325958251953|72.8780007,19.0770406|72.8827612,19.0811604|72.8830919,19.0816807|72.8872299194336,19.08348846435547|72.8799871,19.0796355|72.8799913,19.0790685',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'jalandhar',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'jalandhar', latitude: 31.41667, longitude: 75.61667 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 1 }
+Geoapify places fetched { count: 12 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '75.58273315429688,31.343563079833984|75.5857066,31.3355991|75.55711450246362,31.345065599999998|75.55585501322474,31.34506675|75.55557029086901,31.3453634|75.55520953086838,31.3454676|75.55491377518764,31.34563485|75.5555158275902,31.345897700000002|75.5455336615313,31.362275699999998',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '75.58273315429688,31.343563079833984|75.5857066,31.3355991|75.55711450246362,31.345065599999998|75.55585501322474,31.34506675|75.55557029086901,31.3453634|75.55520953086838,31.3454676|75.55491377518764,31.34563485|75.5555158275902,31.345897700000002|75.5455336615313,31.362275699999998',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 31.41667,
+  longitude: 75.61667,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '73.82762145996094,15.4938325881958|73.8275984,15.4937962|73.8271326,15.4946651|73.826062,15.495659|73.8267811,15.4964785|73.8269797,15.4966112|73.8269745,15.4967583|73.8259899,15.497561|73.8258291,15.497847',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '73.82762145996094,15.4938325881958|73.8275984,15.4937962|73.8271326,15.4946651|73.826062,15.495659|73.8267811,15.4964785|73.8269797,15.4966112|73.8269745,15.4967583|73.8259899,15.497561|73.8258291,15.497847',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '73.82762145996094,15.4938325881958|73.8275984,15.4937962|73.8271326,15.4946651|73.826062,15.495659|73.8267811,15.4964785|73.8269797,15.4966112|73.8269745,15.4967583|73.8259899,15.497561|73.8258291,15.497847',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '73.82762145996094,15.4938325881958|73.8275984,15.4937962|73.8271326,15.4946651|73.826062,15.495659|73.8267811,15.4964785|73.8269797,15.4966112|73.8269745,15.4967583|73.8259899,15.497561|73.8258291,15.497847',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '73.82762145996094,15.4938325881958|73.8275984,15.4937962|73.8271326,15.4946651|73.826062,15.495659|73.8267811,15.4964785|73.8269797,15.4966112|73.8269745,15.4967583|73.8259899,15.497561|73.8258291,15.497847',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '73.82762145996094,15.4938325881958|73.8275984,15.4937962|73.8271326,15.4946651|73.826062,15.495659|73.8267811,15.4964785|73.8269797,15.4966112|73.8269745,15.4967583|73.8259899,15.497561|73.8258291,15.497847',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '73.82762145996094,15.4938325881958|73.8275984,15.4937962|73.8271326,15.4946651|73.826062,15.495659|73.8267811,15.4964785|73.8269797,15.4966112|73.8269745,15.4967583|73.8259899,15.497561|73.8258291,15.497847',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '73.82762145996094,15.4938325881958|73.8275984,15.4937962|73.8271326,15.4946651|73.826062,15.495659|73.8267811,15.4964785|73.8269797,15.4966112|73.8269745,15.4967583|73.8259899,15.497561|73.8258291,15.497847',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Pondicherry',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Pondicherry', latitude: 11.93381, longitude: 79.82979 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 11.93381,
+  longitude: 79.82979,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 11.93381,
+  longitude: 79.82979,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Kochi',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Kochi', latitude: 33.55, longitude: 133.53333 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 33.55,
+  longitude: 133.53333,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 33.55,
+  longitude: 133.53333,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 21,
+  waypoints: '133.53671264648438,33.55104446411133|133.53671608005982,33.5510449|133.53664971064148,33.550537750000004|133.535779,33.5504745|133.53641874651777,33.55261674959097|133.53497314453125,33.5534553527832|133.5344615400736,33.555381249999996|133.5331573486328,33.55602264404297|133.53182983398438,33.555538177490234|133.53126525878906,33.55536651611328|133.5307724163936,33.55346715|133.53006502941503,33.55289875|133.5286752760022,33.5523071|133.52911418119493,33.5516526|133.52904491770937,33.5510919|133.52950648356722,33.550752849999995|133.5296031,33.5508028|133.52829193748306,33.549825299999995|133.5282561,33.5498185|133.5288123,33.5492984|133.52892159401824,33.54930605',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 33.55,
+  longitude: 133.53333,
+  days: 7
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 21,
+  waypoints: '133.53671264648438,33.55104446411133|133.53671608005982,33.5510449|133.53664971064148,33.550537750000004|133.535779,33.5504745|133.53641874651777,33.55261674959097|133.53497314453125,33.5534553527832|133.5344615400736,33.555381249999996|133.5331573486328,33.55602264404297|133.53182983398438,33.555538177490234|133.53126525878906,33.55536651611328|133.5307724163936,33.55346715|133.53006502941503,33.55289875|133.5286752760022,33.5523071|133.52911418119493,33.5516526|133.52904491770937,33.5510919|133.52950648356722,33.550752849999995|133.5296031,33.5508028|133.52829193748306,33.549825299999995|133.5282561,33.5498185|133.5288123,33.5492984|133.52892159401824,33.54930605',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 33.55,
+  longitude: 133.53333,
+  days: 7
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'cochin',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'cochin', latitude: 9.93988, longitude: 76.26022 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 9.93988,
+  longitude: 76.26022,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 9.93988,
+  longitude: 76.26022,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 9.93988,
+  longitude: 76.26022,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '76.25959014892578,9.948871612548828|76.2607869,9.9478194|76.259249,9.9450103|76.2578162,9.9452649|76.2558044,9.9465712|76.2559438,9.9472272|76.2560028,9.9473887|76.2559412,9.9474197|76.2560734,9.9478494',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '76.25959014892578,9.948871612548828|76.2607869,9.9478194|76.259249,9.9450103|76.2578162,9.9452649|76.2558044,9.9465712|76.2559438,9.9472272|76.2560028,9.9473887|76.2559412,9.9474197|76.2560734,9.9478494',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 9.93988,
+  longitude: 76.26022,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Kochi',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Kochi', latitude: 33.55, longitude: 133.53333 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 33.55,
+  longitude: 133.53333,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 33.55,
+  longitude: 133.53333,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '133.53671264648438,33.55104446411133|133.53641874651777,33.55261674959097|133.53497314453125,33.5534553527832|133.5331573486328,33.55602264404297|133.53182983398438,33.555538177490234|133.53126525878906,33.55536651611328|133.53402709960938,33.56011199951172|133.53330993652344,33.561805725097656|133.53146362304688,33.560691833496094',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '133.53671264648438,33.55104446411133|133.53641874651777,33.55261674959097|133.53497314453125,33.5534553527832|133.5331573486328,33.55602264404297|133.53182983398438,33.555538177490234|133.53126525878906,33.55536651611328|133.53402709960938,33.56011199951172|133.53330993652344,33.561805725097656|133.53146362304688,33.560691833496094',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 33.55,
+  longitude: 133.53333,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 33.55,
+  longitude: 133.53333,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'cochin',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'cochin', latitude: 9.93988, longitude: 76.26022 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 9.93988,
+  longitude: 76.26022,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 9.93988,
+  longitude: 76.26022,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '76.25959014892578,9.948871612548828|76.2593002319336,9.95748233795166|76.25933837890625,9.95834732055664|76.2591781616211,9.958351135253906|76.26057434082031,9.958301544189453|76.25444793701172,9.961944580078125|76.25273895263672,9.95734977722168|76.24276733398438,9.964810371398926|76.24275970458984,9.96484088897705',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 9.93988,
+  longitude: 76.26022,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '76.25959014892578,9.948871612548828|76.2593002319336,9.95748233795166|76.25933837890625,9.95834732055664|76.2591781616211,9.958351135253906|76.26057434082031,9.958301544189453|76.25444793701172,9.961944580078125|76.25273895263672,9.95734977722168|76.24276733398438,9.964810371398926|76.24275970458984,9.96484088897705',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 9.93988,
+  longitude: 76.26022,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '76.25959014892578,9.948871612548828|76.25933837890625,9.95834732055664|76.2591781616211,9.958351135253906|76.25273895263672,9.95734977722168|76.24276733398438,9.964810371398926|76.24275970458984,9.96484088897705|76.26057434082031,9.958301544189453|76.2593002319336,9.95748233795166|76.25444793701172,9.961944580078125',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 33.55,
+  longitude: 133.53333,
+  days: 7
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 21,
+  waypoints: '133.53671264648438,33.55104446411133|133.53671608005982,33.5510449|133.53664971064148,33.550537750000004|133.535779,33.5504745|133.53641874651777,33.55261674959097|133.53497314453125,33.5534553527832|133.5344615400736,33.555381249999996|133.5331573486328,33.55602264404297|133.53182983398438,33.555538177490234|133.53126525878906,33.55536651611328|133.5307724163936,33.55346715|133.53006502941503,33.55289875|133.5286752760022,33.5523071|133.52911418119493,33.5516526|133.52904491770937,33.5510919|133.52950648356722,33.550752849999995|133.5296031,33.5508028|133.52829193748306,33.549825299999995|133.5282561,33.5498185|133.5288123,33.5492984|133.52892159401824,33.54930605',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 21,
+  waypoints: '133.53671264648438,33.55104446411133|133.53671608005982,33.5510449|133.53664971064148,33.550537750000004|133.535779,33.5504745|133.53641874651777,33.55261674959097|133.53497314453125,33.5534553527832|133.5344615400736,33.555381249999996|133.5331573486328,33.55602264404297|133.53182983398438,33.555538177490234|133.53126525878906,33.55536651611328|133.5307724163936,33.55346715|133.53006502941503,33.55289875|133.5286752760022,33.5523071|133.52911418119493,33.5516526|133.52904491770937,33.5510919|133.52950648356722,33.550752849999995|133.5296031,33.5508028|133.52829193748306,33.549825299999995|133.5282561,33.5498185|133.5288123,33.5492984|133.52892159401824,33.54930605',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 33.55,
+  longitude: 133.53333,
+  days: 7
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }

@@ -1,0 +1,933 @@
+
+> tripwise-backend@1.0.0 start
+> node server.js
+
+Server running on port 5000
+TripWise startup debug {
+  startedAt: '2026-03-17T08:03:56.965Z',
+  envPath: 'C:\\Users\\hp\\Downloads\\PlanX-main (1)\\PlanX-main\\backend\\.env',
+  port: '5000',
+  openTripMapConfigured: true,
+  openTripMapKeyPreview: '5ae2...3818 (len=56)',
+  geoapifyConfigured: true,
+  geoapifyKeyPreview: '9d97...7fc7 (len=32)',
+  routes: [
+    'GET /',
+    'GET /api/places',
+    'POST /api/places',
+    'POST /api/travel/route',
+    'POST /api/travel/optimize',
+    'POST /api/travel/auto-plan',
+    'POST /api/travel/weather-replan',
+    'GET /api/travel/weather',
+    'POST /api/trips',
+    'GET /api/trips',
+    'GET /api/trips/:id'
+  ]
+}
+Fetching destination details for: Udaipur
+✅ Wikipedia: Successfully fetched data for Udaipur
+✅ TravelAdvisor: Found location_id 297672 for Udaipur
+✅ TravelAdvisor: Found 6 attractions for Udaipur
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Udaipur
+✅ YouTube: Found 6 videos for Udaipur
+Fetching destination details for: Udaipur
+✅ Wikipedia: Successfully fetched data for Udaipur
+✅ TravelAdvisor: Found location_id 297672 for Udaipur
+✅ TravelAdvisor: Found 6 attractions for Udaipur
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Udaipur
+✅ YouTube: Found 6 videos for Udaipur
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+🔍 Searching TravelAdvisor for: vi
+✅ TravelAdvisor: Found 3 locations
+🔍 Searching TravelAdvisor for: Vijayawada
+🔍 Searching TravelAdvisor for: Vijayawada
+✅ TravelAdvisor: Found 1 locations
+✅ TravelAdvisor: Found 1 locations
+Fetching destination details for: Vijayawada
+✅ Wikipedia: Successfully fetched data for Vijayawada
+✅ TravelAdvisor: Found location_id 303876 for Vijayawada
+✅ TravelAdvisor: Found 6 attractions for Vijayawada
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Vijayawada
+✅ YouTube: Found 6 videos for Vijayawada
+Fetching destination details for: Vijayawada
+✅ Wikipedia: Successfully fetched data for Vijayawada
+❌ TravelAdvisor API error: timeout of 5000ms exceeded
+TravelAdvisor error details: undefined
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Vijayawada
+✅ YouTube: Found 6 videos for Vijayawada
+Fetching destination details for: Vijayawada
+✅ Wikipedia: Successfully fetched data for Vijayawada
+✅ TravelAdvisor: Found location_id 303876 for Vijayawada
+✅ TravelAdvisor: Found 6 attractions for Vijayawada
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Vijayawada
+✅ YouTube: Found 6 videos for Vijayawada
+Fetching destination details for: Vijayawada
+✅ Wikipedia: Successfully fetched data for Vijayawada
+✅ TravelAdvisor: Found location_id 303876 for Vijayawada
+✅ TravelAdvisor: Found 6 attractions for Vijayawada
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Vijayawada
+✅ YouTube: Found 6 videos for Vijayawada
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Vijayawada',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Vijayawada', latitude: 16.50745, longitude: 80.6466 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 16.50745,
+  longitude: 80.6466,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 16.50745,
+  longitude: 80.6466,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify places fetched { count: 20 }
+OpenTripMap attractions fetched { count: 18 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '80.6417007446289,16.507200241088867|80.6485242343765,16.50607095|80.65670013427734,16.499500274658203|80.62149810791016,16.519027709960938|80.6167984008789,16.519800186157227|80.61526489257812,16.511913299560547|80.61465454101562,16.510713577270508|80.61376190185547,16.507516860961914|80.61282348632812,16.507522583007812',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 16.50745,
+  longitude: 80.6466,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '80.6417007446289,16.507200241088867|80.6485242343765,16.50607095|80.65670013427734,16.499500274658203|80.62149810791016,16.519027709960938|80.6167984008789,16.519800186157227|80.61526489257812,16.511913299560547|80.61465454101562,16.510713577270508|80.61376190185547,16.507516860961914|80.61282348632812,16.507522583007812',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 16.50745,
+  longitude: 80.6466,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify places fetched { count: 20 }
+OpenTripMap attractions fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+🔍 Searching TravelAdvisor for: vizia
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: vizianag
+🔍 Searching TravelAdvisor for: vizianagra
+✅ TravelAdvisor: Found 0 locations
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: vizianag
+🔍 Searching TravelAdvisor for: vizianagaram
+✅ TravelAdvisor: Found 0 locations
+✅ TravelAdvisor: Found 2 locations
+Fetching destination details for: Vizianagaram
+✅ Wikipedia: Successfully fetched data for Vizianagaram
+✅ TravelAdvisor: Found location_id 1438747 for Vizianagaram
+✅ TravelAdvisor: Found 6 attractions for Vizianagaram
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Vizianagaram
+✅ YouTube: Found 6 videos for Vizianagaram
+Fetching destination details for: Vizianagaram
+✅ Wikipedia: Successfully fetched data for Vizianagaram
+✅ TravelAdvisor: Found location_id 1438747 for Vizianagaram
+✅ TravelAdvisor: Found 6 attractions for Vizianagaram
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Vizianagaram
+✅ YouTube: Found 6 videos for Vizianagaram
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify places fetched { count: 20 }
+OpenTripMap attractions fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+🔍 Searching TravelAdvisor for: goa
+🔍 Searching TravelAdvisor for: Goa
+✅ TravelAdvisor: Found 1 locations
+🔍 Searching TravelAdvisor for: Goa
+✅ TravelAdvisor: Found 1 locations
+✅ TravelAdvisor: Found 1 locations
+Fetching destination details for: Goa
+✅ Wikipedia: Successfully fetched data for Goa
+✅ TravelAdvisor: Found location_id 297604 for Goa
+✅ TravelAdvisor: Found 6 attractions for Goa
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Goa
+✅ YouTube: Found 6 videos for Goa
+Fetching destination details for: Goa
+✅ Wikipedia: Successfully fetched data for Goa
+✅ TravelAdvisor: Found location_id 297604 for Goa
+✅ TravelAdvisor: Found 6 attractions for Goa
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Goa
+✅ YouTube: Found 6 videos for Goa
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '73.82762145996094,15.4938325881958|73.8275984,15.4937962|73.8271326,15.4946651|73.826062,15.495659|73.8267811,15.4964785|73.8269797,15.4966112|73.8269745,15.4967583|73.8259899,15.497561|73.8258291,15.497847',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '73.82762145996094,15.4938325881958|73.8275984,15.4937962|73.8271326,15.4946651|73.826062,15.495659|73.8267811,15.4964785|73.8269797,15.4966112|73.8269745,15.4967583|73.8259899,15.497561|73.8258291,15.497847',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  days: 3
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'vizianagram',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'vizianagram', latitude: 18.11692, longitude: 83.41148 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 18.11692,
+  longitude: 83.41148,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 18.11692,
+  longitude: 83.41148,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 7 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '83.4109115600586,18.111066818237305|83.41088320831088,18.110942200243812|83.41212146363847,18.111193550000003|83.4119877,18.1120211|83.41196518982949,18.1121409|83.41166540934205,18.1124612|83.4115601907313,18.1125133|83.4128727,18.1123293|83.4109212,18.1094412',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 18.11692,
+  longitude: 83.41148,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '83.4109115600586,18.111066818237305|83.41088320831088,18.110942200243812|83.41212146363847,18.111193550000003|83.4119877,18.1120211|83.41196518982949,18.1121409|83.41166540934205,18.1124612|83.4115601907313,18.1125133|83.4128727,18.1123293|83.4109212,18.1094412',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 18.11692,
+  longitude: 83.41148,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+Fetching destination details for: Udaipur
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+✅ Wikipedia: Successfully fetched data for Udaipur
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+✅ TravelAdvisor: Found location_id 297672 for Udaipur
+✅ TravelAdvisor: Found 6 attractions for Udaipur
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Udaipur
+✅ YouTube: Found 6 videos for Udaipur
+Fetching destination details for: Udaipur
+✅ Wikipedia: Successfully fetched data for Udaipur
+✅ TravelAdvisor: Found location_id 297672 for Udaipur
+✅ TravelAdvisor: Found 6 attractions for Udaipur
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Udaipur
+✅ YouTube: Found 6 videos for Udaipur
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Fetching destination details for: Jaipur
+✅ Wikipedia: Successfully fetched data for Jaipur
+✅ TravelAdvisor: Found location_id 304555 for Jaipur
+✅ TravelAdvisor: Found 6 attractions for Jaipur
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Jaipur
+✅ YouTube: Found 6 videos for Jaipur
+Fetching destination details for: Jaipur
+✅ Wikipedia: Successfully fetched data for Jaipur
+✅ TravelAdvisor: Found location_id 304555 for Jaipur
+✅ TravelAdvisor: Found 6 attractions for Jaipur
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Jaipur
+✅ YouTube: Found 25 videos for Jaipur
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Jaipur',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Jaipur', latitude: 26.91962, longitude: 75.78781 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 26.91962,
+  longitude: 75.78781,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 26.91962,
+  longitude: 75.78781,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '75.80830383300781,26.9267635345459|75.81016540527344,26.915498733520508|75.8187026977539,26.915300369262695|75.82097625732422,26.912696838378906|75.81949615478516,26.911705017089844|75.80992889404297,26.904388427734375|75.81675720214844,26.89366912841797|75.81549072265625,26.89215850830078|75.80908966064453,26.8763484954834',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 26.91962,
+  longitude: 75.78781,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '75.80830383300781,26.9267635345459|75.81016540527344,26.915498733520508|75.8187026977539,26.915300369262695|75.82097625732422,26.912696838378906|75.81949615478516,26.911705017089844|75.80992889404297,26.904388427734375|75.81675720214844,26.89366912841797|75.81549072265625,26.89215850830078|75.80908966064453,26.8763484954834',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 26.91962,
+  longitude: 75.78781,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+🔍 Searching TravelAdvisor for: vizi
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: vis
+🔍 Searching TravelAdvisor for: Visakhapatnam
+🔍 Searching TravelAdvisor for: Visakhapatnam
+✅ TravelAdvisor: Found 2 locations
+✅ TravelAdvisor: Found 3 locations
+✅ TravelAdvisor: Found 2 locations
+Fetching destination details for: Visakhapatnam District
+✅ Wikipedia: Successfully fetched data for Visakhapatnam District
+✅ TravelAdvisor: Found location_id 297588 for Visakhapatnam District
+✅ TravelAdvisor: Found 6 attractions for Visakhapatnam District
+🔑 OpenWeather API Key present: Yes
+❌ OpenWeather API error: 404
+Weather error details: { cod: '404', message: 'city not found' }
+✅ YouTube: Found 6 videos for Visakhapatnam District
+Fetching destination details for: Visakhapatnam District
+✅ Wikipedia: Successfully fetched data for Visakhapatnam District
+✅ TravelAdvisor: Found location_id 297588 for Visakhapatnam District
+✅ TravelAdvisor: Found 6 attractions for Visakhapatnam District
+🔑 OpenWeather API Key present: Yes
+❌ OpenWeather API error: 404
+Weather error details: { cod: '404', message: 'city not found' }
+✅ YouTube: Found 6 videos for Visakhapatnam District
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Visakhapatnam',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Visakhapatnam', latitude: 17.68009, longitude: 83.20161 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 17.68009,
+  longitude: 83.20161,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 17.68009,
+  longitude: 83.20161,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 14 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '83.24324798583984,17.666210174560547|83.27799987792969,17.663000106811523|83.29264068603516,17.695419311523438|83.2844009399414,17.718900680541992|83.2601318359375,17.7345027923584|83.2601318359375,17.73454475402832|83.22090148925781,17.736656188964844|83.22087860107422,17.73670196533203|83.21529388427734,17.748430252075195',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 17.68009,
+  longitude: 83.20161,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '83.24324798583984,17.666210174560547|83.27799987792969,17.663000106811523|83.29264068603516,17.695419311523438|83.2844009399414,17.718900680541992|83.2601318359375,17.7345027923584|83.2601318359375,17.73454475402832|83.22090148925781,17.736656188964844|83.22087860107422,17.73670196533203|83.21529388427734,17.748430252075195',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 17.68009,
+  longitude: 83.20161,
+  days: 3
+}
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Geoapify places fetched { count: 20 }
+OpenTripMap attractions fetched { count: 20 }
+🔍 Searching TravelAdvisor for: go
+✅ TravelAdvisor: Found 0 locations
+🔍 Searching TravelAdvisor for: kochi
+🔍 Searching TravelAdvisor for: Kochi
+🔍 Searching TravelAdvisor for: Kochi
+✅ TravelAdvisor: Found 2 locations
+✅ TravelAdvisor: Found 2 locations
+✅ TravelAdvisor: Found 2 locations
+Fetching destination details for: Kochi (Cochin)
+✅ Wikipedia: Successfully fetched data for Kochi (Cochin)
+✅ TravelAdvisor: Found location_id 297633 for Kochi (Cochin)
+✅ TravelAdvisor: Found 6 attractions for Kochi (Cochin)
+🔑 OpenWeather API Key present: Yes
+❌ OpenWeather API error: 404
+Weather error details: { cod: '404', message: 'city not found' }
+✅ YouTube: Found 6 videos for Kochi (Cochin)
+Fetching destination details for: Kochi (Cochin)
+✅ Wikipedia: Successfully fetched data for Kochi (Cochin)
+✅ TravelAdvisor: Found location_id 297633 for Kochi (Cochin)
+✅ TravelAdvisor: Found 6 attractions for Kochi (Cochin)
+🔑 OpenWeather API Key present: Yes
+❌ OpenWeather API error: 404
+Weather error details: { cod: '404', message: 'city not found' }
+✅ YouTube: Found 6 videos for Kochi (Cochin)
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+🔍 Searching TravelAdvisor for: delhi
+🔍 Searching TravelAdvisor for: Delhi
+🔍 Searching TravelAdvisor for: Delhi
+✅ TravelAdvisor: Found 2 locations
+✅ TravelAdvisor: Found 2 locations
+✅ TravelAdvisor: Found 2 locations
+Fetching destination details for: Delhi
+✅ Wikipedia: Successfully fetched data for Delhi
+✅ TravelAdvisor: Found location_id 940855 for Delhi
+✅ TravelAdvisor: Found 6 attractions for Delhi
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Delhi
+✅ YouTube: Found 6 videos for Delhi
+Fetching destination details for: Delhi
+✅ Wikipedia: Successfully fetched data for Delhi
+✅ TravelAdvisor: Found location_id 940855 for Delhi
+✅ TravelAdvisor: Found 6 attractions for Delhi
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for Delhi
+✅ YouTube: Found 6 videos for Delhi
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'Goa',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+🔍 Searching TravelAdvisor for: de
+OpenTripMap coordinates fetched { city: 'Goa', latitude: 15.49574, longitude: 73.82624 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 15.49574,
+  longitude: 73.82624,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+🔍 Searching TravelAdvisor for: del
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+🔍 Searching TravelAdvisor for: Delhi
+🔍 Searching TravelAdvisor for: Delhi
+✅ TravelAdvisor: Found 9 locations
+✅ TravelAdvisor: Found 2 locations
+✅ TravelAdvisor: Found 2 locations
+✅ TravelAdvisor: Found 2 locations
+Fetching destination details for: New Delhi
+✅ Wikipedia: Successfully fetched data for New Delhi
+✅ TravelAdvisor: Found location_id 304551 for New Delhi
+✅ TravelAdvisor: Found 6 attractions for New Delhi
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for New Delhi
+✅ YouTube: Found 6 videos for New Delhi
+Fetching destination details for: New Delhi
+✅ Wikipedia: Successfully fetched data for New Delhi
+✅ TravelAdvisor: Found location_id 304551 for New Delhi
+✅ TravelAdvisor: Found 6 attractions for New Delhi
+🔑 OpenWeather API Key present: Yes
+✅ OpenWeather: Successfully fetched weather for New Delhi
+✅ YouTube: Found 6 videos for New Delhi
+OpenTripMap geoname request {
+  url: 'https://api.opentripmap.com/0.1/en/places/geoname',
+  city: 'New Delhi',
+  apiKeyPreview: '5ae2...3818 (len=56)'
+}
+OpenTripMap coordinates fetched { city: 'New Delhi', latitude: 28.63576, longitude: 77.22445 }
+OpenTripMap radius request {
+  url: 'https://api.opentripmap.com/0.1/en/places/radius',
+  latitude: 28.63576,
+  longitude: 77.22445,
+  radius: 10000,
+  limit: 20
+}
+Geoapify places request {
+  url: 'https://api.geoapify.com/v2/places',
+  latitude: 28.63576,
+  longitude: 77.22445,
+  categories: 'catering.restaurant,catering.cafe,tourism.sights,entertainment.museum,leisure.park',
+  limit: 20,
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+OpenTripMap attractions fetched { count: 20 }
+Geoapify places fetched { count: 20 }
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '77.21944427490234,28.63222312927246|77.21916961669922,28.63222312927246|77.21916961669922,28.63222312927246|77.21916961669922,28.63222312927246|77.21916961669922,28.63222312927246|77.21739959716797,28.631425857543945|77.21694946289062,28.630884170532227|77.2169418334961,28.630556106567383|77.21499633789062,28.6299991607666',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 28.63576,
+  longitude: 77.22445,
+  days: 3
+}
+Geoapify routing request {
+  url: 'https://api.geoapify.com/v1/routing',
+  waypointCount: 9,
+  waypoints: '77.21944427490234,28.63222312927246|77.21916961669922,28.63222312927246|77.21916961669922,28.63222312927246|77.21916961669922,28.63222312927246|77.21916961669922,28.63222312927246|77.21739959716797,28.631425857543945|77.21694946289062,28.630884170532227|77.2169418334961,28.630556106567383|77.21499633789062,28.6299991607666',
+  apiKeyPreview: '9d97...7fc7 (len=32)'
+}
+Open-Meteo forecast request {
+  url: 'https://api.open-meteo.com/v1/forecast',
+  latitude: 28.63576,
+  longitude: 77.22445,
+  days: 3
+}
