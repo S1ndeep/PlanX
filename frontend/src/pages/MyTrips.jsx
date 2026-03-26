@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import TripCard from "../components/TripCard.jsx";
-import TripDetailsModal from "../components/TripDetailsModal.jsx";
 import { isDraftTrip } from "../components/tripUtils.js";
 import {
   loadLocalDraftTrips,
@@ -14,7 +13,6 @@ const API_BASE_URL = "http://localhost:5000";
 const MyTrips = () => {
   const [trips, setTrips] = useState([]);
   const [error, setError] = useState("");
-  const [selectedTrip, setSelectedTrip] = useState(null);
   const [deletingTripId, setDeletingTripId] = useState("");
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
@@ -91,7 +89,6 @@ const MyTrips = () => {
         headers: { Authorization: `Bearer ${token}` }
       });
       setTrips((current) => current.filter((item) => item._id !== trip._id));
-      setSelectedTrip((current) => (current?._id === trip._id ? null : current));
     } catch (deleteError) {
       setError(deleteError.response?.data?.message || "Unable to delete trip.");
     } finally {
@@ -101,6 +98,10 @@ const MyTrips = () => {
 
   const handleEditTrip = (trip) => {
     navigate("/itinerary", { state: trip });
+  };
+
+  const handleViewTrip = (trip) => {
+    navigate("/trip-view", { state: trip });
   };
 
   return (
@@ -155,7 +156,7 @@ const MyTrips = () => {
                   key={trip._id}
                   trip={trip}
                   mode={isDraftTrip(trip) ? "draft" : "upcoming"}
-                  onView={setSelectedTrip}
+                  onView={handleViewTrip}
                   onEdit={handleEditTrip}
                   onDelete={handleDeleteTrip}
                   deleting={deletingTripId === trip._id}
@@ -165,8 +166,6 @@ const MyTrips = () => {
           </div>
         )}
       </div>
-
-      <TripDetailsModal trip={selectedTrip} onClose={() => setSelectedTrip(null)} />
     </section>
   );
 };

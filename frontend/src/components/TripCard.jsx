@@ -106,23 +106,22 @@ const TripCard = ({
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={() => onView?.(trip)}
+            className="rounded-full border border-white/60 bg-[rgba(255,255,255,0.65)] px-5 py-3 text-sm font-semibold text-slate-800 backdrop-blur-md transition hover:bg-white"
+          >
+            View Trip
+          </button>
+
           {mode === "upcoming" ? (
-            <>
-              <button
-                type="button"
-                onClick={() => onView?.(trip)}
-                className="rounded-full border border-[#8edcff]/35 bg-[#0b3b43]/55 px-5 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:border-[#53d6f7] hover:bg-[#1ec7f3] hover:text-slate-950"
-              >
-                View Trip
-              </button>
-              <button
-                type="button"
-                onClick={() => onEdit?.(trip)}
-                className="rounded-full border border-white/60 bg-[rgba(255,255,255,0.65)] px-5 py-3 text-sm font-semibold text-slate-800 backdrop-blur-md transition hover:bg-white"
-              >
-                Edit Trip
-              </button>
-            </>
+            <button
+              type="button"
+              onClick={() => onEdit?.(trip)}
+              className="rounded-full border border-[#8edcff]/35 bg-[#0b3b43]/55 px-5 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:border-[#53d6f7] hover:bg-[#1ec7f3] hover:text-slate-950"
+            >
+              Edit Trip
+            </button>
           ) : (
             <button
               type="button"

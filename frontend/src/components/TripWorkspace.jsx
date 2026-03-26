@@ -1,6 +1,9 @@
 ﻿import { useEffect, useMemo, useState } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import AddPlaceModal from "./AddPlaceModal.jsx";
 import ItineraryEditor from "./ItineraryEditor.jsx";
 import PlacesMap from "./PlacesMap.jsx";
@@ -415,8 +418,110 @@ const buildPrintableMarkup = ({
     </body>
   </html>`;
 };
-const TripWorkspace = ({ initialData, readOnly = false }) => {
+const waitForImages = async (element) => {
+  const images = Array.from(element.querySelectorAll("img"));
+
+  await Promise.all(
+    images.map(
+      (image) =>
+        new Promise((resolve) => {
+          if (image.complete) {
+            resolve();
+            return;
+          }
+
+          image.onload = () => resolve();
+          image.onerror = () => resolve();
+        })
+    )
+  );
+};
+
+const downloadElementAsPdf = async (element) => {
+  if (!element) {
+    throw new Error("Missing PDF content");
+  }
+
+  if (document.fonts?.ready) {
+    await document.fonts.ready;
+  }
+
+  await waitForImages(element);
+
+  const canvas = await html2canvas(element, {
+    scale: Math.max(2, window.devicePixelRatio || 1),
+    useCORS: true,
+    backgroundColor: "#ffffff",
+    logging: false
+  });
+
+  const pdf = new jsPDF({
+    orientation: "portrait",
+    unit: "mm",
+    format: "a4",
+    compress: true
+  });
+
+  const pageWidth = 210;
+  const pageHeight = 297;
+  const margin = 10;
+  const contentWidth = pageWidth - margin * 2;
+  const contentHeight = pageHeight - margin * 2;
+  const pixelsPerMm = canvas.width / contentWidth;
+  const pageHeightPx = Math.floor(contentHeight * pixelsPerMm);
+
+  let renderedHeightPx = 0;
+  let pageNumber = 0;
+
+  while (renderedHeightPx < canvas.height) {
+    const sliceCanvas = document.createElement("canvas");
+    sliceCanvas.width = canvas.width;
+    sliceCanvas.height = Math.min(pageHeightPx, canvas.height - renderedHeightPx);
+
+    const sliceContext = sliceCanvas.getContext("2d");
+
+    if (!sliceContext) {
+      throw new Error("Unable to create PDF page canvas");
+    }
+
+    sliceContext.drawImage(
+      canvas,
+      0,
+      renderedHeightPx,
+      canvas.width,
+      sliceCanvas.height,
+      0,
+      0,
+      canvas.width,
+      sliceCanvas.height
+    );
+
+    if (pageNumber > 0) {
+      pdf.addPage();
+    }
+
+    const pageImageHeight = sliceCanvas.height / pixelsPerMm;
+    pdf.addImage(
+      sliceCanvas.toDataURL("image/png"),
+      "PNG",
+      margin,
+      margin,
+      contentWidth,
+      pageImageHeight,
+      undefined,
+      "FAST"
+    );
+
+    renderedHeightPx += sliceCanvas.height;
+    pageNumber += 1;
+  }
+
+  pdf.save("itinerary.pdf");
+};
+
+const TripWorkspace = ({ initialData, readOnly = false, showReadOnlyActions = true }) => {
   const navigate = useNavigate();
+  const pdfContentRef = useRef(null);
   const [modalState, setModalState] = useState({
     isOpen: false,
     dayKey: "day1",
@@ -435,6 +540,7 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
   const [selectedPlaceId, setSelectedPlaceId] = useState(null);
   const [actionMessage, setActionMessage] = useState("");
   const [weatherReplanSummary, setWeatherReplanSummary] = useState([]);
+  const [isExportingPdf, setIsExportingPdf] = useState(false);
 
   const city = initialData?.city || "";
   const places = initialData?.places || [];
@@ -603,59 +709,21 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
     }
   };
 
-  const handleExportPdf = () => {
-    const printableMarkup = buildPrintableMarkup({
-      city,
-      itinerary,
-      dayOptions,
-      routeData,
-      weather,
-      placesPerDay
-    });
-
-    const printFrame = document.createElement("iframe");
-    printFrame.setAttribute("title", "TripWise PDF export");
-    printFrame.style.position = "fixed";
-    printFrame.style.right = "0";
-    printFrame.style.bottom = "0";
-    printFrame.style.width = "0";
-    printFrame.style.height = "0";
-    printFrame.style.border = "0";
-    printFrame.style.visibility = "hidden";
-
-    const cleanup = () => {
-      window.setTimeout(() => {
-        printFrame.remove();
-      }, 1200);
-    };
-
-    printFrame.onload = () => {
-      const frameWindow = printFrame.contentWindow;
-
-      if (!frameWindow) {
-        setActionMessage("Unable to open PDF export right now.");
-        cleanup();
-        return;
-      }
-
-      frameWindow.focus();
-      frameWindow.print();
-      setActionMessage("Print dialog opened. Choose 'Save as PDF'.");
-      cleanup();
-    };
-
-    document.body.appendChild(printFrame);
-    const frameDocument = printFrame.contentWindow?.document;
-
-    if (!frameDocument) {
-      setActionMessage("Unable to open PDF export right now.");
-      cleanup();
+  const handleExportPdf = async () => {
+    if (isExportingPdf) {
       return;
     }
 
-    frameDocument.open();
-    frameDocument.write(printableMarkup);
-    frameDocument.close();
+    try {
+      setIsExportingPdf(true);
+      setActionMessage("");
+      await downloadElementAsPdf(pdfContentRef.current);
+      setActionMessage("Downloaded itinerary.pdf");
+    } catch (error) {
+      setActionMessage("Unable to download PDF right now.");
+    } finally {
+      setIsExportingPdf(false);
+    }
   };
 
   const handleWeatherSmartReplan = async () => {
@@ -766,6 +834,150 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
 
   return (
     <section className="relative overflow-x-hidden px-4 py-8 sm:px-6 lg:px-10">
+      <div className="pointer-events-none fixed left-[-10000px] top-0 z-[-1] opacity-0">
+        <div ref={pdfContentRef} className="w-[794px] bg-white px-10 py-10 text-slate-900">
+          <section className="rounded-[28px] bg-[#0b3b43] px-8 py-8 text-white">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#a8ebff]">
+              TripWise itinerary
+            </p>
+            <h1 className="mt-4 text-4xl font-semibold">
+              {city ? `${city} travel plan` : "Your itinerary"}
+            </h1>
+            <p className="mt-3 text-base leading-7 text-slate-200">
+              A clean export of your day-by-day route, stops, and travel planning summary.
+            </p>
+          </section>
+
+          <section className="mt-6 grid grid-cols-4 gap-4">
+            {summaryStats.map((stat) => (
+              <div
+                key={`pdf-${stat.label}`}
+                className="rounded-[20px] border border-slate-200 bg-slate-50 px-5 py-4"
+              >
+                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
+                  {stat.label}
+                </p>
+                <p className="mt-2 text-2xl font-semibold text-slate-900">{stat.value}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="mt-8 space-y-6">
+            {dayOptions.map(({ value: dayKey, label }) => {
+              const day = itinerary[dayKey] || {};
+              const dayStopCount = slotOrder.reduce(
+                (count, slot) => count + ((day[slot] || []).length),
+                0
+              );
+
+              return (
+                <article
+                  key={`pdf-${dayKey}`}
+                  className="rounded-[24px] border border-slate-200 bg-white p-6"
+                >
+                  <div className="flex items-center justify-between gap-4 border-b border-slate-200 pb-4">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#147ea2]">
+                        {label}
+                      </p>
+                      <h2 className="mt-2 text-2xl font-semibold text-slate-900">
+                        {dayStopCount} {dayStopCount === 1 ? "stop" : "stops"}
+                      </h2>
+                    </div>
+                    <p className="text-sm font-medium text-slate-500">Morning to Afternoon to Evening</p>
+                  </div>
+
+                  <div className="mt-5 grid grid-cols-3 gap-4">
+                    {slotOrder.map((slot) => {
+                      const placesForSlot = day[slot] || [];
+
+                      return (
+                        <section
+                          key={`pdf-${dayKey}-${slot}`}
+                          className="rounded-[20px] border border-slate-200 bg-slate-50 p-4"
+                        >
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="rounded-full bg-[#eaf6fb] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#147ea2]">
+                              {slotLabels[slot]}
+                            </span>
+                            <span className="text-xs font-medium text-slate-500">
+                              {placesForSlot.length} {placesForSlot.length === 1 ? "stop" : "stops"}
+                            </span>
+                          </div>
+
+                          <div className="mt-4 space-y-3">
+                            {placesForSlot.length > 0 ? (
+                              placesForSlot.map((place, index) => (
+                                <div
+                                  key={`pdf-${dayKey}-${slot}-${place.id || place.name}-${index}`}
+                                  className="rounded-[18px] border border-slate-200 bg-white px-4 py-4"
+                                >
+                                  <div className="flex items-start justify-between gap-3">
+                                    <h3 className="text-base font-semibold leading-6 text-slate-900">
+                                      {place.name || `Stop ${index + 1}`}
+                                    </h3>
+                                    <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                                      {place.category || place.interest || "Stop"}
+                                    </span>
+                                  </div>
+                                  {place.description && (
+                                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                                      {place.description}
+                                    </p>
+                                  )}
+                                  {place.address && (
+                                    <p className="mt-2 text-sm leading-6 text-slate-500">
+                                      {place.address}
+                                    </p>
+                                  )}
+                                </div>
+                              ))
+                            ) : (
+                              <div className="rounded-[18px] border border-dashed border-slate-200 bg-white px-4 py-8 text-center text-sm text-slate-500">
+                                No stops planned.
+                              </div>
+                            )}
+                          </div>
+                        </section>
+                      );
+                    })}
+                  </div>
+                </article>
+              );
+            })}
+          </section>
+
+          {weather.length > 0 && (
+            <section className="mt-8 rounded-[24px] border border-slate-200 bg-slate-50 p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#147ea2]">
+                Weather
+              </p>
+              <div className="mt-4 grid grid-cols-3 gap-4">
+                {weather.map((entry, index) => (
+                  <div
+                    key={`pdf-weather-${entry.day || entry.date || index}`}
+                    className="rounded-[18px] border border-slate-200 bg-white px-4 py-4"
+                  >
+                    <p className="text-sm font-semibold text-slate-900">
+                      {entry.day || entry.date || `Day ${index + 1}`}
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      {entry.summary || entry.condition || "Forecast available"}
+                    </p>
+                    {(entry.temperatureC || entry.temp) && (
+                      <p className="mt-2 text-sm font-medium text-slate-500">
+                        {entry.temperatureC ?? entry.temp}
+                        {entry.temperatureC ? " degrees C" : ""}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+      </div>
+
       <img
         src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80"
         alt="Turquoise ocean meeting a bright tropical shoreline"
@@ -808,9 +1020,10 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
                   <button
                     type="button"
                     onClick={handleExportPdf}
-                    className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                    disabled={isExportingPdf}
+                    className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 disabled:opacity-60"
                   >
-                    Export PDF
+                    {isExportingPdf ? "Downloading PDF..." : "Export PDF"}
                   </button>
                   <button
                     type="button"
@@ -883,7 +1096,7 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
                 )}
               </div>
             )}
-            {readOnly && (
+            {readOnly && showReadOnlyActions && (
               <div className="space-y-3">
                 <div className="flex flex-wrap justify-end gap-3">
                   <button
@@ -896,9 +1109,10 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
                   <button
                     type="button"
                     onClick={handleExportPdf}
-                    className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                    disabled={isExportingPdf}
+                    className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 disabled:opacity-60"
                   >
-                    Export PDF
+                    {isExportingPdf ? "Downloading PDF..." : "Export PDF"}
                   </button>
                 </div>
                 {actionMessage && (

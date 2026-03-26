@@ -13,6 +13,7 @@ import ItineraryPage from "./pages/ItineraryPage.jsx";
 import SharedTripPage from "./pages/SharedTripPage.jsx";
 import Support from "./pages/Support.jsx";
 import Bookings from "./pages/Bookings.jsx";
+import TripViewPage from "./pages/TripViewPage.jsx";
 
 const App = () => {
   const [isAuthed, setIsAuthed] = useState(Boolean(localStorage.getItem("token")));
@@ -46,6 +47,7 @@ const App = () => {
         <Route path="/login" element={<Login onAuth={refreshAuth} />} />
         <Route path="/signup" element={<Signup onAuth={refreshAuth} />} />
         <Route path="/itinerary" element={<ItineraryPage />} />
+        <Route path="/trip-view" element={<TripViewPage />} />
         <Route path="/trip/:id" element={<SharedTripPage />} />
         <Route path="/support" element={<Support />} />
       </Routes>
