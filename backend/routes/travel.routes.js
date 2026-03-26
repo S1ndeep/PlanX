@@ -1,6 +1,7 @@
 import express from "express";
 import {
   autoPlanTrip,
+  getTripBudget,
   getRoutePreview,
   getWeatherForecast,
   optimizeRouteOrder,
@@ -10,6 +11,7 @@ import {
 const router = express.Router();
 
 router.post("/route", getRoutePreview);
+router.post("/budget", getTripBudget);
 router.get("/weather", getWeatherForecast);
 router.post("/optimize", optimizeRouteOrder);
 router.post("/auto-plan", autoPlanTrip);

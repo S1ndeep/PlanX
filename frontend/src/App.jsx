@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
+import ChatBot from "./components/ChatBot.jsx";
 import Home from "./pages/Home.js";
 import ExploreCities from "./pages/ExploreCities.js";
 import DestinationDetails from "./pages/DestinationDetails.js";
 import PlanTrip from "./pages/PlanTrip.jsx";
-
 import MyTrips from "./pages/MyTrips.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
@@ -13,7 +13,6 @@ import ItineraryPage from "./pages/ItineraryPage.jsx";
 import SharedTripPage from "./pages/SharedTripPage.jsx";
 import Support from "./pages/Support.jsx";
 import Bookings from "./pages/Bookings.jsx";
-import ChatBot from "./components/ChatBot.jsx";
 
 const App = () => {
   const [isAuthed, setIsAuthed] = useState(Boolean(localStorage.getItem("token")));

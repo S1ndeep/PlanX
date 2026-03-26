@@ -147,6 +147,48 @@ const inferPlacesPerDay = (itinerary = {}) =>
     )
   );
 
+const buildBudgetDestinations = (places = []) =>
+  places
+    .map((place) => String(place.name || "").trim())
+    .filter(Boolean);
+
+const buildItinerarySummaryText = (itinerary = {}, dayOptions = []) =>
+  dayOptions
+    .map(({ value, label }) => {
+      const day = itinerary[value] || {};
+      const stops = slotOrder
+        .flatMap((slot) => (day[slot] || []).map((place) => place.name).filter(Boolean))
+        .join(", ");
+
+      return stops ? `${label}: ${stops}` : `${label}: No stops planned`;
+    })
+    .join("\n");
+
+const BudgetTierCard = ({ label, tier, tone }) => (
+  <div className={`rounded-[24px] border ${tone.border} ${tone.background} p-5`}>
+    <div className="flex items-center justify-between gap-3">
+      <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${tone.kicker}`}>
+        {label}
+      </p>
+      <p className="text-xs text-slate-500">{tier.per_day} / day</p>
+    </div>
+    <p className="mt-3 text-2xl font-semibold text-slate-900">{tier.total}</p>
+    <div className="mt-4 grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
+      <p>Stay: {tier.stay}</p>
+      <p>Food: {tier.food}</p>
+      <p>Transport: {tier.transport}</p>
+      <p>Activities: {tier.activities}</p>
+      <p className="sm:col-span-2">Misc: {tier.misc}</p>
+    </div>
+  </div>
+);
+
+const budgetTabs = [
+  { id: "basic", label: "Basic" },
+  { id: "standard", label: "Standard" },
+  { id: "premium", label: "Premium" }
+];
+
 const getWeatherSeverityLabel = (forecastDay = {}) => {
   if (
     severeWeatherIcons.has(String(forecastDay.icon || "").toLowerCase()) ||
@@ -432,6 +474,14 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
     weatherReplanning: false,
     message: ""
   });
+  const [budgetState, setBudgetState] = useState({
+    loading: false,
+    error: "",
+    estimate: null
+  });
+  const [activeBudgetTab, setActiveBudgetTab] = useState(
+    String(initialData?.travelStyle || "standard").toLowerCase()
+  );
   const [selectedPlaceId, setSelectedPlaceId] = useState(null);
   const [actionMessage, setActionMessage] = useState("");
   const [weatherReplanSummary, setWeatherReplanSummary] = useState([]);
@@ -445,6 +495,11 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
   const highlightedPlaces = useMemo(
     () => flattenItineraryPlaces(itinerary),
     [itinerary]
+  );
+
+  const itineraryDestinations = useMemo(
+    () => buildBudgetDestinations(highlightedPlaces),
+    [highlightedPlaces]
   );
 
   const dayOptions = useMemo(
@@ -462,6 +517,14 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
   );
 
   const totalStops = highlightedPlaces.length;
+  const itinerarySummary = useMemo(
+    () => buildItinerarySummaryText(itinerary, dayOptions),
+    [dayOptions, itinerary]
+  );
+  const tripDates =
+    initialData?.dates ||
+    [initialData?.startDate, initialData?.endDate].filter(Boolean).join(" to ") ||
+    "Not specified";
   const summaryStats = [
     {
       label: "Days",
@@ -509,6 +572,47 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
       setRouteData({ geometry: [], distanceKm: 0, durationMinutes: 0, legs: [] });
     }
   }, [highlightedPlaces]);
+
+  useEffect(() => {
+    const fetchBudgetEstimate = async () => {
+      if (!city || dayOptions.length === 0 || itineraryDestinations.length === 0) {
+        setBudgetState({ loading: false, error: "", estimate: null });
+        return;
+      }
+
+      try {
+        setBudgetState((current) => ({
+          loading: true,
+          error: "",
+          estimate: current.estimate
+        }));
+
+        const response = await axios.post(`${API_BASE_URL}/api/travel/budget`, {
+          city,
+          days: dayOptions.length,
+          dates: tripDates,
+          totalPlaces: totalStops,
+          placesPerDay,
+          itinerarySummary,
+          destinations: itineraryDestinations
+        });
+
+        setBudgetState({
+          loading: false,
+          error: "",
+          estimate: response.data?.budgetEstimate || null
+        });
+      } catch (error) {
+        setBudgetState({
+          loading: false,
+          error: error.response?.data?.message || "Unable to load budget estimate right now.",
+          estimate: null
+        });
+      }
+    };
+
+    fetchBudgetEstimate();
+  }, [city, dayOptions.length, itineraryDestinations, itinerarySummary, placesPerDay, totalStops, tripDates]);
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -765,21 +869,13 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
   }
 
   return (
-    <section className="relative overflow-x-hidden px-4 py-8 sm:px-6 lg:px-10">
-      <img
-        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80"
-        alt="Turquoise ocean meeting a bright tropical shoreline"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,22,31,0.64)_0%,rgba(6,30,38,0.68)_24%,rgba(243,239,232,0.9)_54%,rgba(239,236,230,0.95)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.22),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(30,199,243,0.12),transparent_18%)]" />
-
-      <div className="relative mx-auto max-w-[1520px]">
-        <div className="rounded-[36px] border border-white/12 bg-[rgba(3,9,28,0.68)] px-6 py-8 text-white shadow-[0_30px_120px_rgba(15,23,42,0.18)] backdrop-blur-[24px] sm:px-8 sm:py-10">
+    <section className="planx-page overflow-x-hidden px-4 py-8 sm:px-6 lg:px-10">
+      <div className="planx-page-content mx-auto max-w-[1520px] pt-6">
+        <div className="planx-dark-panel rounded-[36px] px-6 py-8 text-white sm:px-8 sm:py-10">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <div className="flex flex-wrap items-center gap-3">
-                <span className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#8ddfff]">
+                <span className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#ffe2c6]">
                   Itinerary ready
                 </span>
                 <span className="rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-slate-200">
@@ -787,7 +883,7 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
                 </span>
               </div>
 
-              <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">
+              <h1 className="mt-6 font-[var(--font-editorial)] text-4xl font-semibold tracking-tight sm:text-5xl">
                 {city ? `${city} travel plan` : "Your TripWise itinerary"}
               </h1>
               <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
@@ -933,6 +1029,116 @@ const TripWorkspace = ({ initialData, readOnly = false }) => {
                 <p className="mt-2 text-2xl font-semibold text-white">{stat.value}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-6 rounded-[28px] border border-white/12 bg-[linear-gradient(180deg,rgba(7,30,38,0.84)_0%,rgba(14,47,58,0.74)_100%)] p-5 text-white shadow-[0_18px_60px_rgba(15,23,42,0.18)]">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#147ea2]">
+                  AI Budget Estimate
+                </p>
+                <h2 className="mt-2 text-2xl font-semibold text-white">
+                  Budget with your itinerary
+                </h2>
+                <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-300">
+                  This estimate uses your destination, number of days, planned stops, and day-wise itinerary to generate Basic, Standard, and Premium budgets.
+                </p>
+              </div>
+
+              {budgetState.estimate?.trip_summary && (
+                <div className="flex flex-wrap gap-3">
+                  <span className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
+                    {budgetState.estimate.trip_summary.pace} pace
+                  </span>
+                  <span className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
+                    {budgetState.estimate.trip_summary.cost_level} cost
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {budgetState.loading && (
+              <div className="mt-4 rounded-[22px] border border-white/10 bg-white/8 px-4 py-4 text-sm text-slate-300">
+                Generating budget estimate...
+              </div>
+            )}
+
+            {budgetState.error && !budgetState.loading && (
+              <div className="mt-4 rounded-[22px] border border-rose-400/30 bg-rose-500/10 px-4 py-4 text-sm text-rose-200">
+                {budgetState.error}
+              </div>
+            )}
+
+            {budgetState.estimate?.budget && !budgetState.loading && (
+              <>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  {budgetTabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => setActiveBudgetTab(tab.id)}
+                      className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                        activeBudgetTab === tab.id
+                          ? "bg-[#0b3b43] text-white"
+                          : "border border-white/10 bg-white/8 text-slate-300"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="mt-4">
+                  <BudgetTierCard
+                    label={budgetTabs.find((tab) => tab.id === activeBudgetTab)?.label || "Standard"}
+                    tier={budgetState.estimate.budget[activeBudgetTab] || budgetState.estimate.budget.standard}
+                    tone={
+                      activeBudgetTab === "basic"
+                        ? {
+                            border: "border-emerald-200",
+                            background: "bg-emerald-50/80",
+                            kicker: "text-emerald-700"
+                          }
+                        : activeBudgetTab === "premium"
+                          ? {
+                              border: "border-amber-200",
+                              background: "bg-amber-50/80",
+                              kicker: "text-amber-700"
+                            }
+                          : {
+                              border: "border-sky-200",
+                              background: "bg-sky-50/80",
+                              kicker: "text-sky-700"
+                            }
+                    }
+                  />
+                </div>
+
+                <div className="mt-5 grid gap-4 xl:grid-cols-2">
+                  <div className="rounded-[24px] border border-white/10 bg-white/8 p-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#147ea2]">
+                      Insights
+                    </p>
+                    <div className="mt-3 space-y-2 text-sm leading-6 text-slate-200">
+                      {budgetState.estimate.insights.map((item, index) => (
+                        <p key={`budget-insight-${index}`}>• {item}</p>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="rounded-[24px] border border-rose-400/25 bg-rose-500/10 p-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-rose-700">
+                      Caution
+                    </p>
+                    <div className="mt-3 space-y-2 text-sm leading-6 text-slate-200">
+                      {budgetState.estimate.caution.map((item, index) => (
+                        <p key={`budget-caution-${index}`}>• {item}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
 

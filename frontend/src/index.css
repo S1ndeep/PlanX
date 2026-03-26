@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -21,6 +21,15 @@
   --font-body: "DM Sans", "Segoe UI", sans-serif;
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-brand: "Cormorant Garamond", "Times New Roman", serif;
+  --font-ui: "Manrope", "DM Sans", "Segoe UI", sans-serif;
+  --font-editorial: "Fraunces", "Cormorant Garamond", serif;
+  --text-heading: #f5fbff;
+  --text-primary: #d6eaf2;
+  --text-secondary: #9fbac4;
+  --text-muted: #6f8e99;
+  --glass-dark: rgba(10, 25, 35, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --image-overlay: linear-gradient(to bottom, rgba(5, 20, 30, 0.7), rgba(5, 20, 30, 0.9));
 }
 
 * {
@@ -549,4 +558,195 @@ button {
 .leaflet-container {
   font-family: var(--font-body);
   z-index: 0;
+}
+
+.planx-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(7,190,210,0.14), transparent 30%),
+    linear-gradient(180deg, rgba(4,24,31,0.22) 0%, rgba(4,24,31,0.46) 34%, rgba(4,24,31,0.74) 100%);
+  color: #e8f6f8;
+  font-family: var(--font-ui);
+}
+
+.planx-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1800&q=80");
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: -2;
+}
+
+.planx-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    var(--image-overlay),
+    radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(7,190,210,0.16), transparent 30%);
+  z-index: -1;
+}
+
+.planx-page-content {
+  position: relative;
+  z-index: 1;
+  width: min(1380px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding-top: 7.5rem;
+  padding-bottom: 4rem;
+}
+
+.planx-panel {
+  border: 1px solid var(--glass-border);
+  background: var(--glass-dark);
+  box-shadow: 0 24px 80px rgba(3, 18, 24, 0.2);
+  color: white;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.planx-dark-panel {
+  border: 1px solid var(--glass-border);
+  background: var(--glass-dark);
+  box-shadow: 0 28px 100px rgba(12, 33, 44, 0.2);
+  color: white;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.planx-kicker {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(142, 220, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.55rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #147ea2;
+}
+
+.planx-heading {
+  font-family: var(--font-editorial);
+  letter-spacing: -0.04em;
+  color: var(--text-heading);
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.planx-subtle {
+  color: var(--text-secondary);
+}
+
+.planx-copy {
+  color: var(--text-primary);
+}
+
+.planx-muted {
+  color: var(--text-muted);
+}
+
+.planx-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1ec8a5, #2da9ff);
+  color: #021014;
+  padding: 0.9rem 1.4rem;
+  font-weight: 700;
+  box-shadow: 0 18px 40px rgba(24, 151, 199, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.planx-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 46px rgba(21, 40, 61, 0.22);
+}
+
+.planx-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  padding: 0.9rem 1.4rem;
+  font-weight: 700;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.planx-button-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+.planx-page .text-slate-950,
+.planx-page .text-slate-900 {
+  color: var(--text-heading) !important;
+}
+
+.planx-page .text-slate-800,
+.planx-page .text-slate-700,
+.planx-page .text-slate-600 {
+  color: var(--text-primary) !important;
+}
+
+.planx-page .text-slate-500,
+.planx-page .text-slate-400,
+.planx-page .text-slate-300 {
+  color: var(--text-secondary) !important;
+}
+
+.planx-page .border-slate-200,
+.planx-page .border-slate-300,
+.planx-page .border-slate-100 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.planx-page .bg-white,
+.planx-page .bg-slate-50,
+.planx-page .bg-slate-100,
+.planx-page .bg-rose-50,
+.planx-page .bg-emerald-50,
+.planx-page .bg-sky-50,
+.planx-page .bg-amber-50 {
+  background: rgba(10, 25, 35, 0.85) !important;
+}
+
+.planx-page .bg-white\/95,
+.planx-page .bg-white\/92,
+.planx-page .bg-white\/90,
+.planx-page .bg-white\/88,
+.planx-page .bg-white\/80,
+.planx-page .bg-white\/78,
+.planx-page .bg-white\/70,
+.planx-page .bg-white\/60,
+.planx-page .bg-white\/50,
+.planx-page .bg-white\/10,
+.planx-page .bg-white\/8,
+.planx-page .bg-white\/6,
+.planx-page .bg-\[rgba\(255\,255\,255\,0\.92\)\],
+.planx-page .bg-\[rgba\(255\,255\,255\,0\.78\)\],
+.planx-page .bg-\[rgba\(255\,255\,255\,0\.72\)\],
+.planx-page .bg-\[rgba\(255\,255\,255\,0\.62\)\],
+.planx-page .bg-\[rgba\(255\,255\,255\,0\.58\)\],
+.planx-page .bg-\[rgba\(255\,255\,255\,0\.52\)\],
+.planx-page .bg-\[rgba\(255\,255\,255\,0\.46\)\] {
+  background: rgba(10, 25, 35, 0.85) !important;
+}
+
+.planx-page .border-t {
+  border-top-color: rgba(255, 255, 255, 0.05) !important;
 }

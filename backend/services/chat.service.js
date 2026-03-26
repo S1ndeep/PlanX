@@ -12,13 +12,7 @@ const costData = {
 
 const getGeminiApiKey = () => sanitizeApiKey(process.env.GEMINI_API_KEY || "");
 
-const getGeminiModel = () => (process.env.GEMINI_MODEL || "gemini-1.5-flash").trim();
-
-const normalizeDestination = (value = "") => {
-  const lowered = value.trim().toLowerCase();
-  const match = Object.keys(costData).find((city) => city.toLowerCase() === lowered);
-  return match || null;
-};
+const getGeminiModel = () => (process.env.GEMINI_MODEL || "gemini-2.0-flash").trim();
 
 const extractDays = (message) => {
   const daysMatch = message.match(/\b(\d+)\s*(?:day|days)\b/i);
@@ -44,14 +38,13 @@ const extractBudget = (message) => {
 };
 
 const extractDestination = (message) => {
-  const cities = Object.keys(costData);
   const loweredMessage = message.toLowerCase();
-  const found = cities.find((city) => loweredMessage.includes(city.toLowerCase()));
+  const found = Object.keys(costData).find((city) => loweredMessage.includes(city.toLowerCase()));
   return found || null;
 };
 
 const hasPlanningKeywords = (message) =>
-  /\b(plan|trip|itinerary|budget|suggest|travel)\b/i.test(message);
+  /\b(plan|trip|itinerary|budget|suggest|travel|cost|estimate)\b/i.test(message);
 
 const detectPlanningIntent = (message = "") => {
   const trimmed = message.trim();
@@ -67,10 +60,9 @@ const detectPlanningIntent = (message = "") => {
   const destination = extractDestination(trimmed);
   const days = extractDays(trimmed);
   const budget = extractBudget(trimmed);
-  const isPlanningIntent = hasPlanningKeywords(trimmed) && Boolean(destination || days || budget);
 
   return {
-    isPlanningIntent,
+    isPlanningIntent: hasPlanningKeywords(trimmed) && Boolean(destination || days || budget),
     destination,
     days,
     budget
@@ -88,33 +80,30 @@ const createPlanningPrompt = ({ message, destination, days, budget }) => {
     `Destination: ${destinationText}`,
     `Duration: ${durationText}`,
     `Budget target: ${budgetText}`,
-    "Write a concise itinerary in plain text with day-wise suggestions, food tips, and one money-saving tip."
+    "Write a concise helpful reply in plain text. If the user is asking for a trip, give a simple itinerary and practical advice."
   ].join("\n");
 };
 
 const createGeneralPrompt = (message) =>
   [
     "You are PlanX Assistant for a travel planning app.",
-    "Give concise, practical travel guidance.",
+    "Give concise, practical, conversational travel guidance.",
     `User message: "${message}"`
   ].join("\n");
 
 const getFallbackReply = (message, isPlanningIntent) => {
   if (isPlanningIntent) {
-    return "I can help with that trip. Here's a simple itinerary and budget estimate based on your request.";
+    return "I can help plan that trip. Share your destination, number of days, and any budget preference, and I will suggest a simple itinerary.";
   }
 
   return `I can help with that travel question: "${message}".`;
 };
 
-const getAiReply = async ({ message, isPlanningIntent, destination, days, budget }) => {
+const fetchGeminiResponse = async (text) => {
   const apiKey = getGeminiApiKey();
-  const prompt = isPlanningIntent
-    ? createPlanningPrompt({ message, destination, days, budget })
-    : createGeneralPrompt(message);
 
   if (!apiKey) {
-    return getFallbackReply(message, isPlanningIntent);
+    return null;
   }
 
   const response = await axios.post(
@@ -124,7 +113,7 @@ const getAiReply = async ({ message, isPlanningIntent, destination, days, budget
         {
           parts: [
             {
-              text: prompt
+              text
             }
           ]
         }
@@ -134,69 +123,27 @@ const getAiReply = async ({ message, isPlanningIntent, destination, days, budget
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 15000
+      timeout: 20000
     }
   );
 
-  const aiText = response.data?.candidates?.[0]?.content?.parts
-    ?.map((part) => part.text || "")
-    .join("")
-    .trim();
-
-  return aiText || getFallbackReply(message, isPlanningIntent);
-};
-
-const calculateBudgetBreakdown = ({ destination, days }) => {
-  const normalizedDestination = normalizeDestination(destination || "");
-  if (!normalizedDestination || !days) {
-    return null;
-  }
-
-  const stay = costData[normalizedDestination].avgCostPerDay * days;
-  const food = 500 * days;
-  const travel = 1000;
-  const estimatedCost = stay + food + travel;
-
-  return {
-    estimatedCost,
-    breakdown: {
-      stay,
-      food,
-      travel
-    }
-  };
+  return (
+    response.data?.candidates?.[0]?.content?.parts
+      ?.map((part) => part.text || "")
+      .join("")
+      .trim() || null
+  );
 };
 
 export const processChatMessage = async (message) => {
   const intent = detectPlanningIntent(message);
-  const effectiveDays = intent.days || 3;
+  const prompt = intent.isPlanningIntent
+    ? createPlanningPrompt({ message, ...intent })
+    : createGeneralPrompt(message);
 
-  const reply = await getAiReply({
-    message,
-    isPlanningIntent: intent.isPlanningIntent,
-    destination: intent.destination,
-    days: effectiveDays,
-    budget: intent.budget
-  });
+  const reply = (await fetchGeminiResponse(prompt)) || getFallbackReply(message, intent.isPlanningIntent);
 
-  if (!intent.isPlanningIntent) {
-    return { reply };
-  }
-
-  const budgetDetails = calculateBudgetBreakdown({
-    destination: intent.destination,
-    days: effectiveDays
-  });
-
-  if (!budgetDetails) {
-    return { reply };
-  }
-
-  return {
-    reply,
-    estimatedCost: budgetDetails.estimatedCost,
-    breakdown: budgetDetails.breakdown
-  };
+  return { reply };
 };
 
 export { costData, detectPlanningIntent };

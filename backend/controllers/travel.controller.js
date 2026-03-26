@@ -1,4 +1,5 @@
 import { buildRoute } from "../services/routing.service.js";
+import { getBudgetEstimate } from "../services/budget.service.js";
 import { getDailyForecast } from "../services/weather.service.js";
 import {
   buildSmartMultiDayItinerary,
@@ -107,6 +108,51 @@ export const weatherSmartReplan = async (req, res) => {
     return res.status(500).json({
       message: "Failed to weather-smart replan trip",
       details: error.message
+    });
+  }
+};
+
+export const getTripBudget = async (req, res) => {
+  try {
+    const {
+      city = "",
+      days,
+      dates = "",
+      totalPlaces,
+      placesPerDay,
+      itinerarySummary = "",
+      destinations = []
+    } = req.body || {};
+
+    const parsedDays = Number(days);
+
+    if (!city || !parsedDays) {
+      return res.status(400).json({
+        message: "city and days are required"
+      });
+    }
+
+    const budgetEstimate = await getBudgetEstimate({
+      city,
+      days: parsedDays,
+      dates,
+      totalPlaces,
+      placesPerDay,
+      itinerarySummary,
+      destinations
+    });
+
+    return res.json({ budgetEstimate });
+  } catch (error) {
+    console.error("Trip budget error", {
+      message: error.message,
+      status: error.response?.status || "no_response",
+      details: error.response?.data || null
+    });
+
+    return res.status(error.response?.status || 500).json({
+      message: "Failed to generate trip budget",
+      details: error.response?.data || error.message
     });
   }
 };

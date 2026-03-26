@@ -13,6 +13,16 @@ const formatDateInput = (date) => {
   return `${year}-${month}-${day}`;
 };
 
+const addDaysToDate = (dateString, daysToAdd) => {
+  const baseDate = new Date(dateString);
+  if (Number.isNaN(baseDate.getTime())) {
+    return dateString;
+  }
+
+  baseDate.setDate(baseDate.getDate() + Math.max(1, Number(daysToAdd) || 1));
+  return formatDateInput(baseDate);
+};
+
 const today = new Date();
 const defaultStartDate = formatDateInput(today);
 const defaultEndDate = formatDateInput(new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3));
@@ -40,6 +50,24 @@ const interestCopy = {
   }
 };
 
+const travelStyles = [
+  {
+    id: "basic",
+    title: "Budget",
+    description: "Value-first planning with tighter spending assumptions."
+  },
+  {
+    id: "standard",
+    title: "Standard",
+    description: "Balanced comfort, movement, and stay quality."
+  },
+  {
+    id: "premium",
+    title: "Premium",
+    description: "Higher-comfort pacing with premium trip assumptions."
+  }
+];
+
 const normalizePreviewAttraction = (place = {}, index = 0) => ({
   id: place.id || `attraction-${index}-${place.name || "place"}`,
   name: place.name || "Unnamed attraction",
@@ -61,7 +89,10 @@ const PlanTrip = () => {
     startDate: defaultStartDate,
     endDate: defaultEndDate,
     interests: ["landmarks", "food"],
-    placesPerDay: 3
+    placesPerDay: 3,
+    days: 3,
+    travelStyle: "standard",
+    optimizeForBudget: false
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -110,6 +141,38 @@ const PlanTrip = () => {
 
   const updateField = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleStartDateChange = (value) => {
+    setFormData((prev) => ({
+      ...prev,
+      startDate: value,
+      endDate: addDaysToDate(value, prev.days)
+    }));
+  };
+
+  const handleEndDateChange = (value) => {
+    const start = new Date(formData.startDate);
+    const end = new Date(value);
+    const nextDays =
+      !Number.isNaN(start.getTime()) && !Number.isNaN(end.getTime()) && end >= start
+        ? Math.ceil((end - start) / (1000 * 60 * 60 * 24))
+        : 0;
+
+    setFormData((prev) => ({
+      ...prev,
+      endDate: value,
+      days: nextDays || prev.days
+    }));
+  };
+
+  const handleDaysChange = (value) => {
+    const nextDays = Math.max(1, Number(value) || 1);
+    setFormData((prev) => ({
+      ...prev,
+      days: nextDays,
+      endDate: addDaysToDate(prev.startDate, nextDays)
+    }));
   };
 
   const toggleInterest = (value) => {
@@ -186,7 +249,14 @@ const PlanTrip = () => {
 
       setLoading(false);
       setShowAttractionPrompt(false);
-      navigate("/itinerary", { state: response.data });
+      navigate("/itinerary", {
+        state: {
+          ...response.data,
+          travelStyle: formData.travelStyle,
+          optimizeForBudget: formData.optimizeForBudget,
+          dates: `${formData.startDate} to ${formData.endDate}`
+        }
+      });
     } catch (err) {
       setLoading(false);
       setError(err.response?.data?.message || "Failed to generate itinerary. Please try again.");
@@ -243,18 +313,18 @@ const PlanTrip = () => {
   return (
     <>
       {showAttractionPrompt && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 px-4 py-8">
-          <div className="max-h-[88vh] w-full max-w-5xl overflow-hidden rounded-[34px] border border-white/60 bg-[rgba(255,255,255,0.92)] shadow-[0_34px_120px_rgba(15,23,42,0.22)] backdrop-blur-[24px]">
-            <div className="border-b border-slate-200 px-6 py-5 sm:px-8">
+        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-950/55 px-4 py-8">
+        <div className="max-h-[88vh] w-full max-w-5xl overflow-hidden rounded-[34px] border border-white/10 bg-[rgba(7,30,38,0.94)] shadow-[0_34px_120px_rgba(15,23,42,0.22)] backdrop-blur-[24px]">
+            <div className="border-b border-white/10 px-6 py-5 sm:px-8">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#147ea2]">
                     Before generating
                   </p>
-                  <h2 className="mt-2 text-2xl font-semibold text-slate-900 sm:text-3xl">
+                  <h2 className="mt-2 text-2xl font-semibold text-white sm:text-3xl">
                     Add any attractions you definitely want
                   </h2>
-                  <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
+                  <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
                     We fetched the available attractions for {formData.city.trim()}. Select any must-visit stops,
                     or skip this step and let TripWise plan automatically.
                   </p>
@@ -262,7 +332,7 @@ const PlanTrip = () => {
                 <button
                   type="button"
                   onClick={() => setShowAttractionPrompt(false)}
-                  className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+                  className="rounded-full border border-white/10 bg-white/8 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/12"
                   disabled={loading}
                 >
                   Close
@@ -272,12 +342,12 @@ const PlanTrip = () => {
 
             <div className="max-h-[calc(88vh-165px)] overflow-y-auto px-6 py-6 sm:px-8">
               <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-slate-300">
                   {previewAttractions.length > 0
                     ? `Showing ${previewAttractions.length} attractions`
                     : "No attractions were fetched for this city right now."}
                 </p>
-                <span className="rounded-full bg-[#eaf9ff] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#147ea2]">
+                <span className="rounded-full bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8edcff]">
                   {selectedAttractionIds.length} selected
                 </span>
               </div>
@@ -294,14 +364,14 @@ const PlanTrip = () => {
                         onClick={() => toggleAttractionSelection(place.id)}
                         className={`rounded-[28px] border p-5 text-left transition ${
                           isSelected
-                            ? "border-[#59cef0] bg-[#f0fbff] shadow-[0_18px_40px_rgba(30,199,243,0.14)]"
-                            : "border-slate-200 bg-white hover:border-[#b7dfee] hover:bg-[#f8fdff]"
+                            ? "border-[#59cef0] bg-[#0b3b43]/70 shadow-[0_18px_40px_rgba(30,199,243,0.14)]"
+                            : "border-white/10 bg-white/6 hover:border-[#b7dfee] hover:bg-white/10"
                         }`}
                       >
                         <div className="flex items-start justify-between gap-4">
                           <div>
-                            <p className="text-lg font-semibold text-slate-900">{place.name}</p>
-                            <p className="mt-1 text-sm capitalize text-slate-500">
+                            <p className="text-lg font-semibold text-white">{place.name}</p>
+                            <p className="mt-1 text-sm capitalize text-slate-300">
                               {place.category}
                               {place.rating !== "N/A" ? ` • ${place.rating} rating` : ""}
                             </p>
@@ -312,7 +382,7 @@ const PlanTrip = () => {
                             }`}
                           />
                         </div>
-                        <p className="mt-3 text-sm leading-6 text-slate-600">
+                        <p className="mt-3 text-sm leading-6 text-slate-300">
                           {place.address || place.description || "Add this attraction to your itinerary pool."}
                         </p>
                       </button>
@@ -320,18 +390,18 @@ const PlanTrip = () => {
                   })}
                 </div>
               ) : (
-                <div className="rounded-[28px] border border-dashed border-slate-200 bg-slate-50 px-5 py-10 text-center text-sm text-slate-500">
+                <div className="rounded-[28px] border border-dashed border-white/10 bg-white/6 px-5 py-10 text-center text-sm text-slate-400">
                   You can continue without pre-selecting attractions.
                 </div>
               )}
             </div>
 
-            <div className="sticky bottom-0 flex flex-col gap-3 border-t border-slate-200 bg-white/95 px-6 py-5 backdrop-blur sm:flex-row sm:justify-end sm:px-8">
+            <div className="sticky bottom-0 flex flex-col gap-3 border-t border-white/10 bg-[#071e26]/94 px-6 py-5 backdrop-blur sm:flex-row sm:justify-end sm:px-8">
               <button
                 type="button"
                 onClick={handleSkipAttractions}
                 disabled={loading}
-                className="rounded-[18px] border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:text-slate-950 disabled:cursor-not-allowed disabled:opacity-70"
+                className="rounded-[18px] border border-white/10 bg-white/8 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/12 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {loading ? "Generating..." : "Skip selection"}
               </button>
@@ -353,40 +423,64 @@ const PlanTrip = () => {
       )}
 
       <section className="relative min-h-screen overflow-hidden px-4 pb-14 pt-12 sm:px-6 lg:px-10 lg:pt-14">
-      <img
-        src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1600&q=80"
-        alt="Aerial tropical shoreline with forest and turquoise water"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,16,26,0.54)_0%,rgba(5,28,34,0.62)_24%,rgba(247,242,234,0.92)_52%,rgba(244,238,229,0.96)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.28),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(30,199,243,0.12),transparent_18%)]" />
-
-      <div className="relative mx-auto grid max-w-[1450px] gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-        <div className="overflow-hidden rounded-[42px] border border-white/55 bg-[rgba(255,255,255,0.62)] p-8 shadow-[0_32px_120px_rgba(15,23,42,0.14)] backdrop-blur-[28px] xl:p-12">
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1800&q=80')] bg-cover bg-center" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,20,30,0.75),rgba(5,20,30,0.95))]" />
+      <div className="planx-page-content grid max-w-[1450px] gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="overflow-hidden rounded-[42px] border border-white/10 bg-[rgba(10,25,35,0.9)] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.5)] backdrop-blur-[14px] xl:p-12">
           <div className="mb-8 flex flex-wrap items-center gap-3">
-            <span className="rounded-full bg-[#dff7ff] px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#147ea2]">
+            <span className="planx-kicker">
               TripWise Planner
             </span>
             <span className="rounded-full bg-[#1d2437] px-5 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-white">
-              TravelAdvisor + Geoapify
+              AI Trip Engine
             </span>
           </div>
 
-          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-[#0f172a] sm:text-5xl lg:text-[4rem] lg:leading-[1.03]">
+          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-[#F5FBFF] [text-shadow:0px_2px_12px_rgba(0,0,0,0.6)] sm:text-5xl lg:text-[4rem] lg:leading-[1.03]">
             Build a city itinerary that feels curated, not generic.
           </h1>
-          <p className="mt-5 max-w-3xl text-lg leading-9 text-slate-600">
+          <p className="mt-5 max-w-3xl text-lg leading-9 text-[#B8D3DC] [text-shadow:0px_2px_12px_rgba(0,0,0,0.45)]">
             Pick your destination, choose how many days you have, and let TripWise shape top attractions plus food and local interests into a balanced day-by-day route.
           </p>
 
+          <div className="mt-8 grid gap-4 xl:grid-cols-3">
+            <div className="rounded-[24px] border border-[#1ec8a5]/40 bg-[linear-gradient(135deg,rgba(30,200,165,0.15),rgba(45,169,255,0.15))] p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#147ea2]">
+                AI Assistant
+              </p>
+              <p className="mt-3 text-lg font-semibold text-[#F5FBFF]">Generating your optimized trip</p>
+              <p className="mt-3 text-sm leading-7 text-[#B8D3DC]">
+                TripWise combines attractions, routing logic, interests, and pace into one planning flow.
+              </p>
+            </div>
+            <div className="rounded-[24px] border border-white/10 bg-[rgba(15,35,45,0.95)] p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8FAAB5]">
+                Budget Integration
+              </p>
+              <p className="mt-3 text-lg font-semibold text-[#F5FBFF]">Basic to Premium estimates</p>
+              <p className="mt-3 text-sm leading-7 text-[#B8D3DC]">
+                After itinerary generation, the workspace will show AI budget tiers, insights, and cautions.
+              </p>
+            </div>
+            <div className="rounded-[24px] border border-white/10 bg-[rgba(15,35,45,0.95)] p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8FAAB5]">
+                Smart Control
+              </p>
+              <p className="mt-3 text-lg font-semibold text-[#F5FBFF]">Optimize for lower budget</p>
+              <p className="mt-3 text-sm leading-7 text-[#B8D3DC]">
+                Bias the trip toward a more efficient daily structure before you reach the itinerary editor.
+              </p>
+            </div>
+          </div>
+
           <form onSubmit={handleSubmit} className="mt-12 space-y-9">
-            <div className="grid gap-5 lg:grid-cols-4">
+            <div className="grid gap-5 lg:grid-cols-5">
               <div ref={citySuggestionsRef} className="relative">
-                <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-[#8FAAB5]">
                   City
                 </label>
                 <input
-                  className="w-full rounded-[22px] border border-[#d8dfeb] bg-white/90 px-5 py-4 text-base text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#43cbea] focus:ring-4 focus:ring-[#bfeefd]"
+                  className="w-full rounded-[22px] border border-white/15 bg-white/5 px-5 py-4 text-base text-[#EAF6F9] outline-none transition placeholder:text-[#8FAAB5] focus:border-[#2DA9FF] focus:shadow-[0_0_0_2px_rgba(45,169,255,0.2)]"
                   type="text"
                   placeholder="Jaipur, Mumbai, Bengaluru..."
                   value={formData.city}
@@ -399,15 +493,15 @@ const PlanTrip = () => {
                 />
 
                 {showSuggestions && citySuggestions.length > 0 && (
-                  <div className="absolute left-0 right-0 top-[calc(100%+10px)] z-30 overflow-hidden rounded-[22px] border border-[#cfe9f1] bg-white shadow-[0_24px_50px_rgba(15,23,42,0.12)]">
+                  <div className="absolute left-0 right-0 top-[calc(100%+10px)] z-30 overflow-hidden rounded-[22px] border border-white/10 bg-[rgba(10,25,35,0.96)] shadow-[0_24px_50px_rgba(15,23,42,0.3)]">
                     {citySuggestions.map((city) => (
                       <button
                         key={city.city}
                         type="button"
                         onClick={() => handleCitySelect(city.city)}
-                        className="block w-full border-b border-slate-100 px-4 py-3 text-left transition hover:bg-[#f2fbfd] last:border-b-0"
+                        className="block w-full border-b border-white/5 px-4 py-3 text-left transition hover:bg-white/8 last:border-b-0"
                       >
-                        <span className="font-medium text-slate-900">{city.city}</span>
+                        <span className="font-medium text-[#EAF6F9]">{city.city}</span>
                       </button>
                     ))}
                   </div>
@@ -415,37 +509,51 @@ const PlanTrip = () => {
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-[#8FAAB5]">
                   Start date
                 </label>
                 <input
                   type="date"
-                  className="w-full rounded-[22px] border border-[#d8dfeb] bg-white/90 px-5 py-4 text-base text-slate-900 outline-none transition focus:border-[#43cbea] focus:ring-4 focus:ring-[#bfeefd]"
+                  className="w-full rounded-[22px] border border-white/15 bg-white/5 px-5 py-4 text-base text-[#EAF6F9] outline-none transition focus:border-[#2DA9FF] focus:shadow-[0_0_0_2px_rgba(45,169,255,0.2)]"
                   value={formData.startDate}
                   min={defaultStartDate}
-                  onChange={(event) => updateField("startDate", event.target.value)}
+                  onChange={(event) => handleStartDateChange(event.target.value)}
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-[#8FAAB5]">
                   End date
                 </label>
                 <input
                   type="date"
-                  className="w-full rounded-[22px] border border-[#d8dfeb] bg-white/90 px-5 py-4 text-base text-slate-900 outline-none transition focus:border-[#43cbea] focus:ring-4 focus:ring-[#bfeefd]"
+                  className="w-full rounded-[22px] border border-white/15 bg-white/5 px-5 py-4 text-base text-[#EAF6F9] outline-none transition focus:border-[#2DA9FF] focus:shadow-[0_0_0_2px_rgba(45,169,255,0.2)]"
                   value={formData.endDate}
                   min={formData.startDate || defaultStartDate}
-                  onChange={(event) => updateField("endDate", event.target.value)}
+                  onChange={(event) => handleEndDateChange(event.target.value)}
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-[#8FAAB5]">
+                  Number of days
+                </label>
+                <input
+                  type="number"
+                  min="1"
+                  max="14"
+                  className="w-full rounded-[22px] border border-white/15 bg-white/5 px-5 py-4 text-base text-[#EAF6F9] outline-none transition focus:border-[#2DA9FF] focus:shadow-[0_0_0_2px_rgba(45,169,255,0.2)]"
+                  value={formData.days}
+                  onChange={(event) => handleDaysChange(event.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-[#8FAAB5]">
                   Places per day
                 </label>
                 <select
-                  className="w-full rounded-[22px] border border-[#d8dfeb] bg-white/90 px-5 py-4 text-base text-slate-900 outline-none transition focus:border-[#43cbea] focus:ring-4 focus:ring-[#bfeefd]"
+                  className="w-full rounded-[22px] border border-white/15 bg-white/5 px-5 py-4 text-base text-[#EAF6F9] outline-none transition focus:border-[#2DA9FF] focus:shadow-[0_0_0_2px_rgba(45,169,255,0.2)]"
                   value={formData.placesPerDay}
                   onChange={(event) => updateField("placesPerDay", Number(event.target.value))}
                 >
@@ -458,8 +566,63 @@ const PlanTrip = () => {
               </div>
             </div>
 
-            <div className="rounded-[24px] border border-white/50 bg-[rgba(255,255,255,0.46)] px-5 py-4 text-sm text-slate-600 backdrop-blur-md">
-              <span className="font-semibold text-slate-900">Trip Duration:</span>{" "}
+            <div className="grid gap-5 xl:grid-cols-[1.25fr_0.75fr]">
+              <div>
+                <div className="mb-3 flex items-center justify-between gap-4">
+                  <label className="block text-sm font-semibold uppercase tracking-[0.18em] text-[#8FAAB5]">
+                    Travel style
+                  </label>
+                  <p className="text-sm text-[#8FAAB5]">
+                    Sets the tone for the budget panel
+                  </p>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-3">
+                  {travelStyles.map((style) => {
+                    const active = formData.travelStyle === style.id;
+
+                    return (
+                      <button
+                        key={style.id}
+                        type="button"
+                        onClick={() => updateField("travelStyle", style.id)}
+                        className={`rounded-[28px] border p-5 text-left transition ${
+                          active
+                            ? "border-transparent bg-[linear-gradient(135deg,#1EC8A5,#2DA9FF)] text-[#021014] shadow-[0_10px_30px_rgba(45,169,255,0.3)]"
+                            : "border border-white/20 bg-transparent text-[#EAF6F9] hover:border-white/30 hover:bg-white/5"
+                        }`}
+                      >
+                        <p className={`text-lg font-semibold ${active ? "text-[#021014]" : "text-[#F5FBFF]"}`}>{style.title}</p>
+                        <p className={`mt-2 text-sm leading-6 ${active ? "text-[#07323a]" : "text-[#B8D3DC]"}`}>{style.description}</p>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="rounded-[28px] border border-white/10 bg-[rgba(10,25,35,0.9)] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.28)]">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#8FAAB5]">
+                  AI controls
+                </p>
+                <label className="mt-4 flex items-start gap-3 rounded-[20px] border border-white/10 bg-[rgba(15,35,45,0.95)] px-4 py-4 text-sm text-[#D6EAF2]">
+                  <input
+                    type="checkbox"
+                    checked={formData.optimizeForBudget}
+                    onChange={(event) => updateField("optimizeForBudget", event.target.checked)}
+                    className="mt-1 h-4 w-4 rounded border-slate-300 text-sky-500 focus:ring-sky-400"
+                  />
+                  <span>
+                    <span className="block font-semibold text-[#F5FBFF]">Optimize for lower budget</span>
+                    <span className="mt-1 block text-[#9FBAC4]">
+                      Use a more efficient trip structure before itinerary generation.
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div className="rounded-[24px] border border-white/10 bg-[rgba(15,35,45,0.95)] px-5 py-4 text-sm text-[#B8D3DC] backdrop-blur-md">
+              <span className="font-semibold text-[#F5FBFF]">Trip Duration:</span>{" "}
               {tripDays > 0
                 ? `${tripDays} ${tripDays === 1 ? "Day" : "Days"} with up to ${
                     formData.placesPerDay
@@ -469,10 +632,10 @@ const PlanTrip = () => {
 
             <div>
               <div className="mb-3 flex items-center justify-between gap-4">
-                <label className="block text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                <label className="block text-sm font-semibold uppercase tracking-[0.18em] text-[#8FAAB5]">
                   Interests
                 </label>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-[#8FAAB5]">
                   Choose up to shape your route mix
                 </p>
               </div>
@@ -486,8 +649,8 @@ const PlanTrip = () => {
                       key={interest}
                       className={`group cursor-pointer rounded-[28px] border p-5 transition ${
                         active
-                          ? "border-[#8edcff] bg-[#f2fcff] shadow-[0_18px_42px_rgba(30,199,243,0.14)]"
-                          : "border-[#dbe2ea] bg-white/92 hover:border-[#b7cfe0] hover:shadow-[0_16px_40px_rgba(15,23,42,0.07)]"
+                          ? "border-[#1ec8a5]/40 bg-[linear-gradient(135deg,rgba(30,200,165,0.15),rgba(45,169,255,0.15))] shadow-[0_18px_42px_rgba(30,199,243,0.14)]"
+                          : "border-white/10 bg-[rgba(15,35,45,0.95)] hover:border-white/20 hover:shadow-[0_16px_40px_rgba(15,23,42,0.16)]"
                       }`}
                     >
                       <input
@@ -498,16 +661,16 @@ const PlanTrip = () => {
                       />
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <p className="text-lg font-semibold capitalize text-slate-900">
+                          <p className="text-lg font-semibold capitalize text-[#F5FBFF]">
                             {interestCopy[interest].title}
                           </p>
-                          <p className="mt-2 text-sm leading-6 text-slate-500">
+                          <p className="mt-2 text-sm leading-6 text-[#9FBAC4]">
                             {interestCopy[interest].description}
                           </p>
                         </div>
                         <div
                           className={`mt-1 h-6 w-6 rounded-full border transition ${
-                            active ? "border-[#1ec7f3] bg-[#1ec7f3]" : "border-[#bfd2e3] bg-white"
+                            active ? "border-[#1ec7f3] bg-[#1ec7f3]" : "border-white/25 bg-transparent"
                           }`}
                         />
                       </div>
@@ -518,7 +681,7 @@ const PlanTrip = () => {
             </div>
 
             <button
-              className="inline-flex w-full items-center justify-center rounded-[22px] bg-[#071425] px-6 py-4 text-base font-semibold text-white shadow-[0_18px_45px_rgba(7,20,37,0.22)] transition hover:bg-[#11233d] disabled:cursor-not-allowed disabled:opacity-70"
+              className="inline-flex w-full items-center justify-center rounded-[22px] bg-[linear-gradient(135deg,#1EC8A5,#2DA9FF)] px-6 py-4 text-base font-semibold text-[#021014] shadow-[0_10px_30px_rgba(45,169,255,0.3)] transition hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-70"
               type="submit"
               disabled={loading || previewLoading}
             >
@@ -530,21 +693,21 @@ const PlanTrip = () => {
             </button>
 
             {(loading || previewLoading) && (
-              <div className="flex flex-col items-center rounded-[28px] border border-[#c9f1fb] bg-[#effcff]/90 px-6 py-8 text-center">
+              <div className="flex flex-col items-center rounded-[28px] border border-white/10 bg-[rgba(10,25,35,0.9)] px-6 py-8 text-center">
                 <div className="relative h-14 w-14">
                   <div className="absolute inset-0 animate-ping rounded-full bg-[#d2f5ff]" />
                   <div className="absolute inset-2 animate-spin rounded-full border-4 border-[#c2effd] border-t-[#1ec7f3]" />
                 </div>
-                <p className="mt-5 text-base font-semibold text-[#147ea2]">
+                <p className="mt-5 text-base font-semibold text-[#D6EAF2]">
                   {previewLoading
                     ? "Pulling attractions so you can choose must-visit spots."
-                    : "Pulling fresh places and arranging your route."}
+                    : "Generating your optimized trip..."}
                 </p>
               </div>
             )}
 
             {error && (
-              <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+              <div className="rounded-2xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm font-medium text-red-200">
                 {error}
               </div>
             )}
@@ -552,34 +715,34 @@ const PlanTrip = () => {
         </div>
 
         <aside className="grid gap-7">
-          <div className="overflow-hidden rounded-[42px] border border-white/15 bg-[rgba(3,9,28,0.68)] p-8 text-white shadow-[0_34px_120px_rgba(2,9,28,0.28)] backdrop-blur-[24px] xl:p-10">
+          <div className="overflow-hidden rounded-[42px] border border-white/10 bg-[rgba(10,25,35,0.9)] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.5)] backdrop-blur-[14px] xl:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#69d9f7]">
               This planner creates
             </p>
             <div className="mt-6 space-y-4">
-              <div className="rounded-[30px] border border-white/15 bg-[rgba(255,255,255,0.08)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md">
-                <p className="text-sm text-slate-300">Morning</p>
-                <p className="mt-3 text-lg font-semibold leading-8">Landmarks and outdoor anchors</p>
+              <div className="rounded-[30px] border border-white/10 bg-[rgba(20,40,50,0.85)] p-6 shadow-[0_10px_25px_rgba(0,0,0,0.4)] backdrop-blur-md transition duration-300 hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(0,0,0,0.45)]">
+                <p className="text-sm text-[#8FAAB5]">Morning</p>
+                <p className="mt-3 text-lg font-semibold leading-8 text-[#F5FBFF]">Landmarks and outdoor anchors</p>
               </div>
-              <div className="rounded-[30px] border border-white/15 bg-[rgba(255,255,255,0.08)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md">
-                <p className="text-sm text-slate-300">Afternoon</p>
-                <p className="mt-3 text-lg font-semibold leading-8">Museums, culture, and shopping pockets</p>
+              <div className="rounded-[30px] border border-white/10 bg-[rgba(20,40,50,0.85)] p-6 shadow-[0_10px_25px_rgba(0,0,0,0.4)] backdrop-blur-md transition duration-300 hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(0,0,0,0.45)]">
+                <p className="text-sm text-[#8FAAB5]">Afternoon</p>
+                <p className="mt-3 text-lg font-semibold leading-8 text-[#F5FBFF]">Museums, culture, and shopping pockets</p>
               </div>
-              <div className="rounded-[30px] border border-white/15 bg-[rgba(255,255,255,0.08)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md">
-                <p className="text-sm text-slate-300">Evening</p>
-                <p className="mt-3 text-lg font-semibold leading-8">Food-led stops and memorable finishes</p>
+              <div className="rounded-[30px] border border-white/10 bg-[rgba(20,40,50,0.85)] p-6 shadow-[0_10px_25px_rgba(0,0,0,0.4)] backdrop-blur-md transition duration-300 hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(0,0,0,0.45)]">
+                <p className="text-sm text-[#8FAAB5]">Evening</p>
+                <p className="mt-3 text-lg font-semibold leading-8 text-[#F5FBFF]">Food-led stops and memorable finishes</p>
               </div>
             </div>
           </div>
 
-          <div className="rounded-[42px] border border-white/55 bg-[rgba(255,255,255,0.58)] p-8 shadow-[0_30px_120px_rgba(15,23,42,0.14)] backdrop-blur-[24px] xl:p-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
+          <div className="rounded-[42px] border border-white/10 bg-[rgba(10,25,35,0.9)] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.5)] backdrop-blur-[14px] xl:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8FAAB5]">
               Interest spotlight
             </p>
-            <h2 className="mt-4 text-4xl font-semibold capitalize tracking-tight text-slate-950">
+            <h2 className="mt-4 text-4xl font-semibold capitalize tracking-tight text-[#F5FBFF] [text-shadow:0px_2px_12px_rgba(0,0,0,0.6)]">
               {interestCopy[interestOptions[spotlight]].title}
             </h2>
-            <p className="mt-3 text-base leading-8 text-slate-600">
+            <p className="mt-3 text-base leading-8 text-[#B8D3DC]">
               {interestCopy[interestOptions[spotlight]].description}
             </p>
             <div className="mt-8 flex gap-2">

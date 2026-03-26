@@ -18,44 +18,95 @@ const curatedCities = [
     name: "Goa",
     description: "Beaches & Nightlife - Pristine coastlines meet vibrant parties",
     image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80",
-    tag: "Beach"
+    tag: "Beach",
+    travelType: "Beach",
+    budgetRange: "₹12,000 - ₹24,000",
+    bestTime: "Nov - Feb",
+    tags: ["Beach", "Nightlife", "Weekend"],
+    highlights: ["Beach clubs and sunsets", "Scooter-friendly routes", "Strong budget-to-premium options"],
+    trending: true
   },
   {
     id: 2,
     name: "Jaipur",
     description: "Royal Heritage - Explore magnificent forts and palaces",
     image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=900&q=80",
-    tag: "Heritage"
+    tag: "Heritage",
+    travelType: "Heritage",
+    budgetRange: "₹10,000 - ₹22,000",
+    bestTime: "Oct - Mar",
+    tags: ["Heritage", "Food", "Palaces"],
+    highlights: ["High-density sightseeing", "Strong food + culture mix", "Easy for 3 to 4 day itineraries"],
+    trending: true
   },
   {
     id: 3,
     name: "Manali",
     description: "Snow & Mountains - Adventure in the Himalayan paradise",
     image: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=900&q=80",
-    tag: "Mountain"
+    tag: "Mountain",
+    travelType: "Adventure",
+    budgetRange: "₹14,000 - ₹28,000",
+    bestTime: "Mar - Jun",
+    tags: ["Adventure", "Mountain", "Road Trip"],
+    highlights: ["Adventure-led planning", "Higher transfer time between stops", "Great for scenic stays"]
   },
   {
     id: 4,
     name: "Rishikesh",
     description: "Spiritual & Adventure - Yoga capital with thrilling river rafting",
     image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=80",
-    tag: "Spiritual"
+    tag: "Spiritual",
+    travelType: "Adventure",
+    budgetRange: "₹9,000 - ₹18,000",
+    bestTime: "Sep - Apr",
+    tags: ["Spiritual", "Adventure", "Wellness"],
+    highlights: ["Mixes rafting with wellness stays", "Great for lighter budgets", "Easy weekend format"],
+    trending: true
   },
   {
     id: 5,
     name: "Udaipur",
     description: "Romantic Lakes - City of lakes with stunning royal architecture",
     image: "https://images.unsplash.com/photo-1609920658906-8223bd289001?auto=format&fit=crop&w=900&q=80",
-    tag: "Romantic"
+    tag: "Romantic",
+    travelType: "Heritage",
+    budgetRange: "₹13,000 - ₹30,000",
+    bestTime: "Oct - Mar",
+    tags: ["Romantic", "Lakes", "Heritage"],
+    highlights: ["Premium stay options stand out", "Relaxed sightseeing pace", "Strong couples destination"]
   },
   {
     id: 6,
     name: "Pondicherry",
     description: "French Charm - Blend of Indian and French colonial cultures",
     image: "https://images.unsplash.com/photo-1558431382-27e303142255?auto=format&fit=crop&w=900&q=80",
-    tag: "Colonial"
+    tag: "Colonial",
+    travelType: "Food",
+    budgetRange: "₹11,000 - ₹20,000",
+    bestTime: "Oct - Feb",
+    tags: ["Food", "Colonial", "Cafe"],
+    highlights: ["Cafe-led exploration", "Compact city movement", "Strong design + stay appeal"],
+    trending: true
   }
 ];
+
+const budgetOptions = ["All", "Low", "Medium", "High"];
+const travelTypeOptions = ["All", "Beach", "Heritage", "Adventure", "Food"];
+
+const getBudgetBucket = (rangeText = "") => {
+  const numericValues = String(rangeText)
+    .replace(/[₹,\s]/g, "")
+    .split("-")
+    .map((value) => Number(value))
+    .filter(Number.isFinite);
+
+  const maxValue = numericValues[1] || numericValues[0] || 0;
+
+  if (maxValue <= 18000) return "Low";
+  if (maxValue <= 25000) return "Medium";
+  return "High";
+};
 
 const ExploreCities = () => {
   const [query, setQuery] = useState("");
@@ -69,6 +120,8 @@ const ExploreCities = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [tripDraft, setTripDraft] = useState(() => getLocalDraftPlacesForCity("Goa"));
+  const [budgetFilter, setBudgetFilter] = useState("All");
+  const [travelTypeFilter, setTravelTypeFilter] = useState("All");
   const cancelTokenRef = useRef(null);
   const debounceTimerRef = useRef(null);
   const suggestionsRef = useRef(null);
@@ -196,6 +249,22 @@ const ExploreCities = () => {
   };
 
   const selectedCityOptions = useMemo(() => curatedCities.map((city) => city.name), []);
+  const filteredCuratedCities = useMemo(
+    () =>
+      curatedCities.filter((city) => {
+        const budgetMatch = budgetFilter === "All" || getBudgetBucket(city.budgetRange) === budgetFilter;
+        const typeMatch =
+          travelTypeFilter === "All" ||
+          String(city.travelType || city.tag || "").toLowerCase() === travelTypeFilter.toLowerCase();
+
+        return budgetMatch && typeMatch;
+      }),
+    [budgetFilter, travelTypeFilter]
+  );
+  const trendingDestinations = useMemo(
+    () => filteredCuratedCities.filter((city) => city.trending).slice(0, 4),
+    [filteredCuratedCities]
+  );
   const suggestionCities = useMemo(() => {
     const localSuggestionMap = new Map();
 
@@ -243,27 +312,19 @@ const ExploreCities = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#062f35] text-white">
-      <img
-        src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1600&q=80"
-        alt="Aerial tropical shoreline with forest and turquoise water"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,24,31,0.22)_0%,rgba(4,24,31,0.46)_34%,rgba(4,24,31,0.74)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(7,190,210,0.14),transparent_30%)]" />
-
-      <div className="relative z-10 px-6 pb-16 pt-32 sm:px-10 lg:px-12">
+    <div className="planx-page">
+      <div className="planx-page-content">
         <div className="mx-auto max-w-7xl">
-          <section className="relative z-20 rounded-[40px] border border-white/10 bg-white/5 px-8 py-14 shadow-[0_30px_100px_rgba(0,0,0,0.22)] backdrop-blur-md sm:px-12">
+          <section className="planx-panel relative z-20 rounded-[40px] px-8 py-14 sm:px-12">
             <div className="mx-auto max-w-4xl text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#8edcff]">
+              <p className="planx-kicker">
                 Explore cities
               </p>
-              <h1 className="mt-6 text-5xl font-semibold leading-tight text-white md:text-6xl">
+              <h1 className="planx-heading mt-6 text-5xl font-semibold leading-tight text-slate-950 md:text-6xl">
                 Discover Your Next
-                <span className="block text-[#1ec7f3]">Adventure in India</span>
+                <span className="block text-[#147ea2]">Adventure in India</span>
               </h1>
-              <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-200">
+              <p className="planx-subtle mx-auto mt-6 max-w-3xl text-lg leading-8">
                 Search cities, explore curated destinations, and browse attraction cards that fit
                 beautifully into your TripWise plans.
               </p>
@@ -272,15 +333,15 @@ const ExploreCities = () => {
             <div className="mx-auto mt-12 max-w-4xl">
               <div
                 ref={suggestionsRef}
-                className="relative rounded-[28px] border border-white/15 bg-white/10 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.18)] backdrop-blur"
+                className="relative rounded-[28px] border border-white/10 bg-white/8 p-2 shadow-[0_20px_60px_rgba(16,32,51,0.14)]"
               >
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-8 text-white/55">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-8 text-white/45">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </div>
                 <input
-                  className="w-full rounded-[24px] border border-transparent bg-white/95 py-5 pl-16 pr-6 text-lg text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-[#1ec7f3]"
+                  className="w-full rounded-[24px] border border-white/10 bg-[#071e26]/78 py-5 pl-16 pr-6 text-lg text-white outline-none transition placeholder:text-white/45 focus:border-[#1ec7f3]"
                   placeholder="Search for cities... (e.g., Mumbai, Bangalore, Delhi)"
                   value={query}
                   onChange={(event) => {
@@ -293,16 +354,16 @@ const ExploreCities = () => {
                 />
 
                 {showSuggestions && isTyping && suggestionCities.length > 0 && (
-                  <div className="absolute left-2 right-2 top-[calc(100%+12px)] z-30 overflow-hidden rounded-[24px] border border-[#0d6a78] bg-[#f4fbfc] shadow-[0_24px_60px_rgba(2,12,18,0.28)]">
+                  <div className="absolute left-2 right-2 top-[calc(100%+12px)] z-30 overflow-hidden rounded-[24px] border border-white/10 bg-[#071e26]/96 shadow-[0_24px_60px_rgba(2,12,18,0.28)]">
                     {suggestionCities.map((city) => (
                       <button
                         key={city.id}
                         type="button"
                         onClick={() => handleSuggestionSelect(city.name)}
-                        className="flex w-full items-center justify-between border-b border-slate-200 px-5 py-4 text-left transition hover:bg-[#dff4f7] last:border-b-0"
+                        className="flex w-full items-center justify-between border-b border-white/10 px-5 py-4 text-left transition hover:bg-white/8 last:border-b-0"
                       >
-                        <span className="text-base font-semibold text-slate-900">{city.name}</span>
-                        <span className="text-sm text-slate-500">{city.region}</span>
+                        <span className="text-base font-semibold text-white">{city.name}</span>
+                        <span className="text-sm text-slate-400">{city.region}</span>
                       </button>
                     ))}
                   </div>
@@ -313,19 +374,96 @@ const ExploreCities = () => {
 
           <section className="relative z-10 mt-12 space-y-12">
             {query.trim().length < 2 && (
-              <div className="rounded-[36px] border border-white/10 bg-[#0a4952]/58 px-8 py-12 shadow-[0_24px_80px_rgba(15,23,42,0.16)] backdrop-blur-md">
+              <div className="space-y-8">
+                <div className="planx-panel rounded-[36px] px-8 py-8">
+                  <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                    <div>
+                      <p className="planx-kicker">Discovery filters</p>
+                      <h2 className="mt-4 text-3xl font-semibold text-white">Search by mood, budget, and trip shape</h2>
+                      <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">
+                        Narrow the discovery set before you commit to planning. These filters shape the inspiration layer for the planner.
+                      </p>
+                    </div>
+
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div>
+                        <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                          Budget
+                        </label>
+                        <div className="flex flex-wrap gap-2">
+                          {budgetOptions.map((option) => (
+                            <button
+                              key={option}
+                              type="button"
+                              onClick={() => setBudgetFilter(option)}
+                              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                                budgetFilter === option
+                                  ? "bg-[#1ec7f3] text-slate-950"
+                                  : "border border-white/10 bg-white/8 text-white"
+                              }`}
+                            >
+                              {option}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                          Travel Type
+                        </label>
+                        <div className="flex flex-wrap gap-2">
+                          {travelTypeOptions.map((option) => (
+                            <button
+                              key={option}
+                              type="button"
+                              onClick={() => setTravelTypeFilter(option)}
+                              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                                travelTypeFilter === option
+                                  ? "bg-[#1ec7f3] text-slate-950"
+                                  : "border border-white/10 bg-white/8 text-white"
+                              }`}
+                            >
+                              {option}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="planx-panel rounded-[36px] px-8 py-12">
+                  <div className="mb-8 flex items-center justify-between gap-4">
+                    <div>
+                      <p className="planx-kicker">Trending destinations</p>
+                      <h2 className="mt-4 text-4xl font-semibold text-white">Popular right now</h2>
+                      <p className="mt-3 max-w-2xl text-base leading-8 text-slate-300">
+                        Places with strong inspiration value, good planning flexibility, and higher save potential.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+                    {trendingDestinations.map((city) => (
+                      <CityCard key={`trending-${city.id}`} city={city} type="trending" />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="planx-panel rounded-[36px] px-8 py-12">
                 <div className="mb-12 text-center">
-                  <span className="mb-4 inline-block rounded-full border border-[#1ec7f3]/30 bg-[#1ec7f3]/10 px-4 py-2 text-sm font-semibold text-[#8edcff]">
+                  <span className="mb-4 inline-block rounded-full border border-white/10 bg-white/8 px-4 py-2 text-sm font-semibold text-[#8edcff]">
                     CURATED FOR YOU
                   </span>
-                  <h2 className="text-4xl font-semibold text-white">Places You&apos;ll Love</h2>
-                  <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-200">
+                  <h2 className="planx-heading text-4xl font-semibold text-slate-950">Places You&apos;ll Love</h2>
+                  <p className="planx-subtle mx-auto mt-4 max-w-2xl text-lg leading-8">
                     Handpicked destinations that match different travel styles and interests.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                  {curatedCities.map((city, index) => (
+                  {filteredCuratedCities.map((city, index) => (
                     <div
                       key={city.id}
                       className="animate-fadeInUp"
@@ -335,19 +473,20 @@ const ExploreCities = () => {
                     </div>
                   ))}
                 </div>
+                </div>
               </div>
             )}
 
-            <div className="rounded-[36px] border border-white/10 bg-[#0a4952]/58 px-8 py-12 shadow-[0_24px_80px_rgba(15,23,42,0.16)] backdrop-blur-md">
+            <div className="planx-panel rounded-[36px] px-8 py-12">
               <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <span className="inline-block rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#8edcff]">
+                  <span className="planx-kicker">
                     Top Attractions
                   </span>
-                  <h2 className="mt-4 text-4xl font-semibold text-white">
+                  <h2 className="planx-heading mt-4 text-4xl font-semibold text-slate-950">
                     Explore {selectedCity} with the same visual cards as Plan Trip
                   </h2>
-                  <p className="mt-3 max-w-2xl text-lg leading-8 text-slate-200">
+                  <p className="planx-subtle mt-3 max-w-2xl text-lg leading-8">
                     Rich attraction cards with imagery, fallback descriptions, and one-click add to trip.
                   </p>
                 </div>
@@ -361,7 +500,7 @@ const ExploreCities = () => {
                       className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                         selectedCity === cityName
                           ? "bg-[#1ec7f3] text-slate-950"
-                          : "border border-white/10 bg-white/10 text-white"
+                          : "border border-[#15283d]/10 bg-white text-slate-700"
                       }`}
                     >
                       {cityName}
@@ -408,7 +547,7 @@ const ExploreCities = () => {
             </div>
 
             {query.trim().length >= 2 && (
-              <div className="rounded-[36px] border border-white/10 bg-[#0a4952]/58 px-8 py-12 shadow-[0_24px_80px_rgba(15,23,42,0.16)] backdrop-blur-md">
+              <div className="planx-panel rounded-[36px] px-8 py-12">
                 {loading && (
                   <div className="flex flex-col items-center justify-center py-24">
                     <div className="h-20 w-20 animate-spin rounded-full border-4 border-white/10 border-t-[#1ec7f3]" />

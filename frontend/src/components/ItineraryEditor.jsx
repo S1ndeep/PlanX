@@ -14,15 +14,15 @@ import PlaceCardSkeleton from "./PlaceCardSkeleton.jsx";
 const sectionStyles = {
   morning: {
     title: "Morning",
-    accent: "bg-sky-100 text-sky-700 border-sky-200"
+    accent: "bg-[#0b3b43]/75 text-[#8edcff] border-[#8edcff]/20"
   },
   afternoon: {
     title: "Afternoon",
-    accent: "bg-amber-100 text-amber-700 border-amber-200"
+    accent: "bg-[#17304a]/75 text-[#9fd4ff] border-[#9fd4ff]/20"
   },
   evening: {
     title: "Evening",
-    accent: "bg-rose-100 text-rose-700 border-rose-200"
+    accent: "bg-[#10353d]/75 text-[#7ad7f0] border-[#7ad7f0]/20"
   }
 };
 
@@ -198,7 +198,7 @@ const ItineraryEditor = ({
   return (
     <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
       <div className="space-y-5">
-        <div className="rounded-[30px] border border-white/45 bg-[rgba(255,255,255,0.52)] p-5 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-[22px]">
+        <div className="rounded-[30px] border border-white/10 bg-white/6 p-5 shadow-[0_20px_60px_rgba(15,23,42,0.14)] backdrop-blur-[22px]">
           <div className="flex flex-wrap items-center gap-3">
             {tripSummary.map((day) => (
               <button
@@ -208,7 +208,7 @@ const ItineraryEditor = ({
                 className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
                   openDays[day.dayKey]
                     ? "border-[#8edcff]/40 bg-[#0b3b43]/70 text-white"
-                    : "border-white/50 bg-white/70 text-slate-700"
+                    : "border-white/10 bg-white/6 text-slate-200"
                 }`}
               >
                 {day.label}: {day.totalStops} {day.totalStops === 1 ? "stop" : "stops"}
@@ -220,14 +220,14 @@ const ItineraryEditor = ({
         {Object.entries(itinerary).map(([dayKey, dayValue]) => (
           <section
             key={dayKey}
-            className="rounded-[32px] border border-white/45 bg-[rgba(255,255,255,0.58)] p-5 shadow-[0_20px_70px_rgba(15,23,42,0.1)] backdrop-blur-[24px] lg:p-6"
+            className="rounded-[32px] border border-white/10 bg-white/6 p-5 shadow-[0_20px_70px_rgba(15,23,42,0.16)] backdrop-blur-[24px] lg:p-6"
           >
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#147ea2]">
                   {dayValue.label}
                 </p>
-                <h2 className="mt-2 text-xl font-semibold text-slate-900">
+                <h2 className="mt-2 text-xl font-semibold text-white">
                   {tripSummary.find((day) => day.dayKey === dayKey)?.totalStops || 0} planned stops
                 </h2>
               </div>
@@ -244,7 +244,7 @@ const ItineraryEditor = ({
                 <button
                   type="button"
                   onClick={() => toggleDay(dayKey)}
-                  className="rounded-full border border-white/50 bg-white/70 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-white"
+                  className="rounded-full border border-white/10 bg-white/8 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/12"
                 >
                   {openDays[dayKey] ? "Collapse" : "Expand"}
                 </button>
@@ -252,19 +252,19 @@ const ItineraryEditor = ({
             </div>
 
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-[20px] border border-white/50 bg-white/60 px-4 py-3">
+              <div className="rounded-[20px] border border-white/10 bg-white/6 px-4 py-3">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
                   Day Stops
                 </p>
-                <p className="mt-1 text-lg font-semibold text-slate-900">
+                <p className="mt-1 text-lg font-semibold text-white">
                   {tripSummary.find((day) => day.dayKey === dayKey)?.totalStops || 0}
                 </p>
               </div>
-              <div className="rounded-[20px] border border-white/50 bg-white/60 px-4 py-3">
+              <div className="rounded-[20px] border border-white/10 bg-white/6 px-4 py-3">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
                   Route Flow
                 </p>
-                <p className="mt-1 text-lg font-semibold text-slate-900">
+                <p className="mt-1 text-lg font-semibold text-white">
                   Morning to Afternoon to Evening
                 </p>
               </div>
@@ -280,7 +280,7 @@ const ItineraryEditor = ({
                   return (
                     <div
                       key={`${dayKey}-${slot}`}
-                      className="rounded-[26px] border border-white/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.44)_0%,rgba(241,245,249,0.52)_100%)] p-4 backdrop-blur-[20px]"
+                      className="rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(7,30,38,0.62)_0%,rgba(14,47,58,0.52)_100%)] p-4 backdrop-blur-[20px]"
                     >
                       <div className="mb-4 flex items-center justify-between gap-3">
                         <div className="flex items-center gap-2">
@@ -289,7 +289,7 @@ const ItineraryEditor = ({
                           >
                             {sectionStyles[slot].title}
                           </span>
-                          <span className="rounded-full bg-white/80 px-3 py-1.5 text-xs font-semibold text-slate-600">
+                          <span className="rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-slate-300">
                             {dayValue[slot].length} {dayValue[slot].length === 1 ? "stop" : "stops"}
                           </span>
                         </div>
@@ -297,7 +297,7 @@ const ItineraryEditor = ({
                           <button
                             type="button"
                             onClick={() => onOpenAddModal(dayKey, slot, addPlace)}
-                            className="rounded-full border border-white/50 bg-[rgba(255,255,255,0.7)] px-3.5 py-2 text-xs font-semibold text-slate-700 shadow-sm backdrop-blur-md"
+                            className="rounded-full border border-white/10 bg-white/8 px-3.5 py-2 text-xs font-semibold text-white shadow-sm backdrop-blur-md"
                           >
                             Add
                           </button>
@@ -338,7 +338,7 @@ const ItineraryEditor = ({
                           })}
 
                           {!loading && dayValue[slot].length === 0 && (
-                            <div className="rounded-[24px] border border-dashed border-white/60 bg-[rgba(255,255,255,0.52)] px-4 py-10 text-center text-sm text-slate-500 backdrop-blur-md">
+                            <div className="rounded-[24px] border border-dashed border-white/10 bg-white/6 px-4 py-10 text-center text-sm text-slate-400 backdrop-blur-md">
                               Drag places here or add a new stop.
                             </div>
                           )}

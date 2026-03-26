@@ -2,7 +2,7 @@ import { processChatMessage } from "../services/chat.service.js";
 
 export const chatWithAssistant = async (req, res) => {
   try {
-    const { message } = req.body || {};
+    const { message, tripContext = null } = req.body || {};
 
     if (!message || typeof message !== "string" || !message.trim()) {
       return res.status(400).json({
@@ -10,7 +10,7 @@ export const chatWithAssistant = async (req, res) => {
       });
     }
 
-    const result = await processChatMessage(message.trim());
+    const result = await processChatMessage(message.trim(), tripContext);
     return res.json(result);
   } catch (error) {
     console.error("Chat API error", {

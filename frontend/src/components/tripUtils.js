@@ -72,25 +72,6 @@ export const getTripDestinations = (trip = {}) => {
   );
 };
 
-export const generateDirectionsUrl = (trip = {}, options = {}) => {
-  const destinations = getTripDestinations(trip);
-
-  if (destinations.length === 0) {
-    return null;
-  }
-
-  const useCurrentLocation = Boolean(options.useCurrentLocation);
-  const encodedStops = destinations.map((stop) => encodeURIComponent(stop));
-
-  if (!useCurrentLocation && trip.startLocation) {
-    return `https://www.google.com/maps/dir/${encodeURIComponent(
-      trip.startLocation
-    )}/${encodedStops.join("/")}`;
-  }
-
-  return `https://www.google.com/maps/dir/${encodedStops.join("/")}`;
-};
-
 export const splitDestinations = (destinations = [], days = 1) => {
   const normalizedDestinations = Array.isArray(destinations)
     ? destinations.map((item) => String(item || "").trim()).filter(Boolean)

@@ -11,11 +11,11 @@ const weatherIcons = {
 
 const WeatherCards = ({ forecast = [], city = "" }) => {
   return (
-    <div className="rounded-[28px] border border-white/45 bg-[rgba(255,255,255,0.58)] p-6 shadow-[0_24px_80px_rgba(15,23,42,0.12)] backdrop-blur-[26px]">
+    <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(7,30,38,0.78)_0%,rgba(14,47,58,0.72)_100%)] p-6 shadow-[0_24px_80px_rgba(15,23,42,0.18)] backdrop-blur-[26px]">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-semibold text-slate-900">Weather by Day</h2>
-          <p className="mt-2 text-sm text-slate-500">
+          <h2 className="text-2xl font-semibold text-white">Weather by Day</h2>
+          <p className="mt-2 text-sm text-slate-300">
             Forecast for {city || "your destination"} from Open-Meteo.
           </p>
         </div>
@@ -25,23 +25,23 @@ const WeatherCards = ({ forecast = [], city = "" }) => {
         {forecast.map((day, index) => (
           <div
             key={`${day.date}-${index}`}
-            className="rounded-[20px] border border-white/55 bg-[rgba(255,255,255,0.46)] px-4 py-4 backdrop-blur-md"
+            className="rounded-[20px] border border-white/10 bg-white/6 px-4 py-4 backdrop-blur-md"
           >
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#147ea2]">
                   Day {index + 1}
                 </p>
-                <p className="mt-1 text-sm font-semibold text-slate-900">{city}</p>
-                <p className="mt-1 text-xs text-slate-500">{day.date}</p>
+                <p className="mt-1 text-sm font-semibold text-white">{city}</p>
+                <p className="mt-1 text-xs text-slate-400">{day.date}</p>
               </div>
-              <div className="rounded-full border border-sky-200/70 bg-[rgba(236,251,255,0.8)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700 backdrop-blur-md">
+              <div className="rounded-full border border-[#8edcff]/25 bg-[#0b3b43]/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8edcff] backdrop-blur-md">
                 {weatherIcons[day.icon] || "Weather"}
               </div>
             </div>
             <div className="mt-3 flex items-end justify-between gap-4">
-              <p className="text-sm text-slate-600">{day.condition}</p>
-              <p className="text-base font-semibold text-slate-900">
+              <p className="text-sm text-slate-300">{day.condition}</p>
+              <p className="text-base font-semibold text-white">
                 {day.temperatureMax}C / {day.temperatureMin}C
               </p>
             </div>
@@ -49,7 +49,7 @@ const WeatherCards = ({ forecast = [], city = "" }) => {
         ))}
 
         {forecast.length === 0 && (
-          <div className="rounded-[22px] border border-dashed border-white/60 bg-[rgba(255,255,255,0.46)] px-4 py-8 text-center text-sm text-slate-500 backdrop-blur-md">
+          <div className="rounded-[22px] border border-dashed border-white/10 bg-white/6 px-4 py-8 text-center text-sm text-slate-400 backdrop-blur-md">
             Weather forecast will appear once destination coordinates are available.
           </div>
         )}

@@ -41,13 +41,11 @@ const DestinationDetails = () => {
 
   if (loading) {
     return (
-      <div className="relative min-h-screen overflow-hidden bg-[#062f35] text-white">
-        <img src={pageBackgroundImage} alt="Tropical shoreline" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,24,31,0.45)_0%,rgba(4,24,31,0.68)_100%)]" />
+      <div className="planx-page">
         <div className="relative flex min-h-screen items-center justify-center px-6">
           <div className="text-center">
-            <div className="mx-auto mb-4 h-16 w-16 animate-spin rounded-full border-b-2 border-[#8edcff]" />
-            <p className="text-lg text-white/80">Loading destination details...</p>
+            <div className="mx-auto mb-4 h-16 w-16 animate-spin rounded-full border-b-2 border-[#147ea2]" />
+            <p className="text-lg text-slate-600">Loading destination details...</p>
           </div>
         </div>
       </div>
@@ -56,15 +54,13 @@ const DestinationDetails = () => {
 
   if (error || !data) {
     return (
-      <div className="relative min-h-screen overflow-hidden bg-[#062f35] text-white">
-        <img src={pageBackgroundImage} alt="Tropical shoreline" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,24,31,0.45)_0%,rgba(4,24,31,0.68)_100%)]" />
+      <div className="planx-page">
         <div className="relative flex min-h-screen items-center justify-center px-6">
-          <div className="mx-auto max-w-md rounded-[32px] border border-white/20 bg-white/10 px-6 py-8 text-center shadow-[0_28px_90px_rgba(0,0,0,0.18)] backdrop-blur-md">
+          <div className="planx-panel mx-auto max-w-md rounded-[32px] px-6 py-8 text-center">
             <p className="mb-4 text-lg text-red-200">{error || "Destination not found"}</p>
             <Link
               to="/explore"
-              className="inline-flex items-center justify-center rounded-full border border-[#8edcff]/35 bg-[#0b3b43]/60 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:border-[#53d6f7] hover:bg-[#1ec7f3] hover:text-slate-950"
+              className="planx-button px-6 py-3 text-sm"
             >
               Back to Explore
             </Link>
@@ -75,20 +71,12 @@ const DestinationDetails = () => {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#062f35] text-white">
-      <img
-        src={pageBackgroundImage}
-        alt="Tropical shoreline"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,24,31,0.32)_0%,rgba(4,24,31,0.46)_24%,rgba(4,24,31,0.72)_52%,rgba(4,24,31,0.88)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(7,190,210,0.14),transparent_30%)]" />
-
-      <div className="relative z-10 px-6 pb-16 pt-24 sm:px-10 lg:px-12">
+    <div className="planx-page">
+      <div className="planx-page-content">
         <div className="mx-auto max-w-7xl">
           <Link
             to="/explore"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-md transition hover:bg-white/15"
+            className="planx-button-secondary inline-flex items-center gap-2 px-4 py-2 text-sm font-medium"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -96,7 +84,7 @@ const DestinationDetails = () => {
             Back to Explore
           </Link>
 
-          <div className="mt-8 overflow-hidden rounded-[40px] border border-white/10 bg-white/5 shadow-[0_30px_100px_rgba(0,0,0,0.22)] backdrop-blur-md">
+          <div className="planx-panel mt-8 overflow-hidden rounded-[40px]">
             <div className="relative h-[280px] sm:h-[340px] lg:h-[380px]">
               <img
                 src={data.image || fallbackHero}
@@ -108,10 +96,10 @@ const DestinationDetails = () => {
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,16,26,0.18)_0%,rgba(3,16,26,0.52)_72%,rgba(3,16,26,0.76)_100%)]" />
               <div className="absolute inset-x-0 bottom-0 p-8 sm:p-10 lg:p-12">
-                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#8edcff]">
+                <p className="planx-kicker border-none bg-white/78">
                   Destination Guide
                 </p>
-                <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+                <h1 className="mt-4 max-w-3xl font-[var(--font-editorial)] text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
                   {data.name}
                 </h1>
                 <p className="mt-4 max-w-2xl text-base leading-8 text-slate-200">
@@ -151,7 +139,7 @@ const DestinationDetails = () => {
                 ].map((item, index) => (
                   <div
                     key={item.title}
-                    className={`max-w-sm rounded-[28px] border border-white/10 bg-[#10353d]/65 p-5 text-white shadow-[0_24px_80px_rgba(3,18,24,0.18)] backdrop-blur-md animate-[fadeUp_1000ms_ease-out] ${
+                    className={`max-w-sm rounded-[28px] border border-[#15283d]/10 bg-[linear-gradient(180deg,#17304a_0%,#264968_100%)] p-5 text-white shadow-[0_24px_80px_rgba(3,18,24,0.18)] animate-[fadeUp_1000ms_ease-out] ${
                       index === 0 ? "lg:mr-0" : index === 1 ? "lg:mr-10" : "lg:mr-4"
                     }`}
                   >
@@ -289,7 +277,7 @@ const DestinationDetails = () => {
                   <Link
                     to="/plan-trip"
                     state={{ destination: data.name }}
-                    className="mt-8 inline-flex w-full items-center justify-center rounded-[22px] border border-[#8edcff]/35 bg-[#0b3b43]/60 px-6 py-4 text-base font-semibold text-white shadow-[0_18px_45px_rgba(7,20,37,0.18)] backdrop-blur-md transition hover:border-[#53d6f7] hover:bg-[#1ec7f3] hover:text-slate-950"
+                    className="planx-button mt-8 inline-flex w-full px-6 py-4 text-base"
                   >
                     Plan Your Trip
                   </Link>

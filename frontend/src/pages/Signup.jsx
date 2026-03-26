@@ -34,23 +34,15 @@ const Signup = ({ onAuth }) => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#062f35] text-white">
-      <img
-        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80"
-        alt="Turquoise ocean and bright shoreline"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,24,31,0.28)_0%,rgba(4,24,31,0.46)_32%,rgba(4,24,31,0.72)_66%,rgba(4,24,31,0.86)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(7,190,210,0.14),transparent_30%)]" />
-
-      <div className="relative z-10 px-6 pb-16 pt-28 sm:px-10 lg:px-12">
+    <div className="planx-page">
+      <div className="planx-page-content">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_0.85fr] lg:items-center">
-            <div className="rounded-[40px] border border-white/10 bg-white/5 px-8 py-12 shadow-[0_30px_100px_rgba(0,0,0,0.22)] backdrop-blur-md sm:px-12">
+            <div className="planx-dark-panel rounded-[40px] px-8 py-12 sm:px-12">
               <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#8edcff]">
                 Create Account
               </p>
-              <h1 className="mt-5 max-w-2xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mt-5 max-w-2xl font-[var(--font-editorial)] text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
                 Start building smarter trips with your own TripWise workspace.
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-8 text-slate-200">
@@ -73,14 +65,14 @@ const Signup = ({ onAuth }) => {
               </div>
             </div>
 
-            <div className="rounded-[36px] border border-white/30 bg-[rgba(255,255,255,0.72)] p-8 shadow-[0_30px_100px_rgba(0,0,0,0.2)] backdrop-blur-[28px] sm:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#147ea2]">
+            <div className="planx-panel rounded-[36px] p-8 sm:p-10">
+              <p className="planx-kicker">
                 Account Setup
               </p>
-              <h2 className="mt-4 text-4xl font-semibold tracking-tight text-slate-950">
+              <h2 className="planx-heading mt-4 text-4xl font-semibold tracking-tight text-slate-950">
                 Create Your Account
               </h2>
-              <p className="mt-3 text-base leading-7 text-slate-600">
+              <p className="planx-subtle mt-3 text-base leading-7">
                 Join TripWise and keep your destinations, routes, and planning history in one place.
               </p>
 
@@ -124,10 +116,7 @@ const Signup = ({ onAuth }) => {
                   />
                 </div>
 
-                <button
-                  className="inline-flex w-full items-center justify-center rounded-[22px] border border-[#8edcff]/35 bg-[#0b3b43]/60 px-6 py-4 text-base font-semibold text-white shadow-[0_18px_45px_rgba(7,20,37,0.18)] backdrop-blur-md transition hover:border-[#53d6f7] hover:bg-[#1ec7f3] hover:text-slate-950"
-                  type="submit"
-                >
+                <button className="planx-button w-full px-6 py-4 text-base" type="submit">
                   Sign Up
                 </button>
 
