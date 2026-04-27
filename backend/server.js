@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
     databaseConfigReason: mongoUriStatus.reason,
     openTripMapConfigured: hasOpenTripMapKey(),
     geoapifyConfigured: hasGeoapifyKey(),
-    allowedOrigins: process.env.FRONTEND_URL || "*"
+    // allowedOrigins removed to prevent crash
   });
 });
 
