@@ -75,7 +75,6 @@ const logStartupDebug = () => {
     openTripMapKeyPreview: getOpenTripMapKeyPreview(),
     geoapifyConfigured: hasGeoapifyKey(),
     geoapifyKeyPreview: getGeoapifyKeyPreview(),
-    allowedOrigins,
     routes: [
       "GET /",
       "GET /api/places",
