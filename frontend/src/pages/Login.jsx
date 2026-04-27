@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import GoogleAuthSection from "../components/GoogleAuthSection.jsx";
-import { API_BASE_URL, persistAuthSession } from "../utils/auth.js";
+import { API, persistAuthSession } from "../utils/auth.js";
 
 const DASHBOARD_ROUTE = "/my-trips";
 
@@ -23,7 +23,8 @@ const Login = ({ onAuth }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, formData);
+      console.log("API URL:", import.meta.env.VITE_API_URL);
+      const response = await axios.post(`${API}/api/auth/login`, formData);
       persistAuthSession(response.data);
       onAuth();
       navigate(DASHBOARD_ROUTE);
@@ -44,7 +45,8 @@ const Login = ({ onAuth }) => {
     setIsGoogleLoading(true);
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/auth/google`, {
+      console.log("API URL:", import.meta.env.VITE_API_URL);
+      const response = await axios.post(`${API}/api/auth/google`, {
         accessToken: tokenResponse.access_token
       });
       persistAuthSession(response.data);
