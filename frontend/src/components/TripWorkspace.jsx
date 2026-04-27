@@ -1109,7 +1109,7 @@ const TripWorkspace = ({ initialData, readOnly = false, showReadOnlyActions = tr
   }
 
   return (
-    <section className="relative isolate overflow-x-hidden px-4 py-8 sm:px-6 lg:px-10">
+    <section className="relative isolate overflow-x-hidden px-4 py-8 sm:px-6 lg:px-10 bg-[#f5f8fb]">
       <div className="pointer-events-none fixed left-[-10000px] top-0 z-[-1] opacity-0">
         <div ref={pdfContentRef} className="w-[794px] bg-white px-10 py-10 text-slate-900">
           <section className="rounded-[28px] bg-[#0b3b43] px-8 py-8 text-white">
