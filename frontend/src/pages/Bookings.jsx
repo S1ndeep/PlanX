@@ -5,15 +5,15 @@ import indiaDestinations from "../data/indiaDestinations.js";
 const bookingHighlights = [
   {
     title: "Hotel partners",
-    description: "Jump into destination-based hotel searches with fast booking links."
+    icon: "🏨"
   },
   {
     title: "Flight planning",
-    description: "Compare route options once your city is locked in for a trip."
+    icon: "✈️"
   },
   {
     title: "Activity add-ons",
-    description: "Move from planning into tours, tickets, and bookable experiences."
+    icon: "🎟️"
   }
 ];
 
@@ -52,12 +52,12 @@ const Bookings = () => {
                 {bookingHighlights.map((option, index) => (
                   <div
                     key={option.title}
-                    className={`max-w-sm rounded-[28px] border border-white/10 bg-[#10353d]/65 p-5 text-white shadow-[0_24px_80px_rgba(3,18,24,0.18)] backdrop-blur-md animate-[fadeUp_1000ms_ease-out] ${
+                    className={`flex items-center gap-4 max-w-sm rounded-[24px] border border-white/10 bg-gradient-to-br from-[#164a5a]/80 to-[#0e2c36]/80 p-5 text-white shadow-[0_12px_40px_rgba(3,18,24,0.14)] backdrop-blur-md animate-[fadeUp_1000ms_ease-out] ${
                       index === 0 ? "lg:mr-0" : index === 1 ? "lg:mr-10" : "lg:mr-4"
                     }`}
                   >
-                    <h2 className="text-xl font-semibold text-white">{option.title}</h2>
-                    <p className="mt-3 text-sm leading-7 text-slate-200">{option.description}</p>
+                    <span className="text-3xl select-none" aria-hidden="true">{option.icon}</span>
+                    <h2 className="text-lg font-bold text-white tracking-wide">{option.title}</h2>
                   </div>
                 ))}
               </div>
