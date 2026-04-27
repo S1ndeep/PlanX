@@ -31,20 +31,10 @@ dotenv.config({ path: path.join(__dirname, ".env") });
 const app = express();
 const startupTimestamp = new Date().toISOString();
 const mongoUriStatus = getMongoUriStatus();
-const allowedOrigins = (process.env.FRONTEND_URL || "http://localhost:5173,http://localhost:4173")
-  .split(",")
-  .map((origin) => origin.trim())
-  .filter(Boolean);
-
 app.use(
   cors({
-    origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-
-      return callback(new Error("CORS blocked for this origin"));
-    }
+    origin: process.env.FRONTEND_URL,
+    credentials: true
   })
 );
 app.use(express.json());
