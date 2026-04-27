@@ -96,6 +96,58 @@ Default local URLs:
 - Frontend: `http://localhost:5173`
 - Backend: `http://localhost:5000`
 
+## Deploy To Render
+
+This repository includes a root `render.yaml` for deploying both apps on Render:
+
+- `tripwise-backend` as a Node web service from `backend/`
+- `tripwise-frontend` as a static site from `frontend/`
+
+### Steps
+
+1. Push this repo to GitHub.
+2. In Render, create a new Blueprint.
+3. Connect this GitHub repository.
+4. Render will detect `render.yaml` and provision both services.
+
+### Backend environment variables
+
+Required:
+
+- `MONGO_URI`
+- `JWT_SECRET`
+- `FRONTEND_URL`
+- `PASSWORD_RESET_URL_BASE`
+- `OPENTRIPMAP_API_KEY`
+- `GEOAPIFY_API_KEY`
+
+Optional depending on features you want enabled:
+
+- `GOOGLE_CLIENT_ID`
+- `TRAVELADVISOR_API_KEY`
+- `OPENWEATHER_API_KEY`
+- `YOUTUBE_API_KEY`
+- `GEMINI_API_KEY`
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_SECURE`
+- `SMTP_USER`
+- `SMTP_PASS`
+- `SMTP_FROM`
+
+### Frontend environment variables
+
+- `VITE_API_BASE_URL`
+  Example: `https://tripwise-backend.onrender.com`
+- `VITE_GOOGLE_CLIENT_ID`
+
+### Important
+
+After your frontend deploys, set the backend values:
+
+- `FRONTEND_URL` to your frontend Render URL
+- `PASSWORD_RESET_URL_BASE` to that same frontend URL
+
 ## Available Scripts
 
 Backend:

@@ -2,8 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import indiaDestinations from "../data/indiaDestinations.js";
-
-const API_BASE_URL = "http://localhost:5000";
+import { API_BASE_URL } from "../utils/auth.js";
 const interestOptions = ["food", "museums", "parks", "landmarks", "shopping"];
 
 const formatDateInput = (date) => {

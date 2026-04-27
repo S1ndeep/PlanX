@@ -5,10 +5,9 @@ import AddPlaceModal from "./AddPlaceModal.jsx";
 import ItineraryEditor from "./ItineraryEditor.jsx";
 import { upsertLocalDraftTrip } from "./localDraftTrips.js";
 import WeatherCards from "./WeatherCards.jsx";
+import { API_BASE_URL } from "../utils/auth.js";
 
 const PlacesMap = lazy(() => import("./PlacesMap.jsx"));
-
-const API_BASE_URL = "http://localhost:5000";
 
 const slotKeyMap = {
   Morning: "morning",

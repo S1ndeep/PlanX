@@ -9,8 +9,7 @@ import {
   addPlaceToLocalDraftTrip,
   getLocalDraftPlacesForCity
 } from "../components/localDraftTrips.js";
-
-const API_BASE_URL = "http://localhost:5000";
+import { API_BASE_URL } from "../utils/auth.js";
 
 const curatedCities = [
   {

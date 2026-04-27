@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { loadLocalDraftTrips } from "./localDraftTrips.js";
 import { countTripPlaces, isDraftTrip } from "./tripUtils.js";
-
-const API_BASE_URL = "http://localhost:5000";
+import { API_BASE_URL } from "../utils/auth.js";
 
 const buildFocusLabel = (trip = {}) => {
   if (Array.isArray(trip.interests) && trip.interests.length > 0) {

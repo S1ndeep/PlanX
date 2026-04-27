@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import CityCard from "../components/CityCard.jsx";
-
-const API_BASE_URL = "http://localhost:5000";
+import { API_BASE_URL } from "../utils/auth.js";
 
 const ExploreCities = () => {
   const [query, setQuery] = useState("");
