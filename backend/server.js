@@ -33,7 +33,7 @@ const startupTimestamp = new Date().toISOString();
 const mongoUriStatus = getMongoUriStatus();
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL || "*",
     credentials: true
   })
 );
@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
     databaseConfigReason: mongoUriStatus.reason,
     openTripMapConfigured: hasOpenTripMapKey(),
     geoapifyConfigured: hasGeoapifyKey(),
-    allowedOrigins
+    allowedOrigins: process.env.FRONTEND_URL || "*"
   });
 });
 
