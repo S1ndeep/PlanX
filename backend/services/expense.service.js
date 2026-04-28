@@ -76,8 +76,14 @@ export const calculateExpenseSummary = (expenses = []) => {
     balance: Number(((paid.get(userId) || 0) - (owed.get(userId) || 0)).toFixed(2))
   }));
 
-  const debtors = balances.filter((item) => item.balance < 0).sort((a, b) => a.balance - b.balance);
-  const creditors = balances.filter((item) => item.balance > 0).sort((a, b) => b.balance - a.balance);
+  const debtors = balances
+    .filter((item) => item.balance < 0)
+    .map((item) => ({ ...item }))
+    .sort((a, b) => a.balance - b.balance);
+  const creditors = balances
+    .filter((item) => item.balance > 0)
+    .map((item) => ({ ...item }))
+    .sort((a, b) => b.balance - a.balance);
   const settlements = [];
   let debtorIndex = 0;
   let creditorIndex = 0;
