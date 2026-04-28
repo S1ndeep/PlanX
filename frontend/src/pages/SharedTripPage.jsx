@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import TripWorkspace from "../components/TripWorkspace.jsx";
 import { API_BASE_URL } from "../utils/auth.js";
@@ -8,11 +8,13 @@ const buildRatingLabel = (rating = 0) => `${rating}/5`;
 
 const SharedTripPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [tripData, setTripData] = useState(null);
   const [error, setError] = useState("");
   const [reviewForm, setReviewForm] = useState({ rating: 5, comment: "" });
   const [reviewMessage, setReviewMessage] = useState("");
   const [isSubmittingReview, setIsSubmittingReview] = useState(false);
+  const [importState, setImportState] = useState({ loading: false, message: "" });
   const token = localStorage.getItem("token");
   const currentUserId = localStorage.getItem("userId");
 
@@ -44,6 +46,58 @@ const SharedTripPage = () => {
       });
     }
   }, [currentUserId, tripData]);
+
+  useEffect(() => {
+    if (!token || !tripData?._id || !currentUserId) {
+      return;
+    }
+
+    if (String(tripData.userId || "") === String(currentUserId)) {
+      setImportState({ loading: false, message: "This shared trip is already in your My Trips." });
+      return;
+    }
+
+    let isActive = true;
+
+    const importTrip = async () => {
+      try {
+        setImportState({ loading: true, message: "" });
+        const response = await axios.post(
+          `${API_BASE_URL}/api/trips/${tripData._id}/import`,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
+        );
+
+        if (!isActive) {
+          return;
+        }
+
+        setImportState({
+          loading: false,
+          message: response.data?.message || "Trip added to your account."
+        });
+      } catch (importError) {
+        if (!isActive) {
+          return;
+        }
+
+        setImportState({
+          loading: false,
+          message: importError.response?.data?.message || "Unable to add this trip to your account right now."
+        });
+      }
+    };
+
+    importTrip();
+
+    return () => {
+      isActive = false;
+    };
+  }, [currentUserId, token, tripData?._id, tripData?.userId]);
 
   if (error) {
     return <div className="px-6 py-16 text-center text-slate-500">{error}</div>;
@@ -193,6 +247,22 @@ const SharedTripPage = () => {
             )}
 
             <div className="mt-6">
+              {token && (
+                <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-[20px] border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                  <p>
+                    {importState.loading
+                      ? "Adding this shared trip to your My Trips..."
+                      : importState.message || "Open this trip once and we will save it to your account."}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => navigate("/my-trips")}
+                    className="rounded-[14px] bg-[#0b3b43] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#147ea2]"
+                  >
+                    Open My Trips
+                  </button>
+                </div>
+              )}
               <h3 className="text-lg font-semibold text-slate-950">Traveler reviews</h3>
               {owner.reviews?.length > 0 ? (
                 <div className="mt-4 grid gap-4">

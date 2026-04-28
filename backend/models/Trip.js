@@ -7,6 +7,11 @@ const tripSchema = new mongoose.Schema(
       ref: "User",
       required: false
     },
+    clonedFromTripId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Trip",
+      default: null
+    },
     city: {
       type: String,
       required: true

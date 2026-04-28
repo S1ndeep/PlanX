@@ -88,6 +88,27 @@ const escapeHtml = (value = "") =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 
+const copyTextToClipboard = async (value) => {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value);
+    return true;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = value;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "absolute";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  try {
+    return document.execCommand("copy");
+  } finally {
+    document.body.removeChild(textarea);
+  }
+};
+
 const buildEditorState = (itinerary = []) => {
   if (!itinerary) return {};
 
@@ -864,7 +885,7 @@ const TripWorkspace = ({ initialData, readOnly = false, showReadOnlyActions = tr
     };
   }, [coordinates, dayOptions.length, weather.length]);
 
-  const handleSaveTrip = async () => {
+  const createShareableTrip = async ({ navigateAfterSave }) => {
     const token = localStorage.getItem("token");
     const localDraftPayload = {
       city,
@@ -886,6 +907,17 @@ const TripWorkspace = ({ initialData, readOnly = false, showReadOnlyActions = tr
     };
     const savedDrafts = upsertLocalDraftTrip(localDraftPayload);
     const latestSavedTrip = savedDrafts.find((trip) => trip.city === city) || savedDrafts[0];
+    const serverPayload = {
+      city,
+      days: dayOptions.length,
+      placesPerDay,
+      itinerary,
+      interests,
+      coordinates,
+      weather,
+      route: routeData,
+      budgetEstimate: budgetState.estimate
+    };
 
     if (!token) {
       setSaveState({
@@ -893,29 +925,21 @@ const TripWorkspace = ({ initialData, readOnly = false, showReadOnlyActions = tr
         message: "Trip saved locally. Log in later if you want cloud saving and sharing.",
         shareUrl: ""
       });
-      navigate("/my-trips", {
-        state: {
-          savedTripId: latestSavedTrip?._id || null
-        }
-      });
-      return;
+      if (navigateAfterSave) {
+        navigate("/my-trips", {
+          state: {
+            savedTripId: latestSavedTrip?._id || null
+          }
+        });
+      }
+      return { shareUrl: "", requiresLogin: true };
     }
 
     try {
       setSaveState({ saving: true, message: "", shareUrl: "" });
       const response = await axios.post(
         `${API_BASE_URL}/api/trips`,
-        {
-          city,
-          days: dayOptions.length,
-          placesPerDay,
-          itinerary,
-          interests,
-          coordinates,
-          weather,
-          route: routeData,
-          budgetEstimate: budgetState.estimate
-        },
+        serverPayload,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -929,11 +953,18 @@ const TripWorkspace = ({ initialData, readOnly = false, showReadOnlyActions = tr
         message: "Trip saved successfully.",
         shareUrl
       });
-      navigate("/my-trips", {
-        state: {
-          savedTripId: response.data?.trip?._id || latestSavedTrip?._id || null
-        }
-      });
+      if (navigateAfterSave) {
+        navigate("/my-trips", {
+          state: {
+            savedTripId: response.data?.trip?._id || latestSavedTrip?._id || null
+          }
+        });
+      }
+      return {
+        shareUrl,
+        tripId: response.data?.trip?._id || latestSavedTrip?._id || null,
+        requiresLogin: false
+      };
     } catch (error) {
       setSaveState({
         saving: false,
@@ -942,19 +973,46 @@ const TripWorkspace = ({ initialData, readOnly = false, showReadOnlyActions = tr
           "Server save failed, so this trip was saved locally on this device.",
         shareUrl: ""
       });
-      navigate("/my-trips", {
-        state: {
-          savedTripId: latestSavedTrip?._id || null
-        }
-      });
+      if (navigateAfterSave) {
+        navigate("/my-trips", {
+          state: {
+            savedTripId: latestSavedTrip?._id || null
+          }
+        });
+      }
+      throw error;
+    }
+  };
+
+  const handleSaveTrip = async () => {
+    try {
+      await createShareableTrip({ navigateAfterSave: true });
+    } catch {
+      // createShareableTrip already updates UI state and navigation behavior
     }
   };
 
   const handleShareTrip = async () => {
-    const shareUrl = saveState.shareUrl || (readOnly ? window.location.href : "");
+    let shareUrl = saveState.shareUrl || (readOnly ? window.location.href : "");
+
+    if (!shareUrl && !readOnly) {
+      try {
+        const result = await createShareableTrip({ navigateAfterSave: false });
+        if (result?.requiresLogin) {
+          setActionMessage("Login is required to create a shareable trip link.");
+          return;
+        }
+        shareUrl = result?.shareUrl || "";
+      } catch (error) {
+        setActionMessage(
+          error.response?.data?.message || "Unable to create a share link right now."
+        );
+        return;
+      }
+    }
 
     if (!shareUrl) {
-      setActionMessage("Save the trip first, then share the generated link.");
+      setActionMessage("Unable to create a share link right now.");
       return;
     }
 
@@ -969,10 +1027,18 @@ const TripWorkspace = ({ initialData, readOnly = false, showReadOnlyActions = tr
         return;
       }
 
-      await navigator.clipboard.writeText(shareUrl);
+      const copied = await copyTextToClipboard(shareUrl);
+      if (!copied) {
+        throw new Error("Clipboard copy failed");
+      }
       setActionMessage("Share link copied.");
     } catch (error) {
-      setActionMessage("Unable to share right now.");
+      try {
+        const copied = await copyTextToClipboard(shareUrl);
+        setActionMessage(copied ? "Share link copied." : "Unable to share right now.");
+      } catch {
+        setActionMessage("Unable to share right now.");
+      }
     }
   };
 

@@ -4,6 +4,7 @@ import {
   deleteTrip,
   getMyTrips,
   getTripById,
+  importSharedTrip,
   updateTripStatus,
   upsertTripReview
 } from "../controllers/trip.controller.js";
@@ -15,6 +16,7 @@ router.post("/create", authMiddleware, createTrip);
 router.get("/my-trips", authMiddleware, getMyTrips);
 router.post("/", authMiddleware, createTrip);
 router.get("/", authMiddleware, getMyTrips);
+router.post("/:id/import", authMiddleware, importSharedTrip);
 router.patch("/:id/status", authMiddleware, updateTripStatus);
 router.patch("/:id/review", authMiddleware, upsertTripReview);
 router.delete("/:id", authMiddleware, deleteTrip);

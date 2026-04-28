@@ -154,6 +154,69 @@ export const createTrip = async (req, res) => {
   }
 };
 
+export const importSharedTrip = async (req, res) => {
+  try {
+    const sourceTrip = await Trip.findById(req.params.id).lean();
+
+    if (!sourceTrip) {
+      return res.status(404).json({ message: "Trip not found" });
+    }
+
+    if (String(sourceTrip.userId || "") === String(req.user.id)) {
+      return res.json({
+        message: "This trip is already in your account.",
+        trip: sourceTrip,
+        shareUrl: `/trip/${sourceTrip._id}`,
+        imported: false,
+        alreadyExists: true
+      });
+    }
+
+    const existingImportedTrip = await Trip.findOne({
+      userId: req.user.id,
+      clonedFromTripId: sourceTrip._id
+    });
+
+    if (existingImportedTrip) {
+      return res.json({
+        message: "Trip already added to your account.",
+        trip: existingImportedTrip,
+        shareUrl: `/trip/${existingImportedTrip._id}`,
+        imported: false,
+        alreadyExists: true
+      });
+    }
+
+    const importedTrip = await Trip.create({
+      userId: req.user.id,
+      clonedFromTripId: sourceTrip._id,
+      city: sourceTrip.city,
+      startLocation: sourceTrip.startLocation || "",
+      destinations: Array.isArray(sourceTrip.destinations) ? sourceTrip.destinations : [],
+      days: sourceTrip.days,
+      placesPerDay: sourceTrip.placesPerDay || 3,
+      interests: Array.isArray(sourceTrip.interests) ? sourceTrip.interests : [],
+      coordinates: sourceTrip.coordinates || {},
+      itinerary: sourceTrip.itinerary,
+      weather: Array.isArray(sourceTrip.weather) ? sourceTrip.weather : [],
+      route: sourceTrip.route || null,
+      budgetEstimate: sourceTrip.budgetEstimate || null,
+      status: "planned",
+      isPublic: true
+    });
+
+    return res.status(201).json({
+      message: "Trip added to your account.",
+      trip: importedTrip,
+      shareUrl: `/trip/${importedTrip._id}`,
+      imported: true,
+      alreadyExists: false
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "Failed to import trip" });
+  }
+};
+
 export const updateTripStatus = async (req, res) => {
   try {
     const { status } = req.body || {};
