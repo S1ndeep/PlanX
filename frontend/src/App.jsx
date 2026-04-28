@@ -18,6 +18,8 @@ import Support from "./pages/Support.jsx";
 import Bookings from "./pages/Bookings.jsx";
 import TripViewPage from "./pages/TripViewPage.jsx";
 import DirectionsPage from "./pages/DirectionsPage.jsx";
+import AdvancedTripPlanner from "./pages/AdvancedTripPlanner.jsx";
+import JoinGroupPage from "./pages/JoinGroupPage.jsx";
 
 const App = () => {
   const navigate = useNavigate();
@@ -72,6 +74,12 @@ const App = () => {
         <Route path="/itinerary" element={<ItineraryPage />} />
         <Route path="/trip-view" element={<TripViewPage />} />
         <Route path="/trip-directions" element={<DirectionsPage />} />
+        <Route path="/advanced-planner" element={<AdvancedTripPlanner defaultTab="road" />} />
+        <Route path="/road-trip" element={<AdvancedTripPlanner defaultTab="road" />} />
+        <Route path="/ai-planner" element={<AdvancedTripPlanner defaultTab="ai" />} />
+        <Route path="/trip-groups" element={<AdvancedTripPlanner defaultTab="groups" />} />
+        <Route path="/trip-expenses" element={<AdvancedTripPlanner defaultTab="expenses" />} />
+        <Route path="/groups/join/:token" element={<JoinGroupPage />} />
         <Route path="/trip/:id" element={<SharedTripPage />} />
         <Route path="/support" element={<Support />} />
       </Routes>

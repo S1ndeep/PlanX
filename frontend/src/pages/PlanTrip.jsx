@@ -1,8 +1,32 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import indiaDestinations from "../data/indiaDestinations.js";
 import { API_BASE_URL } from "../utils/auth.js";
+
+const advancedToolLinks = [
+  {
+    to: "/road-trip",
+    title: "Road Trip",
+    caption: "Long-route planning"
+  },
+  {
+    to: "/ai-planner",
+    title: "AI Planner",
+    caption: "Fast itinerary drafts"
+  },
+  {
+    to: "/trip-groups",
+    title: "Groups",
+    caption: "Shared planning"
+  },
+  {
+    to: "/trip-expenses",
+    title: "Expenses",
+    caption: "Trip cost tracking"
+  }
+];
+
 const interestOptions = ["food", "museums", "parks", "landmarks", "shopping"];
 
 const formatDateInput = (date) => {
@@ -486,6 +510,32 @@ const PlanTrip = () => {
           <p className="mt-5 max-w-3xl text-lg leading-9 text-slate-600">
             Pick your destination, choose how many days you have, and let TripWise shape top attractions plus food and local interests into a balanced day-by-day route.
           </p>
+
+          <div className="mt-8 rounded-[24px] border border-[#d6ecf4] bg-white/70 p-4 backdrop-blur-sm sm:p-5">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#147ea2]">
+                Need a specific tool?
+              </p>
+              <Link
+                to="/road-trip"
+                className="rounded-full border border-[#b5ddec] bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#147ea2] transition hover:bg-[#f3fbff]"
+              >
+                Open Modules
+              </Link>
+            </div>
+            <div className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+              {advancedToolLinks.map((tool) => (
+                <Link
+                  key={tool.title}
+                  to={tool.to}
+                  className="rounded-2xl border border-white/70 bg-[#f8fdff] px-4 py-3 transition hover:border-[#b9e7f4] hover:bg-white"
+                >
+                  <p className="text-sm font-semibold text-slate-900">{tool.title}</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.14em] text-slate-500">{tool.caption}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <form onSubmit={handleSubmit} className="mt-12 space-y-9">
             <div className="grid gap-5 lg:grid-cols-4">

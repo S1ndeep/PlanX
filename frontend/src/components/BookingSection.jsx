@@ -94,36 +94,12 @@ const BookingSection = ({ destinations = [] }) => {
   };
 
   return (
-    <section className="rounded-[42px] border border-white/30 bg-[rgba(255,255,255,0.14)] px-6 py-8 shadow-[0_30px_100px_rgba(0,0,0,0.18)] backdrop-blur-md sm:px-8 lg:px-10">
-      <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8edcff]">
-            Affiliate Booking
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Book Your Trip</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-7 text-white/72">
-            Open trusted travel partners for hotels, flights, activities, and car rentals based on your selected destination.
-          </p>
-          <div className="mt-5 inline-flex rounded-full border border-white/20 bg-[rgba(8,30,38,0.34)] px-4 py-2 text-sm text-white/80 backdrop-blur-md">
-            {destinationHighlights[selectedDestination] || `Travel booking links for ${selectedDestination}.`}
-          </div>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-[0.85fr_1.15fr]">
-          <div className="rounded-[26px] border border-white/20 bg-[rgba(7,31,39,0.38)] p-5 backdrop-blur-md">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/75">
-              Best for
-            </p>
-            <p className="mt-3 text-lg font-semibold text-white">{selectedDestination}</p>
-            <p className="mt-2 text-sm leading-7 text-white/65">
-              Build bookings around the same destination you are planning inside TripWise.
-            </p>
-          </div>
-
-          <div ref={suggestionsRef}>
-            <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.24em] text-white/75">
-              Destination
-            </label>
+    <section className="w-full rounded-3xl bg-white/80 shadow-xl px-4 py-10 flex flex-col items-center">
+      <div className="w-full max-w-2xl flex flex-col items-center mb-8">
+        <div className="w-full flex flex-col items-center">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-widest text-[#147ea2]">Destination</label>
+          <div className="relative w-full">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#53d6f7] text-xl pointer-events-none">🔍</span>
             <input
               value={searchValue}
               onChange={(event) => {
@@ -131,20 +107,20 @@ const BookingSection = ({ destinations = [] }) => {
                 setShowSuggestions(true);
               }}
               placeholder="Search any city..."
-              className="w-full rounded-[22px] border border-white/25 bg-[rgba(7,31,39,0.56)] px-5 py-4 text-base text-white outline-none backdrop-blur-md transition placeholder:text-white/45 focus:border-[#53d6f7]"
+              className="w-full rounded-xl border border-[#53d6f7]/30 bg-white/90 pl-11 pr-4 py-3 text-lg text-[#0f172a] outline-none shadow focus:border-[#53d6f7] transition placeholder:text-[#53d6f7]/60"
+              ref={suggestionsRef}
             />
-
             {shouldShowSuggestions && (
-              <div className="mt-3 max-h-72 overflow-y-auto rounded-[22px] border border-white/20 bg-[rgba(7,31,39,0.94)] shadow-[0_24px_60px_rgba(0,0,0,0.24)] backdrop-blur-xl">
+              <div className="mt-2 max-h-56 overflow-y-auto rounded-xl border border-[#53d6f7]/30 bg-white/95 shadow-lg z-10 absolute left-0 right-0">
                 {filteredDestinations.map((destination) => (
                   <button
                     key={destination}
                     type="button"
                     onClick={() => handleDestinationSelect(destination)}
-                    className={`block w-full border-b border-white/10 px-4 py-3 text-left text-sm transition last:border-b-0 ${
+                    className={`block w-full border-b border-[#53d6f7]/10 px-4 py-2 text-left text-base transition last:border-b-0 ${
                       destination === selectedDestination
-                        ? "bg-[#1d6ed1] text-white"
-                        : "text-white/88 hover:bg-white/10"
+                        ? "bg-[#53d6f7]/80 text-[#0f172a] font-bold"
+                        : "text-[#147ea2] hover:bg-[#e0f7fa]"
                     }`}
                   >
                     {destination}
@@ -154,9 +130,11 @@ const BookingSection = ({ destinations = [] }) => {
             )}
           </div>
         </div>
+        <div className="mt-4 inline-flex rounded-full border border-[#53d6f7]/30 bg-[#e0f7fa]/80 px-6 py-3 text-base text-[#147ea2] shadow-md">
+          {destinationHighlights[selectedDestination] || `Travel booking links for ${selectedDestination}.`}
+        </div>
       </div>
-
-      <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <div className="w-full grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 animate-fadeInSlow">
         {bookingOptions.map((option) => (
           <BookingCard key={option.title} {...option} />
         ))}

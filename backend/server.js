@@ -14,6 +14,10 @@ import generateItineraryRoutes from "./routes/generateItinerary.routes.js";
 import placesRoutes from "./routes/places.routes.js";
 import travelRoutes from "./routes/travel.routes.js";
 import chatRoutes from "./routes/chat.routes.js";
+import roadTripRoutes from "./routes/roadTrip.routes.js";
+import groupTripRoutes from "./routes/groupTrip.routes.js";
+import expenseRoutes from "./routes/expense.routes.js";
+import aiTravelRoutes from "./routes/aiTravel.routes.js";
 import {
   getOpenTripMapKeyPreview,
   hasOpenTripMapKey
@@ -31,9 +35,45 @@ dotenv.config({ path: path.join(__dirname, ".env") });
 const app = express();
 const startupTimestamp = new Date().toISOString();
 const mongoUriStatus = getMongoUriStatus();
+
+const parseAllowedOrigins = (value = "") =>
+  value
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
+const allowedOrigins = [
+  ...parseAllowedOrigins(process.env.FRONTEND_URL || ""),
+  ...parseAllowedOrigins(process.env.FRONTEND_URLS || ""),
+  "http://localhost:5173",
+  "http://127.0.0.1:5173"
+].filter(Boolean);
+
+const isLocalViteOrigin = (origin = "") => {
+  if (process.env.NODE_ENV === "production") {
+    return false;
+  }
+
+  try {
+    const parsedOrigin = new URL(origin);
+    const isLocalHost = ["localhost", "127.0.0.1"].includes(parsedOrigin.hostname);
+    const isVitePort = Number(parsedOrigin.port) >= 5173 && Number(parsedOrigin.port) <= 5180;
+    return parsedOrigin.protocol === "http:" && isLocalHost && isVitePort;
+  } catch {
+    return false;
+  }
+};
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin) || isLocalViteOrigin(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(null, false);
+    },
     credentials: true
   })
 );
@@ -47,7 +87,7 @@ app.get("/", (req, res) => {
     databaseConfigReason: mongoUriStatus.reason,
     openTripMapConfigured: hasOpenTripMapKey(),
     geoapifyConfigured: hasGeoapifyKey(),
-    // allowedOrigins removed to prevent crash
+    allowedOrigins
   });
 });
 
@@ -61,6 +101,10 @@ app.use("/api", generateItineraryRoutes);
 app.use("/api", placesRoutes);
 app.use("/api/travel", travelRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/road-trips", roadTripRoutes);
+app.use("/api/groups", groupTripRoutes);
+app.use("/api/expenses", expenseRoutes);
+app.use("/api/ai", aiTravelRoutes);
 
 const PORT = process.env.PORT || 5000;
 
@@ -75,6 +119,7 @@ const logStartupDebug = () => {
     openTripMapKeyPreview: getOpenTripMapKeyPreview(),
     geoapifyConfigured: hasGeoapifyKey(),
     geoapifyKeyPreview: getGeoapifyKeyPreview(),
+    allowedOrigins,
     routes: [
       "GET /",
       "GET /api/places",
@@ -88,7 +133,11 @@ const logStartupDebug = () => {
       "POST /api/trips",
       "GET /api/trips",
       "GET /api/trips/:id",
-      "POST /api/chat"
+      "POST /api/chat",
+      "POST /api/road-trips",
+      "GET /api/groups",
+      "POST /api/expenses",
+      "POST /api/ai/itinerary"
     ]
   });
 };
@@ -103,9 +152,21 @@ connectDb()
     return dbStatus;
   })
   .then(() => {
-    app.listen(PORT, () => {
+    const server = app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
       logStartupDebug();
+    });
+
+    server.on("error", (error) => {
+      if (error.code === "EADDRINUSE") {
+        console.error(
+          `Port ${PORT} is already in use. Stop the existing backend process or set PORT to another value in backend/.env.`
+        );
+        process.exit(1);
+      }
+
+      console.error("Server startup error", error);
+      process.exit(1);
     });
   })
   .catch((error) => {
