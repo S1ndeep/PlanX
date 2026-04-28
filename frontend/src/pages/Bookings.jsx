@@ -21,3 +21,6 @@ const Bookings = () => {
 };
 
 export default Bookings;
+import BookingSection from "../components/BookingSection.jsx";
+import Footer from "../components/Footer.jsx";
+import indiaDestinations from "../data/indiaDestinations.js";
