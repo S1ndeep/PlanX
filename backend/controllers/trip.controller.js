@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import Trip from "../models/Trip.js";
 import User from "../models/User.js";
+import { validateReviewComment } from "../utils/reviewModeration.js";
 
 const slotOrder = ["morning", "afternoon", "evening"];
 
@@ -280,7 +281,8 @@ export const upsertTripReview = async (req, res) => {
   try {
     const { rating, comment = "", budgetSpent = null } = req.body || {};
     const parsedRating = Number(rating);
-    const normalizedComment = String(comment || "").trim();
+    const moderation = validateReviewComment(comment);
+    const normalizedComment = moderation.normalizedComment;
     const parsedBudgetSpent =
       budgetSpent === null || budgetSpent === undefined || budgetSpent === ""
         ? null
@@ -288,6 +290,10 @@ export const upsertTripReview = async (req, res) => {
 
     if (!Number.isInteger(parsedRating) || parsedRating < 1 || parsedRating > 5) {
       return res.status(400).json({ message: "rating must be an integer from 1 to 5" });
+    }
+
+    if (!moderation.ok) {
+      return res.status(400).json({ message: moderation.message });
     }
 
     if (

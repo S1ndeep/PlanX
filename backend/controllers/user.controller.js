@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import { validateReviewComment } from "../utils/reviewModeration.js";
 
 const MIN_REVIEW_LENGTH = 3;
 
@@ -102,10 +103,15 @@ export const upsertUserReview = async (req, res) => {
     const { userId } = req.params;
     const { rating, comment = "" } = req.body || {};
     const parsedRating = Number(rating);
-    const normalizedComment = String(comment || "").trim();
+    const moderation = validateReviewComment(comment);
+    const normalizedComment = moderation.normalizedComment;
 
     if (!Number.isInteger(parsedRating) || parsedRating < 1 || parsedRating > 5) {
       return res.status(400).json({ message: "rating must be an integer from 1 to 5" });
+    }
+
+    if (!moderation.ok) {
+      return res.status(400).json({ message: moderation.message });
     }
 
     if (normalizedComment && normalizedComment.length < MIN_REVIEW_LENGTH) {
