@@ -25,6 +25,22 @@ const featureRoutes = {
   expenses: "/trip-expenses"
 };
 
+const buildInviteUrl = (groupTrip) =>
+  groupTrip?.inviteToken ? `${window.location.origin}/groups/join/${groupTrip.inviteToken}` : "";
+
+const getGroupParticipantIds = (groupTrip) => {
+  const memberIds = (groupTrip?.members || [])
+    .map((member) => {
+      if (!member?.userId) return "";
+      if (typeof member.userId === "string") return member.userId;
+      if (member.userId._id) return String(member.userId._id);
+      return String(member.userId);
+    })
+    .filter(Boolean);
+
+  return [...new Set(memberIds)];
+};
+
 const AdvancedTripPlanner = ({ defaultTab = "road" }) => {
   const { t } = useI18n();
   const [activeTab, setActiveTab] = useState("road");
@@ -109,9 +125,23 @@ const AdvancedTripPlanner = ({ defaultTab = "road" }) => {
       setError("");
 
       try {
-        const data = await getExpenses(
-          groupResult?.groupTrip?._id ? { groupTripId: groupResult.groupTrip._id } : {}
-        );
+        let activeGroup = groupResult?.groupTrip || null;
+
+        if (!activeGroup) {
+          const groups = await getMyGroups();
+          setGroupList(groups);
+
+          if (groups.length > 0) {
+            activeGroup = groups[0];
+            setGroupResult({
+              groupTrip: activeGroup,
+              inviteUrl: buildInviteUrl(activeGroup)
+            });
+            setGroupStatus(`Selected group: ${activeGroup.name}`);
+          }
+        }
+
+        const data = await getExpenses(activeGroup?._id ? { groupTripId: activeGroup._id } : {});
         setExpenseData(data);
       } catch (caughtError) {
         const message =
@@ -195,14 +225,10 @@ const AdvancedTripPlanner = ({ defaultTab = "road" }) => {
   };
 
   const handleSelectGroup = (groupTrip) => {
-    const fallbackInviteUrl = groupTrip?.inviteToken
-      ? `${window.location.origin}/groups/join/${groupTrip.inviteToken}`
-      : "";
-
     setGroupResult((current) => ({
       ...current,
       groupTrip,
-      inviteUrl: current?.inviteUrl || fallbackInviteUrl
+      inviteUrl: current?.inviteUrl || buildInviteUrl(groupTrip)
     }));
     setGroupStatus(`Selected group: ${groupTrip.name}`);
   };
@@ -263,9 +289,7 @@ const AdvancedTripPlanner = ({ defaultTab = "road" }) => {
         if (deletionPayload.wasSelected) {
           setGroupResult({
             groupTrip,
-            inviteUrl: groupTrip.inviteToken
-              ? `${window.location.origin}/groups/join/${groupTrip.inviteToken}`
-              : ""
+            inviteUrl: buildInviteUrl(groupTrip)
           });
         }
       } finally {
@@ -316,9 +340,7 @@ const AdvancedTripPlanner = ({ defaultTab = "road" }) => {
     if (pendingGroupDeletion.wasSelected) {
       setGroupResult({
         groupTrip: pendingGroupDeletion.groupTrip,
-        inviteUrl: pendingGroupDeletion.groupTrip.inviteToken
-          ? `${window.location.origin}/groups/join/${pendingGroupDeletion.groupTrip.inviteToken}`
-          : ""
+        inviteUrl: buildInviteUrl(pendingGroupDeletion.groupTrip)
       });
     }
 
@@ -343,14 +365,22 @@ const AdvancedTripPlanner = ({ defaultTab = "road" }) => {
 
     setExpenseStatus("");
     runAction("expenses", async () => {
+      const selectedGroup = groupResult?.groupTrip || null;
+      const participantIds = selectedGroup?._id
+        ? getGroupParticipantIds(selectedGroup)
+        : [localStorage.getItem("userId")].filter(Boolean);
+      const normalizedParticipantIds = participantIds.length
+        ? participantIds
+        : [localStorage.getItem("userId")].filter(Boolean);
+
       await createExpense({
         title: normalizedTitle,
         amount: parsedAmount,
         category: expenseForm.category,
-        groupTripId: groupResult?.groupTrip?._id || null,
-        participants: [localStorage.getItem("userId")].filter(Boolean)
+        groupTripId: selectedGroup?._id || null,
+        participants: normalizedParticipantIds
       });
-      const data = await getExpenses(groupResult?.groupTrip?._id ? { groupTripId: groupResult.groupTrip._id } : {});
+      const data = await getExpenses(selectedGroup?._id ? { groupTripId: selectedGroup._id } : {});
       setExpenseData(data);
       setExpenseStatus("Expense added successfully.");
       setExpenseForm((current) => ({ ...current, amount: "", title: "" }));
