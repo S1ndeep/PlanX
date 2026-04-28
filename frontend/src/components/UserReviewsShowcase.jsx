@@ -81,10 +81,24 @@ const UserReviewsShowcase = ({
       try {
         setLoading(true);
         setError("");
-        const response = await axios.get(`${API_BASE_URL}/api/users/reviews/featured`, {
-          params: { limit }
-        });
-        const liveReviews = response.data?.reviews || [];
+        const [userResponse, tripResponse] = await Promise.all([
+          axios.get(`${API_BASE_URL}/api/users/reviews/featured`, {
+            params: { limit }
+          }),
+          axios.get(`${API_BASE_URL}/api/trips/reviews/featured`, {
+            params: { limit }
+          })
+        ]);
+        const liveReviews = [
+          ...(userResponse.data?.reviews || []),
+          ...(tripResponse.data?.reviews || [])
+        ]
+          .sort((firstReview, secondReview) => {
+            const firstTime = new Date(firstReview.updatedAt || firstReview.createdAt || 0).getTime();
+            const secondTime = new Date(secondReview.updatedAt || secondReview.createdAt || 0).getTime();
+            return secondTime - firstTime;
+          })
+          .slice(0, Math.max(limit, 3));
         setReviews(
           liveReviews.length > 0
             ? [...liveReviews, ...SAMPLE_REVIEWS].slice(0, Math.max(limit, 3))
@@ -175,7 +189,7 @@ const UserReviewsShowcase = ({
                   <div>
                     <p className={`font-semibold ${textHeadingClassName}`}>{review.reviewer.name}</p>
                     <p className={`text-sm ${textMutedClassName}`}>
-                      Reviewed {review.reviewFor.name}
+                      {review.sourceType === "trip" ? `Reviewed trip to ${review.reviewFor.name}` : `Reviewed ${review.reviewFor.name}`}
                     </p>
                   </div>
                 </div>
@@ -190,7 +204,11 @@ const UserReviewsShowcase = ({
 
               <div className={`mt-4 flex items-center justify-between text-xs ${textMutedClassName}`}>
                 <span>
-                  {review.reviewFor.reviewCount} {review.reviewFor.reviewCount === 1 ? "review" : "reviews"} total
+                  {review.sourceType === "trip"
+                    ? review.budgetSpent !== null && review.budgetSpent !== undefined
+                      ? `Budget spent: INR ${Number(review.budgetSpent).toLocaleString()}`
+                      : "Trip review"
+                    : `${review.reviewFor.reviewCount} ${review.reviewFor.reviewCount === 1 ? "review" : "reviews"} total`}
                 </span>
                 <span>{new Date(review.updatedAt || review.createdAt).toLocaleDateString()}</span>
               </div>

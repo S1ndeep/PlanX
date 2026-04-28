@@ -2,6 +2,7 @@ import express from "express";
 import {
   createTrip,
   deleteTrip,
+  getFeaturedTripReviews,
   getMyTrips,
   getTripById,
   importSharedTrip,
@@ -16,6 +17,7 @@ router.post("/create", authMiddleware, createTrip);
 router.get("/my-trips", authMiddleware, getMyTrips);
 router.post("/", authMiddleware, createTrip);
 router.get("/", authMiddleware, getMyTrips);
+router.get("/reviews/featured", getFeaturedTripReviews);
 router.post("/:id/import", authMiddleware, importSharedTrip);
 router.patch("/:id/status", authMiddleware, updateTripStatus);
 router.patch("/:id/review", authMiddleware, upsertTripReview);

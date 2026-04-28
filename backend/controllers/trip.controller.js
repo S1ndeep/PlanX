@@ -97,6 +97,31 @@ const extractDestinationsFromItinerary = (itinerary = {}) => {
   return destinations;
 };
 
+const buildFeaturedTripReviewCards = (trips = []) =>
+  trips
+    .filter((trip) => trip?.tripReview?.comment)
+    .map((trip) => ({
+      id: `trip-review-${trip._id}`,
+      rating: trip.tripReview.rating,
+      comment: trip.tripReview.comment,
+      createdAt: trip.tripReview.updatedAt || trip.updatedAt || trip.createdAt,
+      updatedAt: trip.tripReview.updatedAt || trip.updatedAt || trip.createdAt,
+      reviewer: {
+        id: trip.userId ? String(trip.userId._id || trip.userId) : `trip-owner-${trip._id}`,
+        name: trip.userId?.name || "Traveler",
+        profilePicture: trip.userId?.profilePicture || null
+      },
+      reviewFor: {
+        id: String(trip._id),
+        name: trip.city || "Trip",
+        profilePicture: null,
+        averageRating: trip.tripReview.rating,
+        reviewCount: 1
+      },
+      sourceType: "trip",
+      budgetSpent: trip.tripReview.budgetSpent ?? null
+    }));
+
 export const createTrip = async (req, res) => {
   try {
     const {
@@ -302,6 +327,34 @@ export const upsertTripReview = async (req, res) => {
     });
   } catch (error) {
     return res.status(500).json({ message: "Failed to save trip review" });
+  }
+};
+
+export const getFeaturedTripReviews = async (req, res) => {
+  try {
+    const requestedLimit = Number(req.query.limit || 6);
+    const limit = Math.min(Math.max(requestedLimit, 1), 12);
+
+    const trips = await Trip.find({
+      "tripReview.rating": { $gte: 1 },
+      "tripReview.comment": { $exists: true, $ne: "" }
+    })
+      .populate("userId", "name profilePicture")
+      .sort({ "tripReview.updatedAt": -1, updatedAt: -1 })
+      .limit(limit * 2)
+      .lean();
+
+    const featuredReviews = buildFeaturedTripReviewCards(trips)
+      .sort((firstReview, secondReview) => {
+        const firstTime = new Date(firstReview.updatedAt || firstReview.createdAt || 0).getTime();
+        const secondTime = new Date(secondReview.updatedAt || secondReview.createdAt || 0).getTime();
+        return secondTime - firstTime;
+      })
+      .slice(0, limit);
+
+    return res.json({ reviews: featuredReviews });
+  } catch (error) {
+    return res.status(500).json({ message: "Failed to fetch featured trip reviews" });
   }
 };
 
