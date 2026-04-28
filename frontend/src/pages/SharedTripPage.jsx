@@ -149,10 +149,10 @@ const SharedTripPage = () => {
     <div className="pb-12">
       {owner && (
         <section className="mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-[30px] border border-slate-200 bg-white/80 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.08)] backdrop-blur-md">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-              <div className="min-w-0">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#147ea2]">
+          <div className="overflow-hidden rounded-[34px] border border-white/12 bg-[linear-gradient(145deg,rgba(10,34,42,0.92),rgba(17,56,67,0.84))] p-6 shadow-[0_26px_80px_rgba(3,16,24,0.34)] backdrop-blur-xl sm:p-8">
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-stretch lg:justify-between">
+              <div className="min-w-0 flex-1 rounded-[28px] border border-white/10 bg-white/6 p-5 sm:p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8edcff]">
                   Trip creator
                 </p>
                 <div className="mt-3 flex items-center gap-4">
@@ -160,33 +160,39 @@ const SharedTripPage = () => {
                     <img
                       src={owner.profilePicture}
                       alt={owner.name}
-                      className="h-14 w-14 rounded-full object-cover"
+                      className="h-16 w-16 rounded-2xl object-cover ring-1 ring-white/10"
                     />
                   ) : (
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#dff7ff] text-lg font-semibold text-[#147ea2]">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#93e7ff,#2fb8e2)] text-2xl font-semibold text-[#08313a] shadow-[0_16px_35px_rgba(77,212,255,0.25)]">
                       {owner.name?.slice(0, 1)?.toUpperCase() || "T"}
                     </div>
                   )}
-                  <div>
-                    <h2 className="text-2xl font-semibold text-slate-950">{owner.name}</h2>
-                    <p className="mt-1 text-sm text-slate-600">
+                  <div className="min-w-0">
+                    <h2 className="truncate text-2xl font-semibold text-white sm:text-3xl">{owner.name}</h2>
+                    <p className="mt-1 text-sm text-white/65">
                       {owner.reviewCount} {owner.reviewCount === 1 ? "review" : "reviews"} | {owner.averageRating.toFixed(1)} / 5
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="rounded-[22px] border border-slate-200 bg-slate-50 px-5 py-4 text-sm text-slate-700">
-                <p className="font-semibold text-slate-900">Community rating</p>
-                <p className="mt-2 text-lg text-[#147ea2]">{buildRatingLabel(owner.averageRating.toFixed(1))}</p>
+              <div className="rounded-[28px] border border-[#7cdfff]/20 bg-[radial-gradient(circle_at_top,rgba(115,223,255,0.16),rgba(255,255,255,0.04))] px-6 py-5 text-sm text-white/70 lg:min-w-[220px]">
+                <p className="font-semibold uppercase tracking-[0.18em] text-white/65">Community rating</p>
+                <p className="mt-3 text-4xl font-semibold text-[#8edcff]">{buildRatingLabel(owner.averageRating.toFixed(1))}</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.18em] text-white/40">
+                  Based on {owner.reviewCount} {owner.reviewCount === 1 ? "review" : "reviews"}
+                </p>
               </div>
             </div>
 
             {canReview && (
-              <form onSubmit={handleSubmitReview} className="mt-6 rounded-[24px] border border-slate-200 bg-slate-50 p-5">
-                <div className="flex flex-col gap-4 md:flex-row md:items-end">
+              <form
+                onSubmit={handleSubmitReview}
+                className="mt-6 rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.05)] p-5 sm:p-6"
+              >
+                <div className="grid gap-4 lg:grid-cols-[180px_minmax(0,1fr)_auto] lg:items-end">
                   <div className="md:w-40">
-                    <label className="mb-2 block text-sm font-semibold text-slate-700">
+                    <label className="mb-2 block text-sm font-semibold text-white/78">
                       Your rating
                     </label>
                     <select
@@ -197,7 +203,7 @@ const SharedTripPage = () => {
                           rating: Number(event.target.value)
                         }))
                       }
-                      className="w-full rounded-[16px] border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-[#43cbea]"
+                      className="w-full rounded-[18px] border border-white/12 bg-[rgba(6,24,30,0.82)] px-4 py-3 text-sm text-white outline-none transition focus:border-[#53d6f7]"
                     >
                       {[5, 4, 3, 2, 1].map((value) => (
                         <option key={value} value={value}>
@@ -208,7 +214,7 @@ const SharedTripPage = () => {
                   </div>
 
                   <div className="flex-1">
-                    <label className="mb-2 block text-sm font-semibold text-slate-700">
+                    <label className="mb-2 block text-sm font-semibold text-white/78">
                       Short review
                     </label>
                     <textarea
@@ -221,35 +227,35 @@ const SharedTripPage = () => {
                         }))
                       }
                       placeholder="Share what others should know about planning with this traveler."
-                      className="w-full rounded-[16px] border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-[#43cbea]"
+                      className="w-full rounded-[18px] border border-white/12 bg-[rgba(6,24,30,0.82)] px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-[#53d6f7]"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmittingReview}
-                    className="rounded-[18px] bg-[#0b3b43] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#147ea2] disabled:opacity-70"
+                    className="rounded-[18px] bg-[linear-gradient(135deg,#1ec7f3,#53d6f7)] px-6 py-3 text-sm font-semibold text-slate-950 transition hover:brightness-105 disabled:opacity-70"
                   >
                     {isSubmittingReview ? "Saving..." : existingReview ? "Update Review" : "Post Review"}
                   </button>
                 </div>
 
                 {reviewMessage && (
-                  <p className="mt-3 text-sm text-slate-600">{reviewMessage}</p>
+                  <p className="mt-3 text-sm text-[#9ce8ff]">{reviewMessage}</p>
                 )}
               </form>
             )}
 
             {!token && (
-              <p className="mt-6 text-sm text-slate-600">
+              <p className="mt-6 rounded-[20px] border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-100">
                 Log in to leave a review for this trip creator.
               </p>
             )}
 
             <div className="mt-6">
               {token && (
-                <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-[20px] border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
-                  <p>
+                <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-[24px] border border-white/10 bg-[rgba(255,255,255,0.05)] px-4 py-4 text-sm text-white/72">
+                  <p className="max-w-2xl">
                     {importState.loading
                       ? "Adding this shared trip to your My Trips..."
                       : importState.message || "Open this trip once and we will save it to your account."}
@@ -257,19 +263,19 @@ const SharedTripPage = () => {
                   <button
                     type="button"
                     onClick={() => navigate("/my-trips")}
-                    className="rounded-[14px] bg-[#0b3b43] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#147ea2]"
+                    className="rounded-[16px] border border-[#8edcff]/30 bg-[#0d3f49] px-4 py-2 text-sm font-semibold text-white transition hover:border-[#53d6f7] hover:bg-[#145765]"
                   >
                     Open My Trips
                   </button>
                 </div>
               )}
-              <h3 className="text-lg font-semibold text-slate-950">Traveler reviews</h3>
+              <h3 className="text-lg font-semibold text-white">Traveler reviews</h3>
               {owner.reviews?.length > 0 ? (
                 <div className="mt-4 grid gap-4">
                   {owner.reviews.map((review) => (
                     <article
                       key={review.id}
-                      className="rounded-[22px] border border-slate-200 bg-white p-4"
+                      className="rounded-[24px] border border-white/10 bg-[rgba(255,255,255,0.05)] p-4"
                     >
                       <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
@@ -277,30 +283,30 @@ const SharedTripPage = () => {
                             <img
                               src={review.reviewerProfilePicture}
                               alt={review.reviewerName}
-                              className="h-10 w-10 rounded-full object-cover"
+                              className="h-11 w-11 rounded-2xl object-cover"
                             />
                           ) : (
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-sm font-semibold text-slate-700">
+                            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-sm font-semibold text-white">
                               {review.reviewerName?.slice(0, 1)?.toUpperCase() || "U"}
                             </div>
                           )}
                           <div>
-                            <p className="font-semibold text-slate-900">{review.reviewerName}</p>
-                            <p className="text-sm text-[#147ea2]">{buildRatingLabel(review.rating)}</p>
+                            <p className="font-semibold text-white">{review.reviewerName}</p>
+                            <p className="text-sm text-[#8edcff]">{buildRatingLabel(review.rating)}</p>
                           </div>
                         </div>
-                        <p className="text-xs text-slate-500">
+                        <p className="text-xs text-white/42">
                           {new Date(review.updatedAt || review.createdAt).toLocaleDateString()}
                         </p>
                       </div>
                       {review.comment && (
-                        <p className="mt-3 text-sm leading-7 text-slate-600">{review.comment}</p>
+                        <p className="mt-3 text-sm leading-7 text-white/72">{review.comment}</p>
                       )}
                     </article>
                   ))}
                 </div>
               ) : (
-                <p className="mt-3 text-sm text-slate-500">No reviews yet.</p>
+                <p className="mt-3 text-sm text-white/48">No reviews yet.</p>
               )}
             </div>
           </div>
