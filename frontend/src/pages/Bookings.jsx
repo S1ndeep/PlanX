@@ -1,13 +1,4 @@
-import BookingSection from "../components/BookingSection.jsx";
-import Footer from "../components/Footer.jsx";
-import indiaDestinations from "../data/indiaDestinations.js";
 
-const Bookings = () => {
-  const destinationOptions = Array.from(
-    new Set(indiaDestinations.map((destination) => destination.city.trim()).filter(Boolean))
-  ).sort((firstCity, secondCity) => firstCity.localeCompare(secondCity));
-
-  return (
 const Bookings = () => {
   const destinationOptions = Array.from(
     new Set(indiaDestinations.map((destination) => destination.city.trim()).filter(Boolean))
@@ -30,4 +21,3 @@ const Bookings = () => {
 };
 
 export default Bookings;
-        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80"
