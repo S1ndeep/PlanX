@@ -1,4 +1,8 @@
 
+import BookingSection from "../components/BookingSection.jsx";
+import Footer from "../components/Footer.jsx";
+import indiaDestinations from "../data/indiaDestinations.js";
+
 const Bookings = () => {
   const destinationOptions = Array.from(
     new Set(indiaDestinations.map((destination) => destination.city.trim()).filter(Boolean))
@@ -21,6 +25,3 @@ const Bookings = () => {
 };
 
 export default Bookings;
-import BookingSection from "../components/BookingSection.jsx";
-import Footer from "../components/Footer.jsx";
-import indiaDestinations from "../data/indiaDestinations.js";
