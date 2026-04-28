@@ -147,6 +147,8 @@ const SharedTripPage = () => {
 
   return (
     <div className="pb-12">
+      <TripWorkspace initialData={tripData} readOnly />
+
       {owner && (
         <section className="mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-[34px] border border-white/12 bg-[linear-gradient(145deg,rgba(10,34,42,0.92),rgba(17,56,67,0.84))] p-6 shadow-[0_26px_80px_rgba(3,16,24,0.34)] backdrop-blur-xl sm:p-8">
@@ -312,8 +314,6 @@ const SharedTripPage = () => {
           </div>
         </section>
       )}
-
-      <TripWorkspace initialData={tripData} readOnly />
     </div>
   );
 };
